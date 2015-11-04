@@ -12,29 +12,29 @@ There are to types of functions:
 `<feiertag>` returns an extended `time` object (type `feiertag`). It carrys the concrete date plus the name of the holiday.
 `<feiertag>` may be any of 
 
-|||
-----|-----|----
-| `Neujahr` | `Epiphanias` | `HeiligeDreiKönige` |
-| `Valentinstag` | `Weiberfastnacht` | `Karnevalssonntag` |
-| `Rosenmontag` | `Fastnacht` | `Aschermittwoch` |
-| `Palmsonntag` | `Gründonnerstag` | `Karfreitag` |
-| `Ostern` | `BeginnSommerzeit` | `Ostermontag` |
-| `Walpurgisnacht` | `TagDerArbeit` | `TagDerBefreiung` |
-| `Muttertag` | `ChristiHimmelfahrt` | `Vatertag` |
-| `Pfingsten` | `PfingstMontag` | `Dreifaltigkeitssonntag` |
-| `Fronleichnam` | `MariäHimmelfahrt` | `TagDerDeutschenEinheit` |
-| `Erntedankfest` | `Reformationstag` | `Halloween` |
-| `BeginnWinterzeit` | `Allerheiligen` | `Allerseelen` |
-| `Martinstag` | `Karnevalsbeginn` | `BußUndBettag` |
-| `Volkstrauertag` | `Nikolaus` | `MariäUnbefleckteEmpfängnis` |
-| `Totensonntag` | `ErsterAdvent` | `ZweiterAdvent` |
-| `DritterAdvent` | `VierterAdvent` | `Heiligabend` |
-| `Weihnachten` | `ZweiterWeihnachtsfeiertag` | `Silvester` |
+||||
+|----|-----|----|
+`Neujahr` | `Epiphanias` | `HeiligeDreiKönige` 
+`Valentinstag` | `Weiberfastnacht` | `Karnevalssonntag` 
+`Rosenmontag` | `Fastnacht` | `Aschermittwoch` 
+`Palmsonntag` | `Gründonnerstag` | `Karfreitag` 
+`Ostern` | `BeginnSommerzeit` | `Ostermontag` 
+`Walpurgisnacht` | `TagDerArbeit` | `TagDerBefreiung` 
+`Muttertag` | `ChristiHimmelfahrt` | `Vatertag` 
+`Pfingsten` | `PfingstMontag` | `Dreifaltigkeitssonntag` 
+`Fronleichnam` | `MariäHimmelfahrt` | `TagDerDeutschenEinheit` 
+`Erntedankfest` | `Reformationstag` | `Halloween` 
+`BeginnWinterzeit` | `Allerheiligen` | `Allerseelen` 
+`Martinstag` | `Karnevalsbeginn` | `BußUndBettag` 
+`Volkstrauertag` | `Nikolaus` | `MariäUnbefleckteEmpfängnis` 
+`Totensonntag` | `ErsterAdvent` | `ZweiterAdvent` 
+`DritterAdvent` | `VierterAdvent` | `Heiligabend` 
+`Weihnachten` | `ZweiterWeihnachtsfeiertag` | `Silvester` 
 
 `<region>` returns an object of type `region`. It offers a list of public holidays valid in the referred state` | `the name and the shortname of the state as attributes.
 `<region>` may be any of 
 
-||
+||||
 ----|-----|----
 `BadenWürttemberg` | `Bayern` | `Berlin` 
 `Brandenburg` | `Bremen` | `Hamburg` 
