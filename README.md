@@ -34,7 +34,7 @@ There are to types of functions:
 `<region>` returns an object of type `region`. It offers a list of public holidays valid in the referred state` | `the name and the shortname of the state as attributes.
 `<region>` may be any of 
 
-||
+|||
 ----|-----|----
 `BadenWürttemberg` | `Bayern` | `Berlin` 
 `Brandenburg` | `Bremen` | `Hamburg` 
