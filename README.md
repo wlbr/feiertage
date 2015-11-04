@@ -3,6 +3,9 @@ Feiertage is a Go/Golang library for calculating german bank holidays. It includ
 
 The library is probably only useful for people realizing usecases with special "german" requirements. This might be shift schedules or capacity calculation.
 
+### Documentation
+See https://godoc.org/github.com/wlbr/feiertage
+
 ### Usage:
 There are to types of functions: 
 
