@@ -14,6 +14,6 @@ test:
 build: feiertage.go
 	go build feiertage.go
 
-install-go-deps:
-	#go get -u github.com/lib/pq
+#install-go-deps:
+	#go get -u ...
 	
