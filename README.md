@@ -29,7 +29,7 @@ There are to types of functions:
 `Erntedankfest` | `Reformationstag` | `Halloween` 
 `BeginnWinterzeit` | `Allerheiligen` | `Allerseelen` 
 `Martinstag` | `Karnevalsbeginn` | `BußUndBettag`
-`Thanksgiving (US)` | `Blackfriday` | `BußUVolkstrauertagndBettag` 
+`Thanksgiving` | `Blackfriday` | `BußUVolkstrauertagndBettag` 
 `Nikolaus` | `MariäUnbefleckteEmpfängnis` | `Totensonntag` 
 `ErsterAdvent` | `ZweiterAdvent` | `DritterAdvent` 
 `VierterAdvent` | `Heiligabend` | `Weihnachten` 
