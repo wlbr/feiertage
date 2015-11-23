@@ -29,11 +29,11 @@ There are to types of functions:
 `Erntedankfest` | `Reformationstag` | `Halloween` 
 `BeginnWinterzeit` | `Allerheiligen` | `Allerseelen` 
 `Martinstag` | `Karnevalsbeginn` | `BußUndBettag`
-`Thanksgiving` | `Blackfriday` | `BußUVolkstrauertagndBettag` 
+`Thanksgiving` | `Blackfriday` | `Volkstrauertag` 
 `Nikolaus` | `MariäUnbefleckteEmpfängnis` | `Totensonntag` 
 `ErsterAdvent` | `ZweiterAdvent` | `DritterAdvent` 
 `VierterAdvent` | `Heiligabend` | `Weihnachten` 
-`ZweiterWeihnachten` | `Silvester` | `` 
+`ZweiterWeihnachten` | `Silvester` | &nbsp; 
 
 `<region>` returns an object of type `region`. It offers a list of public holidays valid in the referred state` | `the name and the shortname of the state as attributes.
 `<region>` may be any of 
