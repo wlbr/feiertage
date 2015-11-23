@@ -133,8 +133,8 @@ func All(y int, inklSonntage ...bool) Region {
 		Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag,
 		BeginnSommerzeit, Walpurgisnacht, TagDerBefreiung, Muttertag, Vatertag, Fronleichnam,
 		MariäHimmelfahrt, Reformationstag, Halloween, BeginnWinterzeit,
-		Allerheiligen, Allerseelen, Martinstag, Karnevalsbeginn, BußUndBettag,
-		Volkstrauertag, Nikolaus, MariäUnbefleckteEmpfängnis, Heiligabend, Silvester}
+		Allerheiligen, Allerseelen, Martinstag, Karnevalsbeginn, BußUndBettag, Thanksgiving,
+		Blackfriday, Volkstrauertag, Nikolaus, MariäUnbefleckteEmpfängnis, Heiligabend, Silvester}
 	if len(inklSonntage) == 0 || inklSonntage[0] == true {
 		ffun = append(ffun, Karnevalssonntag, Palmsonntag, Ostern, Pfingsten,
 			Dreifaltigkeitssonntag, Erntedankfest, Totensonntag, ErsterAdvent, ZweiterAdvent,

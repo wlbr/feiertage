@@ -52,6 +52,9 @@ Mittwoch vor dem 23. November (Buß- und Bettag)
 31.12. (Silvester)
 */
 
+/* Thanksgiving
+4. Donnerstag im November */
+
 type Feiertag struct {
 	time.Time
 	Text string
@@ -263,6 +266,16 @@ func BußUndBettag(x int) Feiertag {
 	o := time.Date(x, time.November, 22, 0, 0, 0, 0, time.UTC)
 	d := (4 + int(o.Weekday())) % 7
 	return Feiertag{o.AddDate(0, 0, -1*d), "Buß- und Bettag"}
+}
+
+func Thanksgiving(x int) Feiertag {
+	o := time.Date(x, time.November, 1, 0, 0, 0, 0, time.UTC)
+	d := ((11 - int(o.Weekday())) % 7)
+	return Feiertag{o.AddDate(0, 0, 21+d), "Thanksgiving (US)"}
+}
+
+func Blackfriday(x int) Feiertag {
+	return Feiertag{Thanksgiving(x).AddDate(0, 0, 1), "Blackfriday"}
 }
 
 func Volkstrauertag(x int) Feiertag {

@@ -82,3 +82,17 @@ func TestFeiertage(t *testing.T) {
 		}
 	}
 }
+
+func TestThanksgiving(t *testing.T) {
+	//Vorwärtssucher Donnerstag
+	compareAndFail(t, Thanksgiving(2010), "25.11.2010")
+	compareAndFail(t, Thanksgiving(2014), "27.11.2014")
+	compareAndFail(t, Thanksgiving(2015), "26.11.2015")
+	compareAndFail(t, Thanksgiving(2016), "24.11.2016")
+	compareAndFail(t, Thanksgiving(2017), "23.11.2017")
+	compareAndFail(t, Thanksgiving(2018), "22.11.2018")
+	compareAndFail(t, Thanksgiving(2019), "28.11.2019")
+	compareAndFail(t, Thanksgiving(2025), "27.11.2025")
+	compareAndFail(t, Thanksgiving(2028), "23.11.2028")
+	compareAndFail(t, Thanksgiving(2029), "22.11.2029")
+}

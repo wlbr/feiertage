@@ -39,7 +39,6 @@ func TestFeiertageZahl(t *testing.T) {
 	checkAndFailRegionFeiertageZahl(t, SchleswigHolstein(2016), 9)
 	checkAndFailRegionFeiertageZahl(t, Thüringen(2016), 10)
 	checkAndFailRegionFeiertageZahl(t, Deutschland(2016), 9)
-	checkAndFailRegionFeiertageZahl(t, All(2016), 48)
-	checkAndFailRegionFeiertageZahl(t, All(2016, false), 37)
-
+	checkAndFailRegionFeiertageZahl(t, All(2016), 50)
+	checkAndFailRegionFeiertageZahl(t, All(2016, false), 39)
 }
