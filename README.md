@@ -80,7 +80,7 @@ The region functions return the public holidays ("gesetzliche Feiertage"). The f
         26.12.2016 Zweiter Weihnachtsfeiertag
 
     
-    fmt.Println(Brandenburg(2016` | `false))
+    fmt.Println(Brandenburg(2016, false))
     --> Brandenburg (BB)
         01.01.2016 Neujahr
         25.03.2016 Karfreitag
