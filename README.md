@@ -47,9 +47,9 @@ There are to types of functions:
 `Sachsen` | `SachsenAnhalt` | `SchleswigHolstein` 
 `Thüringen` | `Deutschland` | `All`
 
-The optional second argument `includingSundays` of the region functions switches the behavior, so that "gesetzliche Feiertage" on Sundays are incuded or not. This is important in Brandenburg and refers to Easter and Pentecost sunday. If you are calculation shift costs you will need to know even the holidays "hidden by sundays".
+The optional region functions second argument `includingSundays` switches their behavior, so that "gesetzliche Feiertage" on Sundays are included or not. This is important in Brandenburg and refers to Easter and Pentecost sunday. If you are calculating shift costs you will need to know even the holidays "hidden by sundays".
 
-The region functions return the public holidays ("gesetzliche Feiertage"). The function `all`,  instead returns all the defined "special dates" as well. For example the Penance Day or the begin/end of daylight saving time.
+The region functions return the public holidays ("gesetzliche Feiertage"). The function `all`,  instead returns all the defined "special dates" as well. For example the Penance Day (Buß- und Bettag) or the begin/end of daylight saving time.
 
 
 

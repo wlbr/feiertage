@@ -127,7 +127,7 @@ func Aschermittwoch(x int) Feiertag {
 
 func Palmsonntag(x int) Feiertag {
 	o := Ostern(x)
-	return Feiertag{o.AddDate(0, 0, -7), "Ostermontag"}
+	return Feiertag{o.AddDate(0, 0, -7), "Palmsonntag"}
 }
 
 func Gründonnerstag(x int) Feiertag {
