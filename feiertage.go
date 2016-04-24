@@ -2,7 +2,6 @@ package feiertage
 
 import (
 	"fmt"
-	//"sort"
 	"time"
 )
 
