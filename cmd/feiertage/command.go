@@ -9,9 +9,9 @@ import (
 )
 
 func fmtTaskjuggler(reg feiertage.Region) string {
-	s := fmt.Sprintf("// publich holidays for %s (%s)", reg.Name, reg.Shortname)
+	s := fmt.Sprintf("# public holidays for %s (%s)", reg.Name, reg.Shortname)
 	for _, f := range reg.Feiertage {
-		s = fmt.Sprintf("%s \n leaves holiday \"%s\" 2011-12-24 +3d", s, f)
+		s = fmt.Sprintf("%s,\n leaves holiday \"%s\" %s", s, f.Text, f.Format("2006-01-02"))
 	}
 	return s
 }
