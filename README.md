@@ -102,30 +102,30 @@ A little command line tool is included as well. It can be compiled using `make b
 
 `feiertage: [options] year`<br>
 <dl>
-<dt>`-asTaskjugglerCode` (default false)</dt>
+<dt>-asTaskjugglerCode (default false)</dt>
 <dd>Print the result as valid source code (`leave x y`) for the <a href="http://www.taskjuggler.org/">Taskjuggler</a> planning tool. 
-<dt>`-inklusiveSonntage` (default false)</dt>
+<dt>-inklusiveSonntage (default false)</dt>
 <dd>Should public holidays on a Sunday be included?</dd>
-<dt>`-region <regionstring>` (default "All")</dt>
+<dt>-region &lt;regionstring&gt; (default "All")</dt>
 <dd>Return public holidays for region `<regionstring>`.<br>
-<dd>`<regionstring>` may be (case insensitive, plus some other tricks to make it more tolerant):<br>
-`BadenWürttemberg`<br>
-`Bayern`<br>
-`Berlin`<br>
-`Brandenburg`<br>
-`Bremen`<br>
-`Hamburg`<br>
-`Hessen`<br>
-`MecklenburgVorpommern`<br>
-`Niedersachsen`<br>
-`NordrheinWestfalen<br>`
-`RheinlandPfalz`<br>
-`Saarland`<br>
-`Sachsen`<br>
-`SachsenAnhalt`<br>
-`SchleswigHolstein`<br>
-`Thüringen`<br>
-`Deutschland`<br>
-`All`</dd>
+<dd>&lt;regionstring&gt; may be (case insensitive, plus some other tricks to make it more tolerant):<br>
+&nbsp;BadenWürttemberg<br>
+&nbsp;Bayern<br>
+&nbsp;Berlin<br>
+&nbsp;Brandenburg<br>
+&nbsp;Bremen<br>
+&nbsp;Hamburg<br>
+&nbsp;Hessen<br>
+&nbsp;MecklenburgVorpommern<br>
+&nbsp;Niedersachsen<br>
+&nbsp;NordrheinWestfalen<br>
+&nbsp;RheinlandPfalz<br>
+&nbsp;Saarland<br>
+&nbsp;Sachsen<br>
+&nbsp;SachsenAnhalt<br>
+&nbsp;SchleswigHolstein<br>
+&nbsp;Thüringen<br>
+&nbsp;Deutschland<br>
+&nbsp;All</dd>
 </dl>
 
