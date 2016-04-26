@@ -92,4 +92,40 @@ The region functions return the public holidays ("gesetzliche Feiertage"). The f
         31.10.2016 Reformationstag
         25.12.2016 Weihnachten
         26.12.2016 Zweiter Weihnachtsfeiertag
+        
+        
+## Command line tool
+
+A little command line tool is included as well. It can be compiled using `make buildcmd` or `go build cmd/feiertage/feiertage.go` This will create an executable `feiertage`
+
+### Synopsis
+
+`feiertage: [options] year`<br>
+<dl>
+<dt>`-asTaskjugglerCode` (default false)</dt>
+<dd>Print the result as valid source code (`leave x y`) for the <a href="http://www.taskjuggler.org/">Taskjuggler</a> planning tool. 
+<dt>`-inklusiveSonntage` (default false)</dt>
+<dd>Should public holidays on a Sunday be included?</dd>
+<dt>`-region <regionstring>` (default "All")</dt>
+<dd>Return public holidays for region `<regionstring>`.<br>
+<dd>`<regionstring>` may be (case insensitive, plus some other tricks to make it more tolerant):<br>
+`BadenWürttemberg`<br>
+`Bayern`<br>
+`Berlin`<br>
+`Brandenburg`<br>
+`Bremen`<br>
+`Hamburg`<br>
+`Hessen`<br>
+`MecklenburgVorpommern`<br>
+`Niedersachsen`<br>
+`NordrheinWestfalen<br>`
+`RheinlandPfalz`<br>
+`Saarland`<br>
+`Sachsen`<br>
+`SachsenAnhalt`<br>
+`SchleswigHolstein`<br>
+`Thüringen`<br>
+`Deutschland`<br>
+`All`</dd>
+</dl>
 
