@@ -1,7 +1,7 @@
 # Feiertage
 Feiertage is a Go/Golang library for calculating german bank holidays. It includes the calculation of the date of Easter and, more important, offers ways to retrieve the public holiday for a state of Germany (=Bundesland).
 
-The library is probably only useful for people realizing usecases with special "german" requirements. This might be shift schedules or capacity calculation.
+The library is probably useful only for people realizing use cases with special "german" requirements. This might be shift schedules or capacity calculation.
 
 ### Documentation
 See https://godoc.org/github.com/wlbr/feiertage
@@ -47,9 +47,9 @@ There are to types of functions:
 `Sachsen` | `SachsenAnhalt` | `SchleswigHolstein` 
 `Thüringen` | `Deutschland` | `All`
 
-The optional region functions second argument `includingSundays` switches their behavior, so that "gesetzliche Feiertage" on Sundays are included or not. This is important in Brandenburg and refers to Easter and Pentecost sunday. If you are calculating shift costs you will need to know even the holidays "hidden by sundays".
+The optional region functions second argument `includingSundays` switches the behavior o the region function, so that "gesetzliche Feiertage" on Sundays are included or not. This is important in Brandenburg and refers to Easter and Pentecost sunday. If you are calculating shift costs you will need to know even the holidays "hidden by sundays".
 
-The region functions return the public holidays ("gesetzliche Feiertage"). The function `all`,  instead returns all the defined "special dates" as well. For example the Penance Day (Buß- und Bettag) or the begin/end of daylight saving time.
+The region functions return the public holidays ("gesetzliche Feiertage"). The function `all` instead returns all the defined "special dates" as well. For example the Penance Day (Buß- und Bettag) or the begin/end of daylight saving time.
 
 
 
