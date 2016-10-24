@@ -1,16 +1,8 @@
 language: go
-
+sudo: false
 go:
   - tip
-
-secure: "L8cJNbg/pJHS07JcI90ojzSlZukfjpT5RDYSfWfUcbzjWX6wV2dyBt7Vu+V4o1pBJpresRbF7aEFgMb1Xa0t7E99Gq2AR1bHugRfcF0wR66cNwwDlPAF7MW2wOyg4OZP/3NtHadCgWWpdutYa1ZRAZO7WQ/3nEhJloayRM17/mjeiBGfkU2XY6fUnp2ix3EXNMDkbqYJmB8995wBLWQVxRuQpuk4y4+hYxf7GWGW7dSCvknDY+ulVJORThoteEZsm5JKo9PL4rZP/guwCi2CIeZULyjRQJ7ok7PX6lc0ALUdMc62OhKzNh9BYbkGQNJZSGNnDQvpSHaRZG5+zk0fH4gdn1L1F7joywyymlGRhVuz9AfP0dagrS9OTTDm0sg4JtWGvwIZfOIeFCZ0zOLzwMSMlZIs7oyFEsO5iG+zbuo1WKzTqt6mqWfoue4a4lRVwbU4iLsCmxnBMxh8Fn2h2a6bRbQhkqp/Ry/TleOr65vHeLfPMJe6BAfHE8hs+k/LJFi0Kkrj5MlCtvvIPm0cTKoGvdtk9YR4Vql4tYxorFzBo6i1HCBZdbmUOZuK5LwqyITMNP2QvDh64qlIR/vHM7LGFYoF1H+k3s1Tb47wY+uo69pxRLNLaGL28pRERfd5vSJbQ5DdQzsdvkpoGmWK+tqg+NrM3o56tAh3e/ay6kc="
-
-#for Coveralls
-install:
- go get golang.org/x/tools/cmd/cover
- go get github.com/mattn/goveralls
-
-#for Coveralls
+before_install:
+  - go get github.com/mattn/goveralls
 script:
- go test -v -covermode=count -coverprofile=coverage.out
- $HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken $COVERALLS_TOKEN
+  - $HOME/gopath/bin/goveralls -service=travis-ci
