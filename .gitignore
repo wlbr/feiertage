@@ -28,4 +28,6 @@ README.html
 *.sublime-workspace
 *.sublime-project
 
+.idea/
+
 feiertage
