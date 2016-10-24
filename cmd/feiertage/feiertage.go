@@ -1,9 +1,9 @@
 package main
 
 import (
-	"feiertage"
 	"flag"
 	"fmt"
+	"github.com/wlbr/feiertage"
 	"strconv"
 	"strings"
 )
@@ -20,7 +20,6 @@ func getRegion(region string, year int, includingSundays bool) feiertage.Region 
 	rs := strings.ToLower(region)
 	rep := strings.NewReplacer("-", "", "ä", "ae", "ö", "oe", "ü", "ue", "ß", "ss")
 	rs = rep.Replace(rs)
-	fmt.Println(includingSundays)
 	var r feiertage.Region
 	switch rs {
 	case "badenwuerttemberg":
