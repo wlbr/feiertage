@@ -5,7 +5,6 @@ import (
 	"sort"
 )
 
-
 // Region represents a Federal State of Germany (Bundesland). Some of the public holidays in
 // Germany are common throughout the whole country, while other depend of the Bundesland.
 type Region struct {
@@ -36,7 +35,7 @@ func createFeiertagsList(y int, ffun []func(int) Feiertag) []Feiertag {
 	for _, f := range feiern {
 		feiertermine = append(feiertermine, f(y))
 	}
-	sort.Sort(FeiertageByDate(feiertermine))
+	sort.Sort(ByDate(feiertermine))
 	return feiertermine
 }
 

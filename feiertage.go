@@ -54,14 +54,13 @@ Mittwoch vor dem 23. November (Buß- und Bettag)
 /* Thanksgiving
 4. Donnerstag im November */
 
-
-
 // Feiertag is an extented Time object. You may use it like any Time, but it offers an additonal
 // attribute carrying the name of the Feiertag.
 type Feiertag struct {
 	time.Time
 	Text string
 }
+
 //The String function of Firetag will print its concrete Time (Date) plus the name of the Feiertag.
 func (f Feiertag) String() string {
 	return fmt.Sprintf("%s %s", f.Format("02.01.2006"), f.Text)
@@ -69,21 +68,21 @@ func (f Feiertag) String() string {
 
 // ----------------------------
 
-// Comparator object of Feiertag to be able to sort a list of Feiertage
-type FeiertageByDate []Feiertag
+// ByDate is the comparator object of Feiertag to be able to sort a list of Feiertage
+type ByDate []Feiertag
 
-// Sort criteria for Feiertage
-func (a FeiertageByDate) Len() int {
+// Len is sort criteria for Feiertage
+func (a ByDate) Len() int {
 	return len(a)
 }
 
 // Swap exchanges two Feiertage within an array.
-func (a FeiertageByDate) Swap(i, j int) {
+func (a ByDate) Swap(i, j int) {
 	a[i], a[j] = a[j], a[i]
 }
 
-// Comparator for Feiertage sorting.
-func (a FeiertageByDate) Less(i, j int) bool {
+// Less is a comparator for Feiertage sorting.
+func (a ByDate) Less(i, j int) bool {
 	return a[i].UnixNano() < a[j].UnixNano()
 }
 
@@ -93,6 +92,7 @@ func (a FeiertageByDate) Less(i, j int) bool {
 func Neujahr(x int) Feiertag {
 	return Feiertag{time.Date(x, time.January, 1, 0, 0, 0, 0, time.UTC), "Neujahr"}
 }
+
 // Epiphanias is Epiphany, a fixed date.
 func Epiphanias(x int) Feiertag {
 	return Feiertag{time.Date(x, time.January, 6, 0, 0, 0, 0, time.UTC), "Epiphanias"}
@@ -105,7 +105,7 @@ func HeiligeDreiKönige(x int) Feiertag {
 	return e
 }
 
-// Valntinstag is Valentine's Daym a fixed date.
+// Valentinstag is Valentine's Daym a fixed date.
 func Valentinstag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.February, 14, 0, 0, 0, 0, time.UTC), "Valentinstag"}
 }
@@ -152,7 +152,7 @@ func Gründonnerstag(x int) Feiertag {
 	return Feiertag{o.AddDate(0, 0, -3), "Gründonnerstag"}
 }
 
-// Gründonnerstag is Good Friday, the last Friday before Eastern
+// Karfreitag is Good Friday, the last Friday before Eastern
 func Karfreitag(x int) Feiertag {
 	o := Ostern(x)
 	return Feiertag{o.AddDate(0, 0, -2), "Karfreitag"}
@@ -190,7 +190,7 @@ func Ostermontag(x int) Feiertag {
 	return Feiertag{o.AddDate(0, 0, 1), "Ostermontag"}
 }
 
-// Walpurigsnacht is Walpurgis Night, a fixed date.
+// Walpurgisnacht is Walpurgis Night, a fixed date.
 func Walpurgisnacht(x int) Feiertag {
 	return Feiertag{time.Date(x, time.April, 30, 0, 0, 0, 0, time.UTC), "Walpurgisnacht"}
 }
@@ -249,7 +249,7 @@ func Fronleichnam(x int) Feiertag {
 	return Feiertag{o.AddDate(0, 0, 60), "Fronleichnam"}
 }
 
-// ChristiHimmelfahrt is Assumption Day, a fixed date.
+// MariäHimmelfahrt is Assumption Day, a fixed date.
 func MariäHimmelfahrt(x int) Feiertag {
 	return Feiertag{time.Date(x, time.August, 15, 0, 0, 0, 0, time.UTC), "Mariä Himmelfahrt"}
 }
@@ -299,7 +299,7 @@ func Martinstag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.November, 11, 0, 0, 0, 0, time.UTC), "Martinstag"}
 }
 
-// Karnevalsbeginng is the beginning of carnival, a fixed date.
+// Karnevalsbeginn is the beginning of carnival, a fixed date.
 func Karnevalsbeginn(x int) Feiertag {
 	return Feiertag{time.Date(x, time.November, 11, 11, 11, 11, 11, time.UTC), "Karnevalsbeginn"}
 }
@@ -311,7 +311,7 @@ func BußUndBettag(x int) Feiertag {
 	return Feiertag{o.AddDate(0, 0, -1*d), "Buß- und Bettag"}
 }
 
-// The US Thanksgiving, the fourth Thursday of November.
+// Thanksgiving in the US, the fourth Thursday of November.
 func Thanksgiving(x int) Feiertag {
 	o := time.Date(x, time.November, 1, 0, 0, 0, 0, time.UTC)
 	d := ((11 - int(o.Weekday())) % 7)
@@ -329,7 +329,7 @@ func Volkstrauertag(x int) Feiertag {
 	return Feiertag{o.AddDate(0, 0, -14), "Volkstrauertag"}
 }
 
-// Nikolaustag is St Nicholas' Day, a fixed date
+// Nikolaus is St Nicholas' Day, a fixed date
 func Nikolaus(x int) Feiertag {
 	return Feiertag{time.Date(x, time.December, 6, 0, 0, 0, 0, time.UTC), "Nikolaus"}
 }
@@ -351,26 +351,26 @@ func ErsterAdvent(x int) Feiertag {
 	return Feiertag{o.AddDate(0, 0, -21), "Erster Advent"}
 }
 
-// ErsterAdvent is the second Sunday in Advent
+// ZweiterAdvent is the second Sunday in Advent
 func ZweiterAdvent(x int) Feiertag {
 	o := VierterAdvent(x)
 	return Feiertag{o.AddDate(0, 0, -14), "Zweiter Advent"}
 }
 
-// ErsterAdvent is the third Sunday in Advent
+// DritterAdvent is the third Sunday in Advent
 func DritterAdvent(x int) Feiertag {
 	o := VierterAdvent(x)
 	return Feiertag{o.AddDate(0, 0, -7), "Dritter Advent"}
 }
 
-// ErsterAdvent is the fourth Sunday in Advent
+// VierterAdvent is the fourth Sunday in Advent
 func VierterAdvent(x int) Feiertag {
 	o := time.Date(x, time.December, 24, 0, 0, 0, 0, time.UTC)
 	d := (7 + int(o.Weekday())) % 7
 	return Feiertag{o.AddDate(0, 0, -1*d), "Vierter Advent"}
 }
 
-// ErsterAdvent is Christmas Eve, the last day before Crhistmas.
+// Heiligabend is Christmas Eve, the last day before Crhistmas.
 func Heiligabend(x int) Feiertag {
 	return Feiertag{time.Date(x, time.December, 24, 0, 0, 0, 0, time.UTC), "Heiligabend"}
 }

@@ -76,7 +76,7 @@ func TestFeiertage(t *testing.T) {
 		for _, f := range fun {
 			feiern = append(feiern, f(y))
 		}
-		sort.Sort(FeiertageByDate(feiern))
+		sort.Sort(ByDate(feiern))
 		for _, f := range feiern {
 			fmt.Println(f)
 		}
