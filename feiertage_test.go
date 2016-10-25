@@ -18,7 +18,7 @@ func compareAndFail(t *testing.T, f Feiertag, d string) {
 }
 
 func TestOstern(t *testing.T) {
-	compareAndFail(t, Ostern(2015), "05.04.2015")
+	compareAndFail(t, Ostern(2015), "06.04.2015")
 	compareAndFail(t, Ostern(2016), "27.03.2016")
 }
 
