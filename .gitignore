@@ -29,4 +29,5 @@ README.html
 *.sublime-project
 
 .idea/
+bin/
 feiertage
