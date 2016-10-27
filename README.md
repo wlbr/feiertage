@@ -96,7 +96,9 @@ The region functions return the public holidays ("gesetzliche Feiertage"). The f
         
 ## Command line tool
 
-A little command line tool is included as well. It can be compiled using `make buildcmd` or `go build cmd/feiertage/feiertage.go` This will create an executable `feiertage`. See https://github.com/wlbr/feiertage/releases/latest for latest releases.
+A little command line tool is included as well. It can be compiled using `make buildcmd` or `go build cmd/feiertage/feiertage.go` This will create an executable `feiertage`. 
+
+See https://github.com/wlbr/feiertage/releases/latest for downloads.
 
 ### Synopsis
 
