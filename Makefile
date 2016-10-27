@@ -16,12 +16,10 @@ build: feiertage.go region.go
 	go build ./...
 	
 buildcmd: feiertage.go region.go cmd/feiertage/feiertage.go
-	mkdir -p bin/linux_x86_64 bin/osx_x86_64 bin/win32 bin/win64
-	GOOS=linux GOARCH=amd64   go build -o bin/linux_x86_64/feiertage cmd/feiertage/feiertage.go
-	GOOS=darwin GOARCH=amd64  go build -o bin/osx_x86_64/feiertage   cmd/feiertage/feiertage.go
-	GOOS=windows GOARCH=386   go build -o bin/win32/feiertage cmd/feiertage/feiertage.go
-	GOOS=windows GOARCH=amd64 go build -o bin/win64/feiertage cmd/feiertage/feiertage.go
+	mkdir -p bin
+	GOOS=linux GOARCH=amd64   go build -o bin/feiertage_linux_x86_64 cmd/feiertage/feiertage.go
+	GOOS=darwin GOARCH=amd64  go build -o bin/feiertage_osx_x86_64   cmd/feiertage/feiertage.go
+	GOOS=windows GOARCH=386   go build -o bin/feiertage_win32        cmd/feiertage/feiertage.go
+	GOOS=windows GOARCH=amd64 go build -o bin/feiertage_win64        cmd/feiertage/feiertage.go
 
-#install-go-deps:
-	#go get -u ...
 	
