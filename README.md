@@ -132,7 +132,8 @@ A little command line tool is included as well. It can be compiled using `make b
 
 ## Code
 * Documentation: https://godoc.org/github.com/wlbr/feiertage
+* Lint: http://go-lint.appspot.com/github.com/wlbr/feiertage
 * Continous Integration: [![Travis Status](https://api.travis-ci.org/wlbr/feiertage.svg?branch=master)](https://travis-ci.org/wlbr/feiertage)
 * Test Coverage: [![Coverage Status](https://coveralls.io/repos/github/wlbr/feiertage/badge.svg?branch=master)](https://coveralls.io/github/wlbr/feiertage?branch=master)
-* Lint: http://go-lint.appspot.com/github.com/wlbr/feiertage
+* Metrics: [![GoReportCard](https://goreportcard.com/badge/github.com/wlbr/feiertage)](https://goreportcard.com/report/github.com/wlbr/feiertage)
 
