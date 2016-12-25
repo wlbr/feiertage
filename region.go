@@ -27,7 +27,7 @@ func createFeiertagsList(y int, ffun []func(int) Feiertag) []Feiertag {
 	feiern := []func(int) Feiertag{Neujahr, Karfreitag, Ostermontag,
 		TagDerArbeit, ChristiHimmelfahrt, PfingstMontag,
 		TagDerDeutschenEinheit, Weihnachten, ZweiterWeihnachtsfeiertag}
-	// in 2017 the Reformationstag is a one time feiertag in all states
+	// in 2017 the Reformationstag is a one time Feiertag in all states
 	if y == 2017 {
 		feiern = append(feiern, Reformationstag)
 	}
