@@ -12,7 +12,6 @@ run:
 debug:
 	dlv debug cmd/feiertage/feiertage.go -- -region baden-württemberg 2016
 
-
 test:
 	go test
 
