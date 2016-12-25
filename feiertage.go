@@ -173,7 +173,7 @@ func Ostern(x int) Feiertag {
 
 	day := os % 31
 	month := os/31 + 3
-	// fmt.Println(x)
+
 	return Feiertag{time.Date(x, time.Month(month), day, 0, 0, 0, 0, time.UTC), "Ostern"}
 }
 
