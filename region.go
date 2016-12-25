@@ -27,9 +27,14 @@ func createFeiertagsList(y int, ffun []func(int) Feiertag) []Feiertag {
 	feiern := []func(int) Feiertag{Neujahr, Karfreitag, Ostermontag,
 		TagDerArbeit, ChristiHimmelfahrt, PfingstMontag,
 		TagDerDeutschenEinheit, Weihnachten, ZweiterWeihnachtsfeiertag}
+	if y == 2017 { // in 2017 the Reformationstag is a one time feiertag in all states
+		feiern = append(feiern, Reformationstag)
+	}
 
 	for _, f := range ffun {
-		feiern = append(feiern, f)
+		if (y != 2017) || (f(y).Text != Reformationstag(y).Text) {
+			feiern = append(feiern, f)
+		}
 	}
 	feiertermine := []Feiertag{}
 	for _, f := range feiern {
@@ -163,6 +168,7 @@ func All(y int, inklSonntage ...bool) Region {
 		MariäHimmelfahrt, Reformationstag, Halloween, BeginnWinterzeit,
 		Allerheiligen, Allerseelen, Martinstag, Karnevalsbeginn, BußUndBettag, Thanksgiving,
 		Blackfriday, Volkstrauertag, Nikolaus, MariäUnbefleckteEmpfängnis, Heiligabend, Silvester}
+
 	if len(inklSonntage) == 0 || inklSonntage[0] == true {
 		ffun = append(ffun, Karnevalssonntag, Palmsonntag, Ostern, Pfingsten,
 			Dreifaltigkeitssonntag, Erntedankfest, Totensonntag, ErsterAdvent, ZweiterAdvent,
