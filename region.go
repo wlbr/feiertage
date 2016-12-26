@@ -6,7 +6,7 @@ import (
 )
 
 // Region represents a Federal State of Germany (Bundesland). Some of the public holidays in
-// Germany are common throughout the whole country, while other depend of the Bundesland.
+// Germany are common throughout the whole country, while others depend of the Bundesland.
 type Region struct {
 	Name      string
 	Shortname string
