@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/wlbr/feiertage"
+	"github.com/uffish/feiertage"
 	"strconv"
 	"strings"
 )
@@ -56,6 +56,26 @@ func getRegion(region string, year int, includingSundays bool) feiertage.Region 
 		r = feiertage.Thüringen(year, includingSundays)
 	case "deutschland":
 		r = feiertage.Deutschland(year, includingSundays)
+	case "burgenland":
+		r = feiertage.Burgenland(year, includingSundays)
+	case "kaernten":
+		r = feiertage.Kärnten(year, includingSundays)
+	case "niederoesterreich":
+		r = feiertage.Niederösterreich(year, includingSundays)
+	case "oberoesterreich":
+		r = feiertage.Oberösterreich(year, includingSundays)
+	case "salzburg":
+		r = feiertage.Salzburg(year, includingSundays)
+	case "steiermark":
+		r = feiertage.Steiermark(year, includingSundays)
+	case "tirol":
+		r = feiertage.Tirol(year, includingSundays)
+	case "vorarlberg":
+		r = feiertage.Vorarlberg(year, includingSundays)
+	case "wien":
+		r = feiertage.Wien(year, includingSundays)
+	case "oesterreich":
+		r = feiertage.Österreich(year, includingSundays)
 	default:
 		r = feiertage.All(year, includingSundays)
 	}
@@ -82,6 +102,16 @@ func main() {
 		"\t\tSchleswigHolstein\n"+
 		"\t\tThüringen\n"+
 		"\t\tDeutschland\n"+
+		"\t\tBurgenland\n"+
+		"\t\tKärnten\n"+
+		"\t\tNiederösterreich\n"+
+		"\t\tOberösterreich\n"+
+		"\t\tSalzburg\n"+
+		"\t\tSteiermark\n"+
+		"\t\tTirol\n"+
+		"\t\tVorarlberg\n"+
+		"\t\tWien\n"+
+		"\t\tÖsterreich\n"+
 		"\t\tAll\n")
 	var includingSundays = flag.Bool("inklusiveSonntage", false, "Sollen Feiertag an Sonntagen mit ausgegeben werden?")
 	var asTaskjugglerCode = flag.Bool("asTaskjugglerCode", false, "Taskjuggler Code ausgeben.")

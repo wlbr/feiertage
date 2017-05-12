@@ -61,7 +61,7 @@ type Feiertag struct {
 	Text string
 }
 
-//The String function of Firetag will print its concrete Time (Date) plus the name of the Feiertag.
+//The String function of Feiertag will print its concrete Time (Date) plus the name of the Feiertag.
 func (f Feiertag) String() string {
 	return fmt.Sprintf("%s %s", f.Format("02.01.2006"), f.Text)
 }
@@ -98,16 +98,21 @@ func Epiphanias(x int) Feiertag {
 	return Feiertag{time.Date(x, time.January, 6, 0, 0, 0, 0, time.UTC), "Epiphanias"}
 }
 
-// HeiligeDreiKönige is another Name for Epiphany, a fixed date.
+// HeiligeDreiKönige is another name for Epiphany, a fixed date.
 func HeiligeDreiKönige(x int) Feiertag {
 	e := Epiphanias(x)
 	e.Text = "Heilige drei Könige"
 	return e
 }
 
-// Valentinstag is Valentine's Daym a fixed date.
+// Valentinstag is Valentine's Day, a fixed date.
 func Valentinstag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.February, 14, 0, 0, 0, 0, time.UTC), "Valentinstag"}
+}
+
+// Josefitag is St Joseph's Day, a fixed date.
+func Josefitag(x int) Feiertag {
+	return Feiertag{time.Date(x, time.March, 19, 0, 0, 0, 0, time.UTC), "Josefitag"}
 }
 
 // Weiberfastnacht is a part of carnival, 52 days before Easter.
@@ -200,6 +205,18 @@ func TagDerArbeit(x int) Feiertag {
 	return Feiertag{time.Date(x, time.May, 1, 0, 0, 0, 0, time.UTC), "Tag der Arbeit"}
 }
 
+// Staatsfeiertag is May 1st in Austria, a fixed date.
+func Staatsfeiertag(x int) Feiertag {
+	e := TagDerArbeit(x)
+	e.Text = "Staatsfeiertag"
+	return e
+}
+
+// Florianitag is St Florian's Day, a fixed date.
+func Florianitag(x int) Feiertag {
+	return Feiertag{time.Date(x, time.May, 4, 0, 0, 0, 0, time.UTC), "Florianitag"}
+}
+
 // TagDerBefreiung is Victory in Europe Day, a fixed date.
 func TagDerBefreiung(x int) Feiertag {
 	return Feiertag{time.Date(x, time.May, 8, 0, 0, 0, 0, time.UTC), "Tag der Befreiung"}
@@ -254,9 +271,19 @@ func MariäHimmelfahrt(x int) Feiertag {
 	return Feiertag{time.Date(x, time.August, 15, 0, 0, 0, 0, time.UTC), "Mariä Himmelfahrt"}
 }
 
+// Rupertitag is St Rupert's Day, a fixed date.
+func Rupertitag(x int) Feiertag {
+	return Feiertag{time.Date(x, time.September, 24, 0, 0, 0, 0, time.UTC), "Rupertitag"}
+}
+
 // TagDerDeutschenEinheit is German Unity Day, a fixed date.
 func TagDerDeutschenEinheit(x int) Feiertag {
 	return Feiertag{time.Date(x, time.October, 3, 0, 0, 0, 0, time.UTC), "Tag der deutschen Einheit"}
+}
+
+// TagDerVolksabstimming is Referendum Day in Carinthia, a fixed date.
+func TagDerVolksabstimming(x int) Feiertag {
+	return Feiertag{time.Date(x, time.October, 10, 0, 0, 0, 0, time.UTC), "Tag der Volksabstimmung"}
 }
 
 // Erntedankfest is Thanksgiving or Harvest Festival, the first Sunday of October.
@@ -265,6 +292,11 @@ func Erntedankfest(x int) Feiertag {
 	o := time.Date(x, time.October, 1, 0, 0, 0, 0, time.UTC)
 	d := (7 - int(o.Weekday())) % 7
 	return Feiertag{o.AddDate(0, 0, d), "Erntedankfest"}
+}
+
+// Nationalfeiertag is the Austrian national day, a fixed date.
+func Nationalfeiertag(x int) Feiertag {
+	return Feiertag{time.Date(x, time.October, 26, 0, 0, 0, 0, time.UTC), "Nationalfeiertag"}
 }
 
 // Reformationstag is Reformation Day, a fixed date.
@@ -304,6 +336,11 @@ func Karnevalsbeginn(x int) Feiertag {
 	return Feiertag{time.Date(x, time.November, 11, 11, 11, 11, 11, time.UTC), "Karnevalsbeginn"}
 }
 
+// Leopolditag is St Leopold's Day, a fixed date.
+func Leopolditag(x int) Feiertag {
+	return Feiertag{time.Date(x, time.November, 15, 0, 0, 0, 0, time.UTC), "Leopolditag"}
+}
+
 // BußUndBettag is Penance Day, 11 days before the first Sunday in Advent
 func BußUndBettag(x int) Feiertag {
 	o := time.Date(x, time.November, 22, 0, 0, 0, 0, time.UTC)
@@ -337,6 +374,13 @@ func Nikolaus(x int) Feiertag {
 // MariäUnbefleckteEmpfängnis is Day of Immaculate Conception, a fixed date.
 func MariäUnbefleckteEmpfängnis(x int) Feiertag {
 	return Feiertag{time.Date(x, time.December, 8, 0, 0, 0, 0, time.UTC), "Mariä unbefleckte Empfängnis"}
+}
+
+// MariaEmpfängnis has a shorter name in Austria.
+func MariäEmpfängnis(x int) Feiertag {
+	e := MariäUnbefleckteEmpfängnis(x)
+	e.Text = "Mariä Empfängnis"
+	return e
 }
 
 // Totensonntag is Sunday in commemoration of the dead, the last Sunday before the fourth Sunday in Advent
@@ -380,9 +424,23 @@ func Weihnachten(x int) Feiertag {
 	return Feiertag{time.Date(x, time.December, 25, 0, 0, 0, 0, time.UTC), "Weihnachten"}
 }
 
+// In Austria, Christmas is Christtag.
+func Christtag(x int) Feiertag {
+	e := Weihnachten(x)
+	e.Text = "Christtag"
+	return e
+}
+
 // ZweiterWeihnachtsfeiertag is day after Christmas, a fixed date
 func ZweiterWeihnachtsfeiertag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.December, 26, 0, 0, 0, 0, time.UTC), "Zweiter Weihnachtsfeiertag"}
+}
+
+// In Austria, December 26th is Stefanitag.
+func Stefanitag(x int) Feiertag {
+	e := Christtag(x)
+	e.Text = "Stefanitag"
+	return e
 }
 
 // Silvester is NewYearsEve, a fixed date.
