@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/uffish/feiertage"
+	"github.com/wlbr/feiertage"
 	"strconv"
 	"strings"
 )
