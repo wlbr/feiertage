@@ -376,7 +376,7 @@ func MariäUnbefleckteEmpfängnis(x int) Feiertag {
 	return Feiertag{time.Date(x, time.December, 8, 0, 0, 0, 0, time.UTC), "Mariä unbefleckte Empfängnis"}
 }
 
-// MariaEmpfängnis has a shorter name in Austria.
+// MariäEmpfängnis has a shorter name for MariäUnbefleckteEmpfängnis in Austria.
 func MariäEmpfängnis(x int) Feiertag {
 	e := MariäUnbefleckteEmpfängnis(x)
 	e.Text = "Mariä Empfängnis"
@@ -424,7 +424,7 @@ func Weihnachten(x int) Feiertag {
 	return Feiertag{time.Date(x, time.December, 25, 0, 0, 0, 0, time.UTC), "Weihnachten"}
 }
 
-// In Austria, Christmas is Christtag.
+// Christtag is Christmas is  in Austria.
 func Christtag(x int) Feiertag {
 	e := Weihnachten(x)
 	e.Text = "Christtag"
@@ -436,7 +436,7 @@ func ZweiterWeihnachtsfeiertag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.December, 26, 0, 0, 0, 0, time.UTC), "Zweiter Weihnachtsfeiertag"}
 }
 
-// In Austria, December 26th is Stefanitag.
+// Stefanitag is December 26th in Austria.
 func Stefanitag(x int) Feiertag {
 	e := ZweiterWeihnachtsfeiertag(x)
 	e.Text = "Stefanitag"
