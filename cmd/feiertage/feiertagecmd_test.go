@@ -1,10 +1,10 @@
 package main
 
 import (
-	"testing"
 	"fmt"
 	"github.com/wlbr/feiertage"
 	"regexp"
+	"testing"
 )
 
 func compareAndFail(t *testing.T, f feiertage.Feiertag, d string) {
@@ -13,7 +13,6 @@ func compareAndFail(t *testing.T, f feiertage.Feiertag, d string) {
 		t.Fail()
 	}
 }
-
 
 func TestGetRegion(t *testing.T) {
 	bay := getRegion("Bayern", 2016, true)
@@ -25,7 +24,6 @@ func TestGetRegion(t *testing.T) {
 	compareAndFail(t, ostern, "27.03.2016")
 
 }
-
 
 func TestFmtTaskjuggler(t *testing.T) {
 	reg := getRegion("Brandenburg", 2016, true)
