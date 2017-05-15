@@ -2,7 +2,7 @@
 Feiertage is a Go/Golang library for calculating German and Austrianbank holidays. It includes the calculation of the date of Easter and, more importantly, offers ways to retrieve public holidays for a state of Germany or
 Austria (=Bundesland).
 
-The library is probably useful only for people realizing use cases with special "Germanic" requirements, such as shift schedules or capacity calculation.
+The library is probably useful only for people realizing use cases with special requirements inside of Austria or Germinay, such as shift schedules or capacity calculation.
 
 ### Documentation
 See https://godoc.org/github.com/wlbr/feiertage
