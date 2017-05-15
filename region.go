@@ -25,7 +25,7 @@ func (r Region) String() string {
 }
 
 func createFeiertagsList(y int, l string, ffun []func(int) Feiertag) []Feiertag {
-var feiern []func(int) Feiertag
+	var feiern []func(int) Feiertag
 	if l == "AT" {
 		feiern = []func(int) Feiertag{Neujahr, HeiligeDreiKönige, Ostermontag,
 			Staatsfeiertag, ChristiHimmelfahrt, PfingstMontag, Fronleichnam,
@@ -245,7 +245,7 @@ func All(y int, inklSonntage ...bool) Region {
 	if len(inklSonntage) == 0 || inklSonntage[0] == true {
 		ffun = append(ffun, Karnevalssonntag, Palmsonntag, Ostern, Pfingsten,
 			Dreifaltigkeitssonntag, Erntedankfest, Volkstrauertag, Totensonntag,
-			ErsterAdvent, ZweiterAdvent,DritterAdvent, VierterAdvent)
+			ErsterAdvent, ZweiterAdvent, DritterAdvent, VierterAdvent)
 	}
 
 	return Region{"Alle", "All", createFeiertagsList(y, "DE", ffun)}

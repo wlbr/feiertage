@@ -1,8 +1,8 @@
 # Feiertage
-Feiertage is a Go/Golang library for calculating german bank holidays. It includes the calculation of the date of Easter and, more important, offers ways to retrieve the public holiday for a state of Germany or
+Feiertage is a Go/Golang library for calculating German and Austrianbank holidays. It includes the calculation of the date of Easter and, more importantly, offers ways to retrieve public holidays for a state of Germany or
 Austria (=Bundesland).
 
-The library is probably useful only for people realizing use cases with special "germanic" requirements. This might be shift schedules or capacity calculation.
+The library is probably useful only for people realizing use cases with special "Germanic" requirements, such as shift schedules or capacity calculation.
 
 ### Documentation
 See https://godoc.org/github.com/wlbr/feiertage
@@ -13,8 +13,8 @@ There are two types of functions:
   * `<feiertag>(year)` and
   * `<region>(year optional:IncludingSundays:true)`
 
-`<feiertag>` returns an extended `time` object (type `feiertag`). It carrys the concrete date plus the name of the holiday.
-`<feiertag>` may be any of
+`<feiertag>` returns an extended `time` object (type `feiertag`). It carries the date of the holiday
+in the requested year plus the name of the holiday. `<feiertag>` may be any of the following:
 
 ||||
 |----|-----|----|
@@ -39,8 +39,8 @@ There are two types of functions:
 `Heiligabend` | `Weihnachten` | `Christtag`
 `Stefanitag` | `ZweiterWeihnachten` | `Silvester`
 
-`<region>` returns an object of type `region`. It offers a list of public holidays valid in the referred state` | `the name and the shortname of the state as attributes.
-`<region>` may be any of
+`<region>` returns an object of type `region`. It offers a list of public holidays valid in the specified state` | `as well as the name and the shortname of the state as attributes.
+`<region>` may be any of:
 
 ||||
 ----|-----|----
@@ -55,9 +55,9 @@ There are two types of functions:
 `Vorarlberg` | `Wien` | `Österreich`
 `All` | &nbsp; | &nbsp;
 
-The optional region functions second argument `includingSundays` switches the behavior o the region function, so that "gesetzliche Feiertage" on Sundays are included or not. This is important in Brandenburg and refers to Easter and Pentecost sunday. If you are calculating shift costs you will need to know even the holidays "hidden by sundays".
+The optional region function argument `includingSundays` switches the behavior of the region function to include "gesetzliche Feiertage" that fall on Sundays in its output. This is important in Brandenburg, particularly for Easter and Pentecost Sunday. If you are calculating shift costs you will need to know even the holidays "hidden by Sunday".
 
-The region functions return the public holidays ("gesetzliche Feiertage"). The function `all` instead returns all the defined "special dates" as well. For example the Penance Day (Buß- und Bettag) or the begin/end of daylight saving time.
+The region functions return the public holidays ("gesetzliche Feiertage"). The function `all` returns all defined "special dates", such as Penance Day (Buß- und Bettag) or the begin/end of daylight saving time.
 
 The regional functions for Austrian Bundesländer include saints' days which are state-level holidays, meaning
 schools etc. are generally closed but workers don't get the day off by default. If you don't want to
