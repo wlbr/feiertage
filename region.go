@@ -232,17 +232,20 @@ func Österreich(y int, inklSonntage ...bool) Region {
 // All returns a Region object holding all public holidays/feast days known to this program.
 // Not all of htem are public holidays (basically 'free').
 func All(y int, inklSonntage ...bool) Region {
-	ffun := []func(int) Feiertag{Epiphanias, HeiligeDreiKönige, Valentinstag,
-		Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag,
-		BeginnSommerzeit, Walpurgisnacht, TagDerBefreiung, Muttertag, Vatertag, Fronleichnam,
-		MariäHimmelfahrt, Reformationstag, Nationalfeiertag, Halloween, BeginnWinterzeit,
-		Allerheiligen, Allerseelen, Martinstag, Karnevalsbeginn, BußUndBettag, Thanksgiving,
-		Blackfriday, Volkstrauertag, Nikolaus, MariäUnbefleckteEmpfängnis, Heiligabend, Silvester}
+	ffun := []func(int) Feiertag{Neujahr, Epiphanias, HeiligeDreiKönige, Valentinstag,
+		Josefitag, Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag,
+		Karfreitag, BeginnSommerzeit, Ostermontag, Walpurgisnacht, TagDerArbeit, Staatsfeiertag,
+		Florianitag, TagDerBefreiung, Muttertag, ChristiHimmelfahrt, Vatertag, PfingstMontag,
+		Fronleichnam, MariäHimmelfahrt, Rupertitag, TagDerDeutschenEinheit,
+		TagDerVolksabstimming, Nationalfeiertag, Reformationstag, Halloween, BeginnWinterzeit,
+		Allerheiligen, Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, BußUndBettag,
+		Thanksgiving, Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, MariäEmpfängnis,
+		Heiligabend, Weihnachten, Christtag, ZweiterWeihnachtsfeiertag, Stefanitag, Silvester}
 
 	if len(inklSonntage) == 0 || inklSonntage[0] == true {
 		ffun = append(ffun, Karnevalssonntag, Palmsonntag, Ostern, Pfingsten,
-			Dreifaltigkeitssonntag, Erntedankfest, Totensonntag, ErsterAdvent, ZweiterAdvent,
-			DritterAdvent, VierterAdvent)
+			Dreifaltigkeitssonntag, Erntedankfest, Volkstrauertag, Totensonntag,
+			ErsterAdvent, ZweiterAdvent,DritterAdvent, VierterAdvent)
 	}
 
 	return Region{"Alle", "All", createFeiertagsList(y, "DE", ffun)}
