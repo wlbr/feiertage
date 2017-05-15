@@ -438,7 +438,7 @@ func ZweiterWeihnachtsfeiertag(x int) Feiertag {
 
 // In Austria, December 26th is Stefanitag.
 func Stefanitag(x int) Feiertag {
-	e := Christtag(x)
+	e := ZweiterWeihnachtsfeiertag(x)
 	e.Text = "Stefanitag"
 	return e
 }
