@@ -8,7 +8,7 @@ The library is probably useful only for people realizing use cases with special 
 See https://godoc.org/github.com/wlbr/feiertage
 
 ### Usage:
-There are to types of functions:
+There are two types of functions:
 
   * `<feiertag>(year)` and
   * `<region>(year optional:IncludingSundays:true)`
