@@ -2,7 +2,7 @@
 Feiertage is a Go/Golang library for calculating German and Austrianbank holidays. It includes the calculation of the date of Easter and, more importantly, offers ways to retrieve public holidays for a state of Germany or
 Austria (=Bundesland).
 
-The library is probably useful only for people realizing use cases with special requirements inside of Austria or Germinay, such as shift schedules or capacity calculation.
+The library is probably useful only for people realizing use cases with special requirements inside of Austria or Germany, such as shift schedules or capacity calculation.
 
 ### Documentation
 See https://godoc.org/github.com/wlbr/feiertage
@@ -26,20 +26,20 @@ in the requested year plus the name of the holiday. `<feiertag>` may be any of t
 `Ostermontag` | `Walpurgisnacht` | `TagDerArbeit`
 `TagDerBefreiung` | `Staatsfeiertag` | `Florianitag`
 `Muttertag` | `ChristiHimmelfahrt` | `Vatertag`
-`Pfingsten` | `PfingstMontag` | `Dreifaltigkeitssonntag`
+`Pfingsten` | `Pfingstmontag` | `Dreifaltigkeitssonntag`
 `Fronleichnam` | `MariäHimmelfahrt` | `Rupertitag`
-`TagDerDeutschenEinheit` | `TagDerVolksabstimming` | `Nationalfeiertag`
+`TagDerDeutschenEinheit` | `TagDerVolksabstimmung` | `Nationalfeiertag`
 `Erntedankfest` | `Reformationstag` | `Halloween`
 `BeginnWinterzeit` | `Allerheiligen` | `Allerseelen`
 `Martinstag` | `Karnevalsbeginn` | `Leopolditag`
 `BußUndBettag` | `Thanksgiving` | `Blackfriday`
 `Volkstrauertag` | `Nikolaus` | `MariäUnbefleckteEmpfängnis`
-`MariaEmpfängnis` | `Totensonntag` | `ErsterAdvent`
+`MariäEmpfängnis` | `Totensonntag` | `ErsterAdvent`
 `ZweiterAdvent` | `DritterAdvent` | `VierterAdvent`
 `Heiligabend` | `Weihnachten` | `Christtag`
-`Stefanitag` | `ZweiterWeihnachten` | `Silvester`
+`Stefanitag` | `ZweiterWeihnachtsfeiertag` | `Silvester`
 
-`<region>` returns an object of type `region`. It offers a list of public holidays valid in the specified state` | `as well as the name and the shortname of the state as attributes.
+`<region>` returns an object of type `region`. It offers a list of public holidays valid in the specified state as well as the name and the shortname of the state as attributes.
 `<region>` may be any of:
 
 ||||
@@ -61,8 +61,8 @@ The region functions return the public holidays ("gesetzliche Feiertage"). The f
 
 The regional functions for Austrian Bundesländer include saints' days which are state-level holidays, meaning
 schools etc. are generally closed but workers don't get the day off by default. If you don't want to
-include these days in your planning, it's okay to reference `Österreich` instead as legal holidays are
-(more or less) synchronised across Länder.
+include these days in your planning, it's okay to reference `Österreich` instead, as legal holidays are
+(more or less) synchronised across all Austrian states (Bundesländer).
 
 ### Example:
 

@@ -24,6 +24,7 @@ func TestFeiertageZahl(t *testing.T) {
 	checkAndFailRegionFeiertageZahl(t, Bayern(2016), 12)
 	checkAndFailRegionFeiertageZahl(t, Berlin(2016), 9)
 	checkAndFailRegionFeiertageZahl(t, Brandenburg(2016), 12)
+	checkAndFailRegionFeiertageZahl(t, Brandenburg(2017), len(Brandenburg(2016).Feiertage))
 	checkAndFailRegionFeiertageZahl(t, Brandenburg(2016, false), 10)
 	checkAndFailRegionFeiertageZahl(t, Bremen(2016), 9)
 	checkAndFailRegionFeiertageZahl(t, Bremen(2016, false), 9)
@@ -39,6 +40,7 @@ func TestFeiertageZahl(t *testing.T) {
 	checkAndFailRegionFeiertageZahl(t, SchleswigHolstein(2016), 9)
 	checkAndFailRegionFeiertageZahl(t, Thüringen(2016), 10)
 	checkAndFailRegionFeiertageZahl(t, Deutschland(2016), 9)
+	checkAndFailRegionFeiertageZahl(t, Deutschland(2017), len(Deutschland(2016).Feiertage)+1)
 	checkAndFailRegionFeiertageZahl(t, Burgenland(2016), 14)
 	checkAndFailRegionFeiertageZahl(t, Kärnten(2016), 15)
 	checkAndFailRegionFeiertageZahl(t, Niederösterreich(2016), 14)
@@ -49,12 +51,14 @@ func TestFeiertageZahl(t *testing.T) {
 	checkAndFailRegionFeiertageZahl(t, Vorarlberg(2016), 14)
 	checkAndFailRegionFeiertageZahl(t, Wien(2016), 14)
 	checkAndFailRegionFeiertageZahl(t, Österreich(2016), 13)
-	checkAndFailRegionFeiertageZahl(t, All(2016), 69)
-	checkAndFailRegionFeiertageZahl(t, All(2016, false), 57)
+	checkAndFailRegionFeiertageZahl(t, All(2016), 60)
+	checkAndFailRegionFeiertageZahl(t, All(2016, false), 48)
 	//check Reformationstag 2017
 	checkAndFailRegionFeiertageZahl(t, BadenWürttemberg(2017), 13)
 	checkAndFailRegionFeiertageZahl(t, Bayern(2017), 13)
 	checkAndFailRegionFeiertageZahl(t, Brandenburg(2017), 12)
 	checkAndFailRegionFeiertageZahl(t, Deutschland(2017), 10)
+
+	fmt.Println(Brandenburg(2017))
 
 }

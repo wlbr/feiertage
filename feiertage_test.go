@@ -62,7 +62,7 @@ func TestFeiertage(t *testing.T) {
 		Weiberfastnacht, Karnevalssonntag, Rosenmontag, Fastnacht, Aschermittwoch,
 		Palmsonntag, Gründonnerstag, Karfreitag, Ostern, BeginnSommerzeit, Ostermontag,
 		Walpurgisnacht, TagDerArbeit, TagDerBefreiung, Muttertag, ChristiHimmelfahrt,
-		Vatertag, Pfingsten, PfingstMontag, Dreifaltigkeitssonntag, Fronleichnam,
+		Vatertag, Pfingsten, Pfingstmontag, Dreifaltigkeitssonntag, Fronleichnam,
 		MariäHimmelfahrt, TagDerDeutschenEinheit, Erntedankfest, Reformationstag,
 		Halloween, BeginnWinterzeit, Allerheiligen, Allerseelen, Martinstag,
 		Karnevalsbeginn, BußUndBettag, Volkstrauertag, Nikolaus, MariäUnbefleckteEmpfängnis,

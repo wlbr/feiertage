@@ -71,7 +71,7 @@ func (f Feiertag) String() string {
 // ByDate is the comparator object of Feiertag to be able to sort a list of Feiertage
 type ByDate []Feiertag
 
-// Len is sort criteria for Feiertage
+// Len is the sort criteria for Feiertage
 func (a ByDate) Len() int {
 	return len(a)
 }
@@ -248,8 +248,8 @@ func Pfingsten(x int) Feiertag {
 	return Feiertag{o.AddDate(0, 0, 49), "Pfingsten"}
 }
 
-//PfingstMontag is Whit Monday, the monday after Pentecost.
-func PfingstMontag(x int) Feiertag {
+//Pfingstmontag is Whit Monday, the monday after Pentecost.
+func Pfingstmontag(x int) Feiertag {
 	o := Ostern(x)
 	return Feiertag{o.AddDate(0, 0, 50), "Pfingstmontag"}
 }
@@ -281,8 +281,8 @@ func TagDerDeutschenEinheit(x int) Feiertag {
 	return Feiertag{time.Date(x, time.October, 3, 0, 0, 0, 0, time.UTC), "Tag der deutschen Einheit"}
 }
 
-// TagDerVolksabstimming is Referendum Day in Carinthia, a fixed date.
-func TagDerVolksabstimming(x int) Feiertag {
+// TagDerVolksabstimmung is Referendum Day in Carinthia, a fixed date.
+func TagDerVolksabstimmung(x int) Feiertag {
 	return Feiertag{time.Date(x, time.October, 10, 0, 0, 0, 0, time.UTC), "Tag der Volksabstimmung"}
 }
 

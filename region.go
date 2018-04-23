@@ -24,32 +24,66 @@ func (r Region) String() string {
 	return s
 }
 
-func createFeiertagsList(y int, l string, ffun []func(int) Feiertag) []Feiertag {
+func createCommonFeiertagsList(y int) []func(int) Feiertag {
 	var feiern []func(int) Feiertag
-	if l == "AT" {
-		feiern = []func(int) Feiertag{Neujahr, HeiligeDreiKönige, Ostermontag,
-			Staatsfeiertag, ChristiHimmelfahrt, PfingstMontag, Fronleichnam,
-			MariäHimmelfahrt, Nationalfeiertag, Allerheiligen, MariäEmpfängnis,
-			Christtag, Stefanitag}
-	} else {
-		feiern = []func(int) Feiertag{Neujahr, Karfreitag, Ostermontag,
-			TagDerArbeit, ChristiHimmelfahrt, PfingstMontag,
-			TagDerDeutschenEinheit, Weihnachten, ZweiterWeihnachtsfeiertag}
-		// in 2017 the Reformationstag is a one time Feiertag in all states
-		if y == 2017 {
-			feiern = append(feiern, Reformationstag)
-		}
+	feiern = []func(int) Feiertag{Neujahr, Ostermontag, ChristiHimmelfahrt, Pfingstmontag}
+
+	return feiern
+}
+
+func createUniqAustrianFeiertagsList(y int) []func(int) Feiertag {
+	var feiern []func(int) Feiertag
+	nfeiern := []func(int) Feiertag{HeiligeDreiKönige, Staatsfeiertag,
+		Fronleichnam, MariäHimmelfahrt, Nationalfeiertag, Allerheiligen,
+		MariäEmpfängnis, Christtag, Stefanitag}
+	for _, f := range nfeiern {
+		feiern = append(feiern, f)
+	}
+	return feiern
+}
+
+func createUniqGermanFeiertagsList(y int) []func(int) Feiertag {
+	var feiern []func(int) Feiertag
+	nfeiern := []func(int) Feiertag{Karfreitag, TagDerArbeit,
+		TagDerDeutschenEinheit, Weihnachten, ZweiterWeihnachtsfeiertag}
+	// in 2017 the Reformationstag is a one time Feiertag in all states of Germany
+	if y == 2017 {
+		feiern = append(feiern, Reformationstag)
+	}
+	for _, f := range nfeiern {
+		feiern = append(feiern, f)
+	}
+	return feiern
+}
+
+func feiertagsFunctionListToFeiertagList(ffun []func(int) Feiertag, year int) []Feiertag {
+	feiertermine := []Feiertag{}
+	for _, f := range ffun {
+		feiertermine = append(feiertermine, f(year))
+	}
+	return feiertermine
+}
+
+func createFeiertagsList(y int, country string, ffun []func(int) Feiertag) []Feiertag {
+	feiern := createCommonFeiertagsList(y)
+	var nfeiern []func(int) Feiertag
+
+	if country == "AT" {
+		nfeiern = createUniqAustrianFeiertagsList(y)
+	} else { // == "DE"
+		nfeiern = createUniqGermanFeiertagsList(y)
+	}
+
+	for _, f := range nfeiern {
+		feiern = append(feiern, f)
 	}
 
 	for _, f := range ffun {
-		if (y != 2017) || (f(y).Text != Reformationstag(y).Text) {
+		if y != 2017 || f(y) != Reformationstag(y) {
 			feiern = append(feiern, f)
 		}
 	}
-	feiertermine := []Feiertag{}
-	for _, f := range feiern {
-		feiertermine = append(feiertermine, f(y))
-	}
+	feiertermine := feiertagsFunctionListToFeiertagList(feiern, y)
 	sort.Sort(ByDate(feiertermine))
 	return feiertermine
 }
@@ -177,7 +211,7 @@ func Burgenland(y int, inklSonntage ...bool) Region {
 
 // Kärnten returns a Region object holding all public holidays in the state of Kärnten.
 func Kärnten(y int, inklSonntage ...bool) Region {
-	ffun := []func(int) Feiertag{Josefitag, TagDerVolksabstimming}
+	ffun := []func(int) Feiertag{Josefitag, TagDerVolksabstimmung}
 	return Region{"Kärnten", "Ktn", createFeiertagsList(y, "AT", ffun)}
 }
 
@@ -230,23 +264,44 @@ func Österreich(y int, inklSonntage ...bool) Region {
 }
 
 // All returns a Region object holding all public holidays/feast days known to this program.
-// Not all of htem are public holidays (basically 'free').
+// Not all of htem are public holidays (basically 'work free' days).
 func All(y int, inklSonntage ...bool) Region {
-	ffun := []func(int) Feiertag{Neujahr, Epiphanias, HeiligeDreiKönige, Valentinstag,
+
+	/* ffun := []func(int) Feiertag{Neujahr, Epiphanias, HeiligeDreiKönige, Valentinstag,
+	Josefitag, Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag,
+	Karfreitag, BeginnSommerzeit, Ostermontag, Walpurgisnacht, TagDerArbeit, Staatsfeiertag,
+	Florianitag, TagDerBefreiung, Muttertag, ChristiHimmelfahrt, Vatertag, PfingstMontag,
+	Fronleichnam, MariäHimmelfahrt, Rupertitag, TagDerDeutschenEinheit,
+	TagDerVolksabstimming, Nationalfeiertag, Reformationstag, Halloween, BeginnWinterzeit,
+	Allerheiligen, Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, BußUndBettag,
+	Thanksgiving, Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, MariäEmpfängnis,
+	Heiligabend, Weihnachten, Christtag, ZweiterWeihnachtsfeiertag, Stefanitag, Silvester}
+	*/
+
+	feiern := []func(int) Feiertag{Epiphanias, Valentinstag,
 		Josefitag, Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag,
-		Karfreitag, BeginnSommerzeit, Ostermontag, Walpurgisnacht, TagDerArbeit, Staatsfeiertag,
-		Florianitag, TagDerBefreiung, Muttertag, ChristiHimmelfahrt, Vatertag, PfingstMontag,
-		Fronleichnam, MariäHimmelfahrt, Rupertitag, TagDerDeutschenEinheit,
-		TagDerVolksabstimming, Nationalfeiertag, Reformationstag, Halloween, BeginnWinterzeit,
-		Allerheiligen, Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, BußUndBettag,
-		Thanksgiving, Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, MariäEmpfängnis,
-		Heiligabend, Weihnachten, Christtag, ZweiterWeihnachtsfeiertag, Stefanitag, Silvester}
+		BeginnSommerzeit, Walpurgisnacht, Florianitag, TagDerBefreiung, Muttertag, Vatertag,
+		Rupertitag, TagDerVolksabstimmung, Reformationstag, Halloween, BeginnWinterzeit,
+		Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, BußUndBettag, Thanksgiving,
+		Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, Heiligabend, Silvester}
+
+	for _, f := range createCommonFeiertagsList(y) {
+		feiern = append(feiern, f)
+	}
+
+	for _, f := range createUniqAustrianFeiertagsList(y) {
+		feiern = append(feiern, f)
+	}
+	for _, f := range createUniqGermanFeiertagsList(y) {
+		feiern = append(feiern, f)
+	}
 
 	if len(inklSonntage) == 0 || inklSonntage[0] == true {
-		ffun = append(ffun, Karnevalssonntag, Palmsonntag, Ostern, Pfingsten,
+		feiern = append(feiern, Karnevalssonntag, Palmsonntag, Ostern, Pfingsten,
 			Dreifaltigkeitssonntag, Erntedankfest, Volkstrauertag, Totensonntag,
 			ErsterAdvent, ZweiterAdvent, DritterAdvent, VierterAdvent)
 	}
-
-	return Region{"Alle", "All", createFeiertagsList(y, "DE", ffun)}
+	feiertermine := feiertagsFunctionListToFeiertagList(feiern, y)
+	sort.Sort(ByDate(feiertermine))
+	return Region{"Alle", "All", feiertermine}
 }
