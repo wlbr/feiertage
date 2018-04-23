@@ -54,7 +54,7 @@ Mittwoch vor dem 23. November (Buß- und Bettag)
 /* Thanksgiving
 4. Donnerstag im November */
 
-// Feiertag is an extented Time object. You may use it like any Time, but it offers an additonal
+// Feiertag is an extented Time object. You may use it like any Time, but it offers an additional
 // attribute carrying the name of the Feiertag.
 type Feiertag struct {
 	time.Time
@@ -414,7 +414,7 @@ func VierterAdvent(x int) Feiertag {
 	return Feiertag{o.AddDate(0, 0, -1*d), "Vierter Advent"}
 }
 
-// Heiligabend is Christmas Eve, the last day before Crhistmas.
+// Heiligabend is Christmas Eve, the last day before Christmas.
 func Heiligabend(x int) Feiertag {
 	return Feiertag{time.Date(x, time.December, 24, 0, 0, 0, 0, time.UTC), "Heiligabend"}
 }
