@@ -1,5 +1,5 @@
 # Feiertage
-Feiertage is a Go/Golang library for calculating German and Austrianbank holidays. It includes the calculation of the date of Easter and, more importantly, offers ways to retrieve public holidays for a state of Germany or
+Feiertage is a Go/Golang library for calculating German and Austrian holidays. It includes the calculation of the date of Easter and, more importantly, offers ways to retrieve public holidays for a state of Germany or
 Austria (=Bundesland).
 
 The library is probably useful only for people realizing use cases with special requirements inside of Austria or Germany, such as shift schedules or capacity calculation.
@@ -156,6 +156,6 @@ See https://github.com/wlbr/feiertage/releases/latest for downloads.
 ## Code
 * Documentation: https://godoc.org/github.com/wlbr/feiertage
 * Lint: http://go-lint.appspot.com/github.com/wlbr/feiertage
-* Continous Integration: [![Travis Status](https://api.travis-ci.org/wlbr/feiertage.svg?branch=master)](https://travis-ci.org/wlbr/feiertage)
+* Continuous Integration: [![Travis Status](https://api.travis-ci.org/wlbr/feiertage.svg?branch=master)](https://travis-ci.org/wlbr/feiertage)
 * Test Coverage: [![Coverage Status](https://coveralls.io/repos/github/wlbr/feiertage/badge.svg?branch=master)](https://coveralls.io/github/wlbr/feiertage?branch=master)
 * Metrics: [![GoReportCard](https://goreportcard.com/badge/github.com/wlbr/feiertage)](https://goreportcard.com/report/github.com/wlbr/feiertage)
