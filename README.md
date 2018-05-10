@@ -1,6 +1,5 @@
 # Feiertage
-Feiertage is a Go/Golang library for calculating German and Austrian holidays. It includes the calculation of the date of Easter and, more importantly, offers ways to retrieve public holidays for a state of Germany or
-Austria (=Bundesland).
+Feiertage is a Go/Golang library for calculating German and Austrian bank holidays. It includes the calculation of the date of Easter and, more importantly, offers ways to retrieve public holidays for a state of Germany or Austria (=Bundesland).
 
 The library is probably useful only for people realizing use cases with special requirements inside of Austria or Germany, such as shift schedules or capacity calculation.
 
