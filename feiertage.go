@@ -287,7 +287,7 @@ func TagDerVolksabstimmung(x int) Feiertag {
 }
 
 // Erntedankfest is Thanksgiving or Harvest Festival, the first Sunday of October.
-// The german Erntedankfest is not the same than the US Thanksgiving.
+// The german Erntedankfest is not the same as the US Thanksgiving.
 func Erntedankfest(x int) Feiertag {
 	o := time.Date(x, time.October, 1, 0, 0, 0, 0, time.UTC)
 	d := (7 - int(o.Weekday())) % 7

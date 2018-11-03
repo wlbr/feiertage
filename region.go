@@ -277,45 +277,23 @@ func Österreich(y int, inklSonntage ...bool) Region {
 
 // All returns a Region object holding all public holidays/feast days known to this program.
 // Not all of them are public holidays (basically 'work free' days).
+// IncludingSundays is ignored.
 func All(y int, inklSonntage ...bool) Region {
 
-	/* ffun := []func(int) Feiertag{Neujahr, Epiphanias, HeiligeDreiKönige, Valentinstag,
-	Josefitag, Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag,
-	Karfreitag, BeginnSommerzeit, Ostermontag, Walpurgisnacht, TagDerArbeit, Staatsfeiertag,
-	Florianitag, TagDerBefreiung, Muttertag, ChristiHimmelfahrt, Vatertag, PfingstMontag,
-	Fronleichnam, MariäHimmelfahrt, Rupertitag, TagDerDeutschenEinheit,
-	TagDerVolksabstimming, Nationalfeiertag, Reformationstag, Halloween, BeginnWinterzeit,
-	Allerheiligen, Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, BußUndBettag,
-	Thanksgiving, Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, MariäEmpfängnis,
-	Heiligabend, Weihnachten, Christtag, ZweiterWeihnachtsfeiertag, Stefanitag, Silvester}
-	*/
+	feiern := []func(int) Feiertag{Allerheiligen, Allerseelen, Aschermittwoch, BeginnSommerzeit, BeginnWinterzeit,
+		Blackfriday, BußUndBettag, ChristiHimmelfahrt, Christtag, Dreifaltigkeitssonntag,
+		DritterAdvent, Epiphanias, Erntedankfest, ErsterAdvent, Fastnacht, Florianitag,
+		Fronleichnam, Gründonnerstag, Halloween, Heiligabend, HeiligeDreiKönige,
+		Josefitag, Karfreitag, Karnevalsbeginn, Karnevalssonntag, Leopolditag,
+		MariäEmpfängnis, MariäHimmelfahrt, MariäUnbefleckteEmpfängnis, Martinstag,
+		Muttertag, Nationalfeiertag, Neujahr, Nikolaus, Ostermontag, Ostern,
+		Palmsonntag, Pfingsten, Pfingstmontag, Reformationstag, Rosenmontag,
+		Rupertitag, Silvester, Staatsfeiertag, Stefanitag, TagDerArbeit,
+		TagDerBefreiung, TagDerDeutschenEinheit, TagDerVolksabstimmung,
+		Thanksgiving, Totensonntag, Valentinstag, Vatertag, VierterAdvent,
+		Volkstrauertag, Walpurgisnacht, Weiberfastnacht, Weihnachten, ZweiterAdvent,
+		ZweiterWeihnachtsfeiertag}
 
-	feiern := []func(int) Feiertag{Epiphanias, Valentinstag,
-		Josefitag, Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag,
-		BeginnSommerzeit, Walpurgisnacht, Florianitag, TagDerBefreiung, Muttertag, Vatertag,
-		Rupertitag, TagDerVolksabstimmung, Halloween, BeginnWinterzeit,
-		Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, BußUndBettag, Thanksgiving,
-		Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, Heiligabend, Silvester}
-
-	if y != 2017 {
-		feiern = append(feiern, Reformationstag)
-	}
-	for _, f := range createCommonFeiertagsList(y) {
-		feiern = append(feiern, f)
-	}
-
-	for _, f := range createUniqAustrianFeiertagsList(y) {
-		feiern = append(feiern, f)
-	}
-	for _, f := range createUniqGermanFeiertagsList(y) {
-		feiern = append(feiern, f)
-	}
-
-	if len(inklSonntage) == 0 || inklSonntage[0] == true {
-		feiern = append(feiern, Karnevalssonntag, Palmsonntag, Ostern, Pfingsten,
-			Dreifaltigkeitssonntag, Erntedankfest, Volkstrauertag, Totensonntag,
-			ErsterAdvent, ZweiterAdvent, DritterAdvent, VierterAdvent)
-	}
 	feiertermine := feiertagsFunctionListToFeiertagList(feiern, y)
 	sort.Sort(ByDate(feiertermine))
 	return Region{"Alle", "All", feiertermine}
