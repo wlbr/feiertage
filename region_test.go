@@ -52,7 +52,6 @@ func TestFeiertageZahl(t *testing.T) {
 	checkAndFailRegionFeiertageZahl(t, Wien(2016), 14)
 	checkAndFailRegionFeiertageZahl(t, Österreich(2016), 13)
 	checkAndFailRegionFeiertageZahl(t, All(2016), 60)
-	checkAndFailRegionFeiertageZahl(t, All(2016, false), 48)
 	//check Reformationstag 2017
 	checkAndFailRegionFeiertageZahl(t, BadenWürttemberg(2017), 13)
 	checkAndFailRegionFeiertageZahl(t, Bayern(2017), 13)
