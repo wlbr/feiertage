@@ -122,12 +122,18 @@ func Brandenburg(y int, inklSonntage ...bool) Region {
 // Bremen returns a Region object holding all public holidays in the state Bremen
 func Bremen(y int, inklSonntage ...bool) Region {
 	ffun := []func(int) Feiertag{}
+	if y >= 2018 {
+		ffun = append(ffun, Reformationstag)
+	}
 	return Region{"Bremen", "HB", createFeiertagsList(y, "DE", ffun)}
 }
 
 // Hamburg returns a Region object holding all public holidays in the state Hamburg
 func Hamburg(y int, inklSonntage ...bool) Region {
 	ffun := []func(int) Feiertag{}
+	if y >= 2018 {
+		ffun = append(ffun, Reformationstag)
+	}
 	return Region{"Hamburg", "HH", createFeiertagsList(y, "DE", ffun)}
 }
 
@@ -148,6 +154,9 @@ func MecklenburgVorpommern(y int, inklSonntage ...bool) Region {
 // state Niedersachsen
 func Niedersachsen(y int, inklSonntage ...bool) Region {
 	ffun := []func(int) Feiertag{}
+	if y >= 2018 {
+		ffun = append(ffun, Reformationstag)
+	}
 	return Region{"Niedersachsen", "NI", createFeiertagsList(y, "DE", ffun)}
 }
 
@@ -186,6 +195,9 @@ func SachsenAnhalt(y int, inklSonntage ...bool) Region {
 // SchleswigHolstein returns a Region object holding all public holidays in the state SchleswigHolstein
 func SchleswigHolstein(y int, inklSonntage ...bool) Region {
 	ffun := []func(int) Feiertag{}
+	if y >= 2018 {
+		ffun = append(ffun, Reformationstag)
+	}
 	return Region{"Schleswig-Holstein", "SH", createFeiertagsList(y, "DE", ffun)}
 }
 
@@ -264,7 +276,7 @@ func Österreich(y int, inklSonntage ...bool) Region {
 }
 
 // All returns a Region object holding all public holidays/feast days known to this program.
-// Not all of htem are public holidays (basically 'work free' days).
+// Not all of them are public holidays (basically 'work free' days).
 func All(y int, inklSonntage ...bool) Region {
 
 	/* ffun := []func(int) Feiertag{Neujahr, Epiphanias, HeiligeDreiKönige, Valentinstag,
@@ -281,10 +293,13 @@ func All(y int, inklSonntage ...bool) Region {
 	feiern := []func(int) Feiertag{Epiphanias, Valentinstag,
 		Josefitag, Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag,
 		BeginnSommerzeit, Walpurgisnacht, Florianitag, TagDerBefreiung, Muttertag, Vatertag,
-		Rupertitag, TagDerVolksabstimmung, Reformationstag, Halloween, BeginnWinterzeit,
+		Rupertitag, TagDerVolksabstimmung, Halloween, BeginnWinterzeit,
 		Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, BußUndBettag, Thanksgiving,
 		Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, Heiligabend, Silvester}
 
+	if y != 2017 {
+		feiern = append(feiern, Reformationstag)
+	}
 	for _, f := range createCommonFeiertagsList(y) {
 		feiern = append(feiern, f)
 	}
