@@ -12,7 +12,7 @@ deploy:
   skip_cleanup: true
   overwrite: true
   api_key:
-    secure: Rm57E9u5/Ll+pIFkpzF9slbsV/C5aXpDK3CCq4oJBuaLIFEmEk4z8M1M3EuRanMlmZv51CHQOFjCu2D+AFgduLEfetysywrQsGFLuwZWAOXW734wPbgOXygugzU8j1/BnfbOfIuyzyIHNM6a5qm0Lp8YQ9UIkcCBwSYo2Ie9dZsprBBvHofzmJsc8IFZ37xzUFux4AqFtrf4HmHxooePuZbRn+OHn1z7zmOmidW0CK/IG8gHOKm0PAhbowX7FBUqieMe24LesAQvrUEI4G+u1qL7LBORpinPMJk2S1ECGnVmHVzEIHdWsOFIPRvoNld2BOrYT/zgA3OeePJJvUiyrVOBaqApEPxifXlNgEJVgBtDvvEpadXXsB5ecJ7RSU0XleVb2yn3P6GoKPvwfCBrOW6o12cMh9aPpLn0lt9bEw5HXIbrCwOQG/F2mMPLGa2sfztIQQAjUUPqXcM8WAPrAsY1UF67jgKBLAnrV9FK4p7h4ZrRH/caIpzmt7KRK8X446qYs+6WDHnSHtdbzl0f6Il5ae0BDxvDKcGoKTMN5/Ojp5vVO+Fof6/9pzNJRk/chiYdgjIYUkpjj5MHeX1yenGs6sBeejeGOXGw12Z/f1VwxFRwDPHIzYCk56s0Tgw8OaSfYz+tpkhQndTkItGU+ZJi96jGCJvL7a/OInUcH14=
+    secure: PZN7yqcXMs6NxuIqaUBFgO93BHqr9s0MlhVNnizsyMbYmvzSgxkwhvSanOWV5GeFQOlia/XmiGabcXbZJvKF4/+oMU7C7dcdCXZU2zOIbPvSI4Zypiaf4p8RWG7JgF/+4bWl7iX19vea++hWGrt6DQEfzv2ElfhcsbedKEQ4iemCngmzUZqaKFzWHIf/KB8hGVe9a2r//0tZ1uyFrkVJNjl+QakBaz+ywvEAzSjo+lapgVLgBgkElZQzfhPdUvTNeh358qL3tkURYzdjv8hYjgmrxA+d6pASr2ggOtQcVWibrNQ5HLAgRRdIHB55KwcTOaOzZT0ua43RChMvJxqzuX3/h38JXky32UE3d3V8+f4vBgndNbzyIMAcANgB+SE9RFHmtfjNCedDHI7kg5ihgTtyUMWnMFoBgNPBSbTasN0U9MhMY2/p2+OuV5uGNqTI3YeUt0KJ+S00OrylhIae15Mv9cEzEIO2Ykki0mg8inehIIpIuZWBHYBe9gp/v3rXMdptR2k1wto4VXvNG6F1cKV08d1/DD6HxYfBITjRXKBdaHEuzKfIgycAOGYomLqyDuk6QpzXx3Q4iMUfXLXIcK3twit8dHqizdjHRCfm4Jsmq0enXzP7uIMPJr/E+cUL52/Fr1iIXGNZ9baMCak9AIsLksmzWbwtDzM+gMewz3k=
   file:
     - bin/feiertage_linux_x86_64
     - bin/feiertage_osx_x86_64
@@ -20,5 +20,5 @@ deploy:
     - bin/feiertage_win64
   on:
     repo: wlbr/feiertage
-    tags: true
+    tags: false
 after_deploy: make clean
