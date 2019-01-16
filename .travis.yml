@@ -1,16 +1,16 @@
 language: go
 sudo: false
 go:
-- stable
+ - stable
 before_install:
-- go get github.com/mattn/goveralls
-- "$HOME/gopath/bin/goveralls -service=travis-ci"
+ - go get github.com/mattn/goveralls
+ - $HOME/gopath/bin/goveralls -service=travis-ci
 script:
-- make buildcmd
+ - make buildcmd
 deploy:
   provider: releases
-    skip_cleanup: true
-    overwrite: true
+  skip_cleanup: true
+  overwrite: true
   api_key:
     secure: YufqkH20jwBtjHnOQ5qdwWmvGNYPR6uOfr4mNWFmaXd6QT86pAmtgOvLgRmEty3exBypy7GwWHaht2Qc1vk/PCI1cAtLRWdu7XBPjmhAo/ZzZ+bG4pqG/Nx41Z+kLk9yL7kar/WHLNOC84f4+XQfg2mLakSJ2k7ZOW1v//MaOb6hm5tH0DAWo98RiEfB7NvMUbtdX91Ux6BHmZeUz5QQTyPlfc6LIboxc5yG9YY6/9PmXwUF290E0qdv9xlahMvSgzK3D1CuDAC+Zu/RuGzWLjBVzrDxJsftAGaD567v+c6HBWNA+dtur2yBMstABJ54PbMhh7/5NxGl2HO4vouU39sU1ZNihEY6RkW+cnyyhatbq9y3CN5RRK5IMYo9cvphFPucP37j0HQCajOMMD7GK58TfJP/14HaRPoqN37SNt6P2Hyu8FESfLxVsbx0Nlh5I22I6Nj+JjzDLsfOyw5uffRb6nJLs7lYkp2LaOPA9qjcbREKCYxFchqUwxtu00KKoPDnR2KzBY/gsJlyzBnvnU9fQrDc3wLaVC8jOKnYMGDaLk8D6LYtmSSEYTH+wkumlsAmWzLlxz7eYOK0cz0HiXnCrm3EtE6SVLPw/c9uIz2pRNqzfsa0pIyU5Ir6Z+PcIBkWfm3AFTIPIiYE82iGqyiHEVew6ZruUoCF34gYgVQ=
    file:
@@ -20,4 +20,5 @@ deploy:
     - bin/feiertage_win64
   on:
     repo: wlbr/feiertage
+    tags: false
 after_deploy: make clean
