@@ -63,7 +63,7 @@ schools etc. are generally closed but workers don't get the day off by default. 
 include these days in your planning, it's okay to reference `Österreich` instead, as legal holidays are
 (more or less) synchronised across all Austrian states (Bundesländer).
 
-### Example:
+### Examples:
 
     fmt.Println(Ostern(2016))
     --> 27.03.2016 Ostern
