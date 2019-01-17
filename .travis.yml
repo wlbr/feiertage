@@ -1,5 +1,4 @@
 language: go
-sudo: false
 go:
  - stable
 before_install:
@@ -9,15 +8,11 @@ script:
  - make buildcmd
 deploy:
   provider: releases
+  api_key:
+    secure: eoth1389BrSY7uo3y/gqqTgzPCzPL56xXF0cWlLmlqwLrSDMV9KAZj0dpR02DehmRCCycRcZwje0OCtOVgYi51ogS+LCIeXGQ5dTONOOcmeruh1h7oquu8KdbQA+n1xYnfIApnIYdTvr3AVBey2L4kRFMfnGKtZRa3iPrbORqYoQWS98f5oxZqZpE88NHYGAR8ilnNCV6no/7MqJioxfIbIiC6dNKK86hoepDwVJgYChqmN6Q9ofFhSUlibflZNFmGkfcEBqac+/x66qvhDq7dZ85fpQH7bodrvy2fNmYczkjMa+DzJqwwioNzGE/eYiauvhJBWjNQyHnt0iQTOQkcbWOs96e5Kermqp8Az7RamoYa2YIVYEcPw+CHpT9+izBKAU2mo1REVmsnnQRVvqycJVWS5C+yXUMfunIs51GvY3EN8e4MUvntt08hUWiANZGSw+bu7IsyD1yxSMf7pfzA4SHyJaZXLqklgaDz0W6fL7iJ3VH9qVdeZEC5V/SzJwE0835baPu81Qde6yqFA3+h1GqNDWQdYCdZci+yHVnIK4Qy+n1EzJdngDkS0QSGi5PdZQOH5OTltK+GN+98n2GR7lWIsUU0PY14ToXpg5i+p6cdQ45qgsC/oBnaiSBU8LqOM8nnuuCi/2TeGb4UyhpgOe0WNzMUfD8fi0CqF5L0Q=
   skip_cleanup: true
   overwrite: true
-  api_key:
-    secure: Qe49LSp0eIOiAzQHpu8bZK3vPdjXiMdbY5uDGyiGdZ34hpMISxd/QrEist6u+FkwbAtoYqIGCKLWRsGCP5CxCl7slob1lSSF5PjCE8CbHSz/Tm4mEQMvhsvh+Xwg1AZT+KS8kgz2okzi0wIBurA4lyvXBwv7dXzwxHMj3zJ7SbgR9xmnu4wWt5JZw2jZadgQnNFifg7jqVO9l8AUjcOkFrEomVR65R0b1bGfpdqkz2z6cPzFnJAuUVZvVTuoG8TrOWyN8+4ncSqnegiwsR+nAGgAzK7/RWfBfaWqT4uYcwueH8/l/0FwovxOeNhhsdZ6f1yxYIFGqptl+QSnH3eBKXAL+BzrF0jhPhOLMOozhQ2nEblLpliJzveXbHFWhIznyFbdEo1dHPvswKUXsKAVbmEdQeNLB5mA+acwVilQWnrvZLM291Wue0FJvCXmwtzaETAi8XJzVCxAgYhQEP/iN8CXh42AF2Lj1FbP4ONCfLfdb5vgwp5pVmdt5R5DDHpP9NiHn/ZY1qAUEawn1ZXXholJAqkjR3eyBY1xsdtVu9SfryITCTMEK1N8dDVJTeW0uamn2Q6g0UK0/l4QlvBQR/Fs3SWsw7mNZk4GN0DLr2GHnf0ExUCg6e1Gn8nnNs7KuWY/M8XEXmn56AoNWQOLBTF6ssVsIO3lNUKyjlocOVA=
-  file:
-    - bin/feiertage_linux_x86_64
-    - bin/feiertage_osx_x86_64
-    - bin/feiertage_win32
-    - bin/feiertage_win64
+  file: bin/*
   on:
     repo: wlbr/feiertage
     tags: true
