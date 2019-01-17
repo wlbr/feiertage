@@ -20,5 +20,5 @@ deploy:
     - bin/feiertage_win64
   on:
     repo: wlbr/feiertage
-    tags: false
+    tags: true
 after_deploy: make clean
