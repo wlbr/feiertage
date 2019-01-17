@@ -12,6 +12,7 @@ deploy:
     secure: eoth1389BrSY7uo3y/gqqTgzPCzPL56xXF0cWlLmlqwLrSDMV9KAZj0dpR02DehmRCCycRcZwje0OCtOVgYi51ogS+LCIeXGQ5dTONOOcmeruh1h7oquu8KdbQA+n1xYnfIApnIYdTvr3AVBey2L4kRFMfnGKtZRa3iPrbORqYoQWS98f5oxZqZpE88NHYGAR8ilnNCV6no/7MqJioxfIbIiC6dNKK86hoepDwVJgYChqmN6Q9ofFhSUlibflZNFmGkfcEBqac+/x66qvhDq7dZ85fpQH7bodrvy2fNmYczkjMa+DzJqwwioNzGE/eYiauvhJBWjNQyHnt0iQTOQkcbWOs96e5Kermqp8Az7RamoYa2YIVYEcPw+CHpT9+izBKAU2mo1REVmsnnQRVvqycJVWS5C+yXUMfunIs51GvY3EN8e4MUvntt08hUWiANZGSw+bu7IsyD1yxSMf7pfzA4SHyJaZXLqklgaDz0W6fL7iJ3VH9qVdeZEC5V/SzJwE0835baPu81Qde6yqFA3+h1GqNDWQdYCdZci+yHVnIK4Qy+n1EzJdngDkS0QSGi5PdZQOH5OTltK+GN+98n2GR7lWIsUU0PY14ToXpg5i+p6cdQ45qgsC/oBnaiSBU8LqOM8nnuuCi/2TeGb4UyhpgOe0WNzMUfD8fi0CqF5L0Q=
   skip_cleanup: true
   overwrite: true
+  file_glob: true
   file: bin/*
   on:
     repo: wlbr/feiertage
