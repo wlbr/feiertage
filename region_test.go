@@ -23,6 +23,7 @@ func TestFeiertageZahl(t *testing.T) {
 	checkAndFailRegionFeiertageZahl(t, BadenWürttemberg(2016), 12)
 	checkAndFailRegionFeiertageZahl(t, Bayern(2016), 12)
 	checkAndFailRegionFeiertageZahl(t, Berlin(2016), 9)
+	checkAndFailRegionFeiertageZahl(t, Berlin(2019), 10)
 	checkAndFailRegionFeiertageZahl(t, Brandenburg(2016), 12)
 	checkAndFailRegionFeiertageZahl(t, Brandenburg(2017), len(Brandenburg(2016).Feiertage))
 	checkAndFailRegionFeiertageZahl(t, Brandenburg(2016, false), 10)
