@@ -104,6 +104,9 @@ func Bayern(y int, inklSonntage ...bool) Region {
 // Berlin returns a Region object holding all public holidays in the state Berlin
 func Berlin(y int, inklSonntage ...bool) Region {
 	ffun := []func(int) Feiertag{}
+	if y >= 2019 {
+		ffun = append(ffun, InternationalerFrauentag)
+	}
 	return Region{"Berlin", "BE", createFeiertagsList(y, "DE", ffun)}
 }
 
@@ -280,10 +283,10 @@ func Österreich(y int, inklSonntage ...bool) Region {
 func All(y int, inklSonntage ...bool) Region {
 
 	/* ffun := []func(int) Feiertag{Neujahr, Epiphanias, HeiligeDreiKönige, Valentinstag,
-	Josefitag, Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag,
-	Karfreitag, BeginnSommerzeit, Ostermontag, Walpurgisnacht, TagDerArbeit, Staatsfeiertag,
-	Florianitag, TagDerBefreiung, Muttertag, ChristiHimmelfahrt, Vatertag, PfingstMontag,
-	Fronleichnam, MariäHimmelfahrt, Rupertitag, TagDerDeutschenEinheit,
+	InternationalerFrauentag, Josefitag, Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch,
+	Gründonnerstag, Karfreitag, BeginnSommerzeit, Ostermontag, Walpurgisnacht, TagDerArbeit,
+	Staatsfeiertag, Florianitag, TagDerBefreiung, Muttertag, ChristiHimmelfahrt, Vatertag,
+	PfingstMontag, Fronleichnam, MariäHimmelfahrt, Rupertitag, TagDerDeutschenEinheit,
 	TagDerVolksabstimming, Nationalfeiertag, Reformationstag, Halloween, BeginnWinterzeit,
 	Allerheiligen, Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, BußUndBettag,
 	Thanksgiving, Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, MariäEmpfängnis,
@@ -299,6 +302,9 @@ func All(y int, inklSonntage ...bool) Region {
 
 	if y != 2017 {
 		feiern = append(feiern, Reformationstag)
+	}
+	if y >= 2019 {
+		feiern = append(feiern, InternationalerFrauentag)
 	}
 	for _, f := range createCommonFeiertagsList(y) {
 		feiern = append(feiern, f)

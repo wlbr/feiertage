@@ -110,6 +110,11 @@ func Valentinstag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.February, 14, 0, 0, 0, 0, time.UTC), "Valentinstag"}
 }
 
+// InternationalerFrauentag is International Women's Day, a fixed date.
+func InternationalerFrauentag(x int) Feiertag {
+	return Feiertag{time.Date(x, time.March, 8, 0, 0, 0, 0, time.UTC), "Internationaler Frauentag"}
+}
+
 // Josefitag is St Joseph's Day, a fixed date.
 func Josefitag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.March, 19, 0, 0, 0, 0, time.UTC), "Josefitag"}
