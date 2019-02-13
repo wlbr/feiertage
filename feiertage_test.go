@@ -60,7 +60,7 @@ func TestFeiertage(t *testing.T) {
 
 	fun := []func(int) Feiertag{Neujahr, Epiphanias, HeiligeDreiKönige, Valentinstag,
 		Weiberfastnacht, Karnevalssonntag, Rosenmontag, Fastnacht, Aschermittwoch,
-		Palmsonntag, Gründonnerstag, Karfreitag, Ostern, BeginnSommerzeit, Ostermontag,
+		InternationalerFrauentag,Palmsonntag, Gründonnerstag, Karfreitag, Ostern, BeginnSommerzeit, Ostermontag,
 		Walpurgisnacht, TagDerArbeit, TagDerBefreiung, Muttertag, ChristiHimmelfahrt,
 		Vatertag, Pfingsten, Pfingstmontag, Dreifaltigkeitssonntag, Fronleichnam,
 		MariäHimmelfahrt, TagDerDeutschenEinheit, Erntedankfest, Reformationstag,
