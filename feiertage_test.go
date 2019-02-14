@@ -59,15 +59,19 @@ func TestAdvent(t *testing.T) {
 func TestFeiertage(t *testing.T) {
 
 	fun := []func(int) Feiertag{Neujahr, Epiphanias, HeiligeDreiKönige, Valentinstag,
-		Weiberfastnacht, Karnevalssonntag, Rosenmontag, Fastnacht, Aschermittwoch,
-		InternationalerFrauentag,Palmsonntag, Gründonnerstag, Karfreitag, Ostern, BeginnSommerzeit, Ostermontag,
-		Walpurgisnacht, TagDerArbeit, TagDerBefreiung, Muttertag, ChristiHimmelfahrt,
-		Vatertag, Pfingsten, Pfingstmontag, Dreifaltigkeitssonntag, Fronleichnam,
-		MariäHimmelfahrt, TagDerDeutschenEinheit, Erntedankfest, Reformationstag,
-		Halloween, BeginnWinterzeit, Allerheiligen, Allerseelen, Martinstag,
-		Karnevalsbeginn, BußUndBettag, Volkstrauertag, Nikolaus, MariäUnbefleckteEmpfängnis,
-		Totensonntag, ErsterAdvent, ZweiterAdvent, DritterAdvent, VierterAdvent,
-		Heiligabend, Weihnachten, ZweiterWeihnachtsfeiertag, Silvester}
+		InternationalerTagDesGedenkensAnDieOpferDesHolocaust, Josefitag, Weiberfastnacht,
+		Karnevalssonntag, Rosenmontag, Fastnacht, Aschermittwoch, InternationalerFrauentag,
+		Palmsonntag, Gründonnerstag, Karfreitag, Ostern, BeginnSommerzeit, Ostermontag,
+		Walpurgisnacht, TagDerArbeit, TagDerBefreiung, Staatsfeiertag,
+		InternationalerTagDerPressefreiheit, Florianitag, Muttertag, ChristiHimmelfahrt,
+		Vatertag, Pfingsten, Pfingstmontag, Dreifaltigkeitssonntag, Fronleichnam, TagDesMeeres,
+		MariäHimmelfahrt, Rupertitag, InternationalerKindertag, Weltflüchtlingstag,
+		TagDerDeutschenEinheit, TagDerVolksabstimmung, Nationalfeiertag, Erntedankfest,
+		Reformationstag, Halloween, BeginnWinterzeit, Allerheiligen, Allerseelen, Martinstag,
+		Karnevalsbeginn, Leopolditag, Weltkindertag, BußUndBettag, Thanksgiving, Blackfriday,
+		Volkstrauertag, Nikolaus, MariäUnbefleckteEmpfängnis, MariäEmpfängnis, Totensonntag,
+		ErsterAdvent, ZweiterAdvent, DritterAdvent, VierterAdvent, Heiligabend, Weihnachten,
+		Christtag, Stefanitag, ZweiterWeihnachtsfeiertag, Silvester}
 
 	years := []int{2015, 2016}
 

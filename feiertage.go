@@ -110,6 +110,11 @@ func Valentinstag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.February, 14, 0, 0, 0, 0, time.UTC), "Valentinstag"}
 }
 
+// InternationalerTagDesGedenkensAnDieOpferDesHolocaust is (International Holocaust Remembrance Day, a fixed date.
+func InternationalerTagDesGedenkensAnDieOpferDesHolocaust(x int) Feiertag {
+	return Feiertag{time.Date(x, time.January, 22, 0, 0, 0, 0, time.UTC), "Internationaler Tag des Gedenkens an die Opfer des Holocaust"}
+}
+
 // InternationalerFrauentag is International Women's Day, a fixed date.
 func InternationalerFrauentag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.March, 8, 0, 0, 0, 0, time.UTC), "Internationaler Frauentag"}
@@ -217,6 +222,11 @@ func Staatsfeiertag(x int) Feiertag {
 	return e
 }
 
+// InternationalerTagDerPressefreiheit is World Press Freedom Day, a fixed date.
+func InternationalerTagDerPressefreiheit(x int) Feiertag {
+	return Feiertag{time.Date(x, time.May, 3, 0, 0, 0, 0, time.UTC), "Internationaler Tag der Pressefreiheit"}
+}
+
 // Florianitag is St Florian's Day, a fixed date.
 func Florianitag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.May, 4, 0, 0, 0, 0, time.UTC), "Florianitag"}
@@ -269,6 +279,22 @@ func Dreifaltigkeitssonntag(x int) Feiertag {
 func Fronleichnam(x int) Feiertag {
 	o := Ostern(x)
 	return Feiertag{o.AddDate(0, 0, 60), "Fronleichnam"}
+}
+
+// InternationalerKindertag is special to Germany and Austrian and
+// isnot the same as Weltkindertag (World Children's Day), a fixed date.
+func InternationalerKindertag(x int) Feiertag {
+	return Feiertag{time.Date(x, time.June, 1, 0, 0, 0, 0, time.UTC), "Internationaler Kindertag"}
+}
+
+// TagDesMeeres is World Oceans Day, a fixed date.
+func TagDesMeeres(x int) Feiertag {
+	return Feiertag{time.Date(x, time.June, 8, 0, 0, 0, 0, time.UTC), "Tag des Meeres"}
+}
+
+// Weltflüchtlingstag is World Refugee Day, a fixed date.
+func Weltflüchtlingstag(x int) Feiertag {
+	return Feiertag{time.Date(x, time.June, 20, 0, 0, 0, 0, time.UTC), "Weltflüchtlingstag"}
 }
 
 // MariäHimmelfahrt is Assumption Day, a fixed date.
@@ -344,6 +370,11 @@ func Karnevalsbeginn(x int) Feiertag {
 // Leopolditag is St Leopold's Day, a fixed date.
 func Leopolditag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.November, 15, 0, 0, 0, 0, time.UTC), "Leopolditag"}
+}
+
+// Weltkindertag is World Children's Day, a fixed date.
+func Weltkindertag(x int) Feiertag {
+	return Feiertag{time.Date(x, time.November, 20, 0, 0, 0, 0, time.UTC), "Weltkindertag"}
 }
 
 // BußUndBettag is Penance Day, 11 days before the first Sunday in Advent

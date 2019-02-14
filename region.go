@@ -283,22 +283,24 @@ func Österreich(y int, inklSonntage ...bool) Region {
 func All(y int, inklSonntage ...bool) Region {
 
 	/* ffun := []func(int) Feiertag{Neujahr, Epiphanias, HeiligeDreiKönige, Valentinstag,
-	InternationalerFrauentag, Josefitag, Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch,
-	Gründonnerstag, Karfreitag, BeginnSommerzeit, Ostermontag, Walpurgisnacht, TagDerArbeit,
-	Staatsfeiertag, Florianitag, TagDerBefreiung, Muttertag, ChristiHimmelfahrt, Vatertag,
-	PfingstMontag, Fronleichnam, MariäHimmelfahrt, Rupertitag, TagDerDeutschenEinheit,
+	InternationalerTagDesGedenkensAnDieOpferDesHolocaust, InternationalerFrauentag, Josefitag,
+	Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag, Karfreitag,
+	BeginnSommerzeit, Ostermontag, Walpurgisnacht, TagDerArbeit, Staatsfeiertag,
+	InternationalerTagDerPressefreiheit, Florianitag, TagDerBefreiung, Muttertag,
+	ChristiHimmelfahrt, Vatertag, PfingstMontag, Fronleichnam, InternationalerKindertag,
+	TagDesMeeres, Weltflüchtlingstag, MariäHimmelfahrt, Rupertitag, TagDerDeutschenEinheit,
 	TagDerVolksabstimming, Nationalfeiertag, Reformationstag, Halloween, BeginnWinterzeit,
-	Allerheiligen, Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, BußUndBettag,
+	Allerheiligen, Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, Weltkindertag, BußUndBettag,
 	Thanksgiving, Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, MariäEmpfängnis,
 	Heiligabend, Weihnachten, Christtag, ZweiterWeihnachtsfeiertag, Stefanitag, Silvester}
 	*/
 
-	feiern := []func(int) Feiertag{Epiphanias, Valentinstag,
-		Josefitag, Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag,
-		BeginnSommerzeit, Walpurgisnacht, Florianitag, TagDerBefreiung, Muttertag, Vatertag,
-		Rupertitag, TagDerVolksabstimmung, Halloween, BeginnWinterzeit,
-		Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, BußUndBettag, Thanksgiving,
-		Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, Heiligabend, Silvester}
+	feiern := []func(int) Feiertag{Epiphanias, Valentinstag, InternationalerTagDesGedenkensAnDieOpferDesHolocaust,
+		Josefitag, Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag, InternationalerKindertag,
+		TagDesMeeres, Weltflüchtlingstag, BeginnSommerzeit, Walpurgisnacht, InternationalerTagDerPressefreiheit,
+		Florianitag, TagDerBefreiung, Muttertag, Vatertag, Rupertitag, TagDerVolksabstimmung, Halloween,
+		BeginnWinterzeit, Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, Weltkindertag, BußUndBettag,
+		Thanksgiving, Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, Heiligabend, Silvester}
 
 	if y != 2017 {
 		feiern = append(feiern, Reformationstag)
