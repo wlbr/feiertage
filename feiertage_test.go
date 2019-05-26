@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"sort"
 	"testing"
+	"time"
 )
 
 //-------------------------
@@ -99,4 +100,55 @@ func TestThanksgiving(t *testing.T) {
 	compareAndFail(t, Thanksgiving(2025), "27.11.2025")
 	compareAndFail(t, Thanksgiving(2028), "23.11.2028")
 	compareAndFail(t, Thanksgiving(2029), "22.11.2029")
+}
+
+func TestDifferentTimeFormat(t *testing.T) {
+	tf := defaultTimeFormat
+	SetDefaultTimeFormat("2006.01.02")
+	d := "2010.11.25 Thanksgiving (US)"
+	f := Thanksgiving(2010)
+	if fmt.Sprint(f) != d {
+		fmt.Printf("%s but should be %s\n", f, d)
+		t.Fail()
+	}
+	SetDefaultTimeFormat(tf) //back to old default
+}
+
+func TestDStandardTimeZone(t *testing.T) {
+	tf := defaultTimeFormat
+	SetDefaultTimeFormat(time.UnixDate)
+
+	d := "Sun May 12 00:00:00 UTC 2019 Muttertag"
+	f := Muttertag(2019)
+	if fmt.Sprint(f) != d {
+		fmt.Printf("%s but should be %s\n", f, d)
+		t.Fail()
+
+	}
+	SetDefaultTimeFormat(tf) //back to old default
+
+}
+
+func TestDifferentTimeZone(t *testing.T) {
+	tf := defaultTimeFormat
+	SetDefaultTimeFormat(time.UnixDate)
+	tz := defaultTimeZone
+
+	secondsEastOfUTC := int((8 * time.Hour).Seconds())
+	cet := time.FixedZone("CET", secondsEastOfUTC)
+	// it would simpler to look for a timezone, but that works only on systems
+	// having a timezone database present and that woud make the test flaky.
+	// cet, err := time.LoadLocation("Europe/Berlin")
+	SetDefaultTimeZone(cet)
+
+	d := "Sun May 12 00:00:00 CET 2019 Muttertag"
+	f := Muttertag(2019)
+	if fmt.Sprint(f) != d {
+		fmt.Printf("%s but should be %s\n", f, d)
+		t.Fail()
+
+	}
+	SetDefaultTimeZone(tz)   //back to old default
+	SetDefaultTimeFormat(tf) //back to old default
+
 }

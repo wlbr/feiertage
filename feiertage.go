@@ -59,11 +59,38 @@ Mittwoch vor dem 23. November (Buß- und Bettag)
 type Feiertag struct {
 	time.Time
 	Text string
+	//TimeFormat string
+}
+
+var defaultTimeFormat = "02.01.2006"
+var defaultTimeZone = time.UTC
+
+func getTimeFormat() string {
+	/*if f.TimeFormat != "" {
+		return f.TimeFormat
+	} */
+	return defaultTimeFormat
+}
+
+// SetDefaultTimeFormat offers the possibility to change the default format for the ToString function.
+// It defaults to "02.01.2006"
+// The timezone is set at the creation time of the Feiertage object!
+func SetDefaultTimeFormat(timeformat string) {
+	defaultTimeFormat = timeformat
+}
+
+// SetDefaultTimeZone lets you set the timezone of the Feiertag functions. Default ist UTC
+func SetDefaultTimeZone(timezone *time.Location) {
+	defaultTimeZone = timezone
+}
+
+func getTimeZone() *time.Location {
+	return defaultTimeZone
 }
 
 //The String function of Feiertag will print its concrete Time (Date) plus the name of the Feiertag.
 func (f Feiertag) String() string {
-	return fmt.Sprintf("%s %s", f.Format("02.01.2006"), f.Text)
+	return fmt.Sprintf("%s %s", f.Format(getTimeFormat()), f.Text)
 }
 
 // ----------------------------
@@ -90,12 +117,12 @@ func (a ByDate) Less(i, j int) bool {
 
 // Neujahr is NewYear, a fixed date.
 func Neujahr(x int) Feiertag {
-	return Feiertag{time.Date(x, time.January, 1, 0, 0, 0, 0, time.UTC), "Neujahr"}
+	return Feiertag{time.Date(x, time.January, 1, 0, 0, 0, 0, getTimeZone()), "Neujahr"}
 }
 
 // Epiphanias is Epiphany, a fixed date.
 func Epiphanias(x int) Feiertag {
-	return Feiertag{time.Date(x, time.January, 6, 0, 0, 0, 0, time.UTC), "Epiphanias"}
+	return Feiertag{time.Date(x, time.January, 6, 0, 0, 0, 0, getTimeZone()), "Epiphanias"}
 }
 
 // HeiligeDreiKönige is another name for Epiphany, a fixed date.
@@ -107,22 +134,22 @@ func HeiligeDreiKönige(x int) Feiertag {
 
 // Valentinstag is Valentine's Day, a fixed date.
 func Valentinstag(x int) Feiertag {
-	return Feiertag{time.Date(x, time.February, 14, 0, 0, 0, 0, time.UTC), "Valentinstag"}
+	return Feiertag{time.Date(x, time.February, 14, 0, 0, 0, 0, getTimeZone()), "Valentinstag"}
 }
 
 // InternationalerTagDesGedenkensAnDieOpferDesHolocaust is (International Holocaust Remembrance Day, a fixed date.
 func InternationalerTagDesGedenkensAnDieOpferDesHolocaust(x int) Feiertag {
-	return Feiertag{time.Date(x, time.January, 22, 0, 0, 0, 0, time.UTC), "Internationaler Tag des Gedenkens an die Opfer des Holocaust"}
+	return Feiertag{time.Date(x, time.January, 22, 0, 0, 0, 0, getTimeZone()), "Internationaler Tag des Gedenkens an die Opfer des Holocaust"}
 }
 
 // InternationalerFrauentag is International Women's Day, a fixed date.
 func InternationalerFrauentag(x int) Feiertag {
-	return Feiertag{time.Date(x, time.March, 8, 0, 0, 0, 0, time.UTC), "Internationaler Frauentag"}
+	return Feiertag{time.Date(x, time.March, 8, 0, 0, 0, 0, getTimeZone()), "Internationaler Frauentag"}
 }
 
 // Josefitag is St Joseph's Day, a fixed date.
 func Josefitag(x int) Feiertag {
-	return Feiertag{time.Date(x, time.March, 19, 0, 0, 0, 0, time.UTC), "Josefitag"}
+	return Feiertag{time.Date(x, time.March, 19, 0, 0, 0, 0, getTimeZone()), "Josefitag"}
 }
 
 // Weiberfastnacht is a part of carnival, 52 days before Easter.
@@ -189,12 +216,12 @@ func Ostern(x int) Feiertag {
 	day := os % 31
 	month := os/31 + 3
 
-	return Feiertag{time.Date(x, time.Month(month), day, 0, 0, 0, 0, time.UTC), "Ostern"}
+	return Feiertag{time.Date(x, time.Month(month), day, 0, 0, 0, 0, getTimeZone()), "Ostern"}
 }
 
 // BeginnSommerzeit is the start of daylight saving time. Last Sunday of March.
 func BeginnSommerzeit(x int) Feiertag {
-	o := time.Date(x, time.March, 30, 0, 0, 0, 0, time.UTC)
+	o := time.Date(x, time.March, 30, 0, 0, 0, 0, getTimeZone())
 	d := (7 + int(o.Weekday())) % 7
 	return Feiertag{o.AddDate(0, 0, -1*d), "Beginn Sommerzeit"}
 }
@@ -207,12 +234,12 @@ func Ostermontag(x int) Feiertag {
 
 // Walpurgisnacht is Walpurgis Night, a fixed date.
 func Walpurgisnacht(x int) Feiertag {
-	return Feiertag{time.Date(x, time.April, 30, 0, 0, 0, 0, time.UTC), "Walpurgisnacht"}
+	return Feiertag{time.Date(x, time.April, 30, 0, 0, 0, 0, getTimeZone()), "Walpurgisnacht"}
 }
 
 // TagDerArbeit is Labour Day, a fixed date.
 func TagDerArbeit(x int) Feiertag {
-	return Feiertag{time.Date(x, time.May, 1, 0, 0, 0, 0, time.UTC), "Tag der Arbeit"}
+	return Feiertag{time.Date(x, time.May, 1, 0, 0, 0, 0, getTimeZone()), "Tag der Arbeit"}
 }
 
 // Staatsfeiertag is May 1st in Austria, a fixed date.
@@ -224,22 +251,22 @@ func Staatsfeiertag(x int) Feiertag {
 
 // InternationalerTagDerPressefreiheit is World Press Freedom Day, a fixed date.
 func InternationalerTagDerPressefreiheit(x int) Feiertag {
-	return Feiertag{time.Date(x, time.May, 3, 0, 0, 0, 0, time.UTC), "Internationaler Tag der Pressefreiheit"}
+	return Feiertag{time.Date(x, time.May, 3, 0, 0, 0, 0, getTimeZone()), "Internationaler Tag der Pressefreiheit"}
 }
 
 // Florianitag is St Florian's Day, a fixed date.
 func Florianitag(x int) Feiertag {
-	return Feiertag{time.Date(x, time.May, 4, 0, 0, 0, 0, time.UTC), "Florianitag"}
+	return Feiertag{time.Date(x, time.May, 4, 0, 0, 0, 0, getTimeZone()), "Florianitag"}
 }
 
 // TagDerBefreiung is Victory in Europe Day, a fixed date.
 func TagDerBefreiung(x int) Feiertag {
-	return Feiertag{time.Date(x, time.May, 8, 0, 0, 0, 0, time.UTC), "Tag der Befreiung"}
+	return Feiertag{time.Date(x, time.May, 8, 0, 0, 0, 0, getTimeZone()), "Tag der Befreiung"}
 }
 
 // Muttertag is Mother's Day oder Mothering Sunday, the second Sunday in May.
 func Muttertag(x int) Feiertag {
-	o := time.Date(x, time.May, 1, 0, 0, 0, 0, time.UTC)
+	o := time.Date(x, time.May, 1, 0, 0, 0, 0, getTimeZone())
 	d := (7 - int(o.Weekday())) % 7
 	return Feiertag{o.AddDate(0, 0, d+7), "Muttertag"}
 }
@@ -284,109 +311,109 @@ func Fronleichnam(x int) Feiertag {
 // InternationalerKindertag is special to Germany and Austrian and
 // isnot the same as Weltkindertag (World Children's Day), a fixed date.
 func InternationalerKindertag(x int) Feiertag {
-	return Feiertag{time.Date(x, time.June, 1, 0, 0, 0, 0, time.UTC), "Internationaler Kindertag"}
+	return Feiertag{time.Date(x, time.June, 1, 0, 0, 0, 0, getTimeZone()), "Internationaler Kindertag"}
 }
 
 // TagDesMeeres is World Oceans Day, a fixed date.
 func TagDesMeeres(x int) Feiertag {
-	return Feiertag{time.Date(x, time.June, 8, 0, 0, 0, 0, time.UTC), "Tag des Meeres"}
+	return Feiertag{time.Date(x, time.June, 8, 0, 0, 0, 0, getTimeZone()), "Tag des Meeres"}
 }
 
 // Weltflüchtlingstag is World Refugee Day, a fixed date.
 func Weltflüchtlingstag(x int) Feiertag {
-	return Feiertag{time.Date(x, time.June, 20, 0, 0, 0, 0, time.UTC), "Weltflüchtlingstag"}
+	return Feiertag{time.Date(x, time.June, 20, 0, 0, 0, 0, getTimeZone()), "Weltflüchtlingstag"}
 }
 
 // MariäHimmelfahrt is Assumption Day, a fixed date.
 func MariäHimmelfahrt(x int) Feiertag {
-	return Feiertag{time.Date(x, time.August, 15, 0, 0, 0, 0, time.UTC), "Mariä Himmelfahrt"}
+	return Feiertag{time.Date(x, time.August, 15, 0, 0, 0, 0, getTimeZone()), "Mariä Himmelfahrt"}
 }
 
 // Rupertitag is St Rupert's Day, a fixed date.
 func Rupertitag(x int) Feiertag {
-	return Feiertag{time.Date(x, time.September, 24, 0, 0, 0, 0, time.UTC), "Rupertitag"}
+	return Feiertag{time.Date(x, time.September, 24, 0, 0, 0, 0, getTimeZone()), "Rupertitag"}
 }
 
 // TagDerDeutschenEinheit is German Unity Day, a fixed date.
 func TagDerDeutschenEinheit(x int) Feiertag {
-	return Feiertag{time.Date(x, time.October, 3, 0, 0, 0, 0, time.UTC), "Tag der deutschen Einheit"}
+	return Feiertag{time.Date(x, time.October, 3, 0, 0, 0, 0, getTimeZone()), "Tag der deutschen Einheit"}
 }
 
 // TagDerVolksabstimmung is Referendum Day in Carinthia, a fixed date.
 func TagDerVolksabstimmung(x int) Feiertag {
-	return Feiertag{time.Date(x, time.October, 10, 0, 0, 0, 0, time.UTC), "Tag der Volksabstimmung"}
+	return Feiertag{time.Date(x, time.October, 10, 0, 0, 0, 0, getTimeZone()), "Tag der Volksabstimmung"}
 }
 
 // Erntedankfest is Thanksgiving or Harvest Festival, the first Sunday of October.
 // The german Erntedankfest is not the same than the US Thanksgiving.
 func Erntedankfest(x int) Feiertag {
-	o := time.Date(x, time.October, 1, 0, 0, 0, 0, time.UTC)
+	o := time.Date(x, time.October, 1, 0, 0, 0, 0, getTimeZone())
 	d := (7 - int(o.Weekday())) % 7
 	return Feiertag{o.AddDate(0, 0, d), "Erntedankfest"}
 }
 
 // Nationalfeiertag is the Austrian national day, a fixed date.
 func Nationalfeiertag(x int) Feiertag {
-	return Feiertag{time.Date(x, time.October, 26, 0, 0, 0, 0, time.UTC), "Nationalfeiertag"}
+	return Feiertag{time.Date(x, time.October, 26, 0, 0, 0, 0, getTimeZone()), "Nationalfeiertag"}
 }
 
 // Reformationstag is Reformation Day, a fixed date.
 func Reformationstag(x int) Feiertag {
-	return Feiertag{time.Date(x, time.October, 31, 0, 0, 0, 0, time.UTC), "Reformationstag"}
+	return Feiertag{time.Date(x, time.October, 31, 0, 0, 0, 0, getTimeZone()), "Reformationstag"}
 }
 
 // Halloween is a fixed date.
 func Halloween(x int) Feiertag {
-	return Feiertag{time.Date(x, time.October, 31, 0, 0, 0, 0, time.UTC), "Halloween"}
+	return Feiertag{time.Date(x, time.October, 31, 0, 0, 0, 0, getTimeZone()), "Halloween"}
 }
 
 // BeginnWinterzeit is the end of daylight saving time. Last Sunday of October.
 func BeginnWinterzeit(x int) Feiertag {
-	o := time.Date(x, time.October, 31, 0, 0, 0, 0, time.UTC)
+	o := time.Date(x, time.October, 31, 0, 0, 0, 0, getTimeZone())
 	d := (7 + int(o.Weekday())) % 7
 	return Feiertag{o.AddDate(0, 0, -1*d), "Beginn Winterzeit"}
 }
 
 // Allerheiligen is All Saints' Day or Allhallows, a fixed date
 func Allerheiligen(x int) Feiertag {
-	return Feiertag{time.Date(x, time.November, 1, 0, 0, 0, 0, time.UTC), "Allerheiligen"}
+	return Feiertag{time.Date(x, time.November, 1, 0, 0, 0, 0, getTimeZone()), "Allerheiligen"}
 }
 
 // Allerseelen is All Souls' Day, the day after All Saints' Day,
 func Allerseelen(x int) Feiertag {
-	return Feiertag{time.Date(x, time.November, 2, 0, 0, 0, 0, time.UTC), "Allerseelen"}
+	return Feiertag{time.Date(x, time.November, 2, 0, 0, 0, 0, getTimeZone()), "Allerseelen"}
 }
 
 // Martinstag or Skt. Martin is Martinmas, a fixed date
 func Martinstag(x int) Feiertag {
-	return Feiertag{time.Date(x, time.November, 11, 0, 0, 0, 0, time.UTC), "Martinstag"}
+	return Feiertag{time.Date(x, time.November, 11, 0, 0, 0, 0, getTimeZone()), "Martinstag"}
 }
 
 // Karnevalsbeginn is the beginning of carnival, a fixed date.
 func Karnevalsbeginn(x int) Feiertag {
-	return Feiertag{time.Date(x, time.November, 11, 11, 11, 11, 11, time.UTC), "Karnevalsbeginn"}
+	return Feiertag{time.Date(x, time.November, 11, 11, 11, 11, 11, getTimeZone()), "Karnevalsbeginn"}
 }
 
 // Leopolditag is St Leopold's Day, a fixed date.
 func Leopolditag(x int) Feiertag {
-	return Feiertag{time.Date(x, time.November, 15, 0, 0, 0, 0, time.UTC), "Leopolditag"}
+	return Feiertag{time.Date(x, time.November, 15, 0, 0, 0, 0, getTimeZone()), "Leopolditag"}
 }
 
 // Weltkindertag is World Children's Day, a fixed date.
 func Weltkindertag(x int) Feiertag {
-	return Feiertag{time.Date(x, time.November, 20, 0, 0, 0, 0, time.UTC), "Weltkindertag"}
+	return Feiertag{time.Date(x, time.November, 20, 0, 0, 0, 0, getTimeZone()), "Weltkindertag"}
 }
 
 // BußUndBettag is Penance Day, 11 days before the first Sunday in Advent
 func BußUndBettag(x int) Feiertag {
-	o := time.Date(x, time.November, 22, 0, 0, 0, 0, time.UTC)
+	o := time.Date(x, time.November, 22, 0, 0, 0, 0, getTimeZone())
 	d := (4 + int(o.Weekday())) % 7
 	return Feiertag{o.AddDate(0, 0, -1*d), "Buß- und Bettag"}
 }
 
 // Thanksgiving in the US, the fourth Thursday of November.
 func Thanksgiving(x int) Feiertag {
-	o := time.Date(x, time.November, 1, 0, 0, 0, 0, time.UTC)
+	o := time.Date(x, time.November, 1, 0, 0, 0, 0, getTimeZone())
 	d := ((11 - int(o.Weekday())) % 7)
 	return Feiertag{o.AddDate(0, 0, 21+d), "Thanksgiving (US)"}
 }
@@ -404,12 +431,12 @@ func Volkstrauertag(x int) Feiertag {
 
 // Nikolaus is St Nicholas' Day, a fixed date
 func Nikolaus(x int) Feiertag {
-	return Feiertag{time.Date(x, time.December, 6, 0, 0, 0, 0, time.UTC), "Nikolaus"}
+	return Feiertag{time.Date(x, time.December, 6, 0, 0, 0, 0, getTimeZone()), "Nikolaus"}
 }
 
 // MariäUnbefleckteEmpfängnis is Day of Immaculate Conception, a fixed date.
 func MariäUnbefleckteEmpfängnis(x int) Feiertag {
-	return Feiertag{time.Date(x, time.December, 8, 0, 0, 0, 0, time.UTC), "Mariä unbefleckte Empfängnis"}
+	return Feiertag{time.Date(x, time.December, 8, 0, 0, 0, 0, getTimeZone()), "Mariä unbefleckte Empfängnis"}
 }
 
 // MariäEmpfängnis has a shorter name for MariäUnbefleckteEmpfängnis in Austria.
@@ -445,19 +472,19 @@ func DritterAdvent(x int) Feiertag {
 
 // VierterAdvent is the fourth Sunday in Advent
 func VierterAdvent(x int) Feiertag {
-	o := time.Date(x, time.December, 24, 0, 0, 0, 0, time.UTC)
+	o := time.Date(x, time.December, 24, 0, 0, 0, 0, getTimeZone())
 	d := (7 + int(o.Weekday())) % 7
 	return Feiertag{o.AddDate(0, 0, -1*d), "Vierter Advent"}
 }
 
 // Heiligabend is Christmas Eve, the last day before Christmas.
 func Heiligabend(x int) Feiertag {
-	return Feiertag{time.Date(x, time.December, 24, 0, 0, 0, 0, time.UTC), "Heiligabend"}
+	return Feiertag{time.Date(x, time.December, 24, 0, 0, 0, 0, getTimeZone()), "Heiligabend"}
 }
 
 // Weihnachten is Christmas, a fixed date
 func Weihnachten(x int) Feiertag {
-	return Feiertag{time.Date(x, time.December, 25, 0, 0, 0, 0, time.UTC), "Weihnachten"}
+	return Feiertag{time.Date(x, time.December, 25, 0, 0, 0, 0, getTimeZone()), "Weihnachten"}
 }
 
 // Christtag is Christmas is  in Austria.
@@ -469,7 +496,7 @@ func Christtag(x int) Feiertag {
 
 // ZweiterWeihnachtsfeiertag is day after Christmas, a fixed date
 func ZweiterWeihnachtsfeiertag(x int) Feiertag {
-	return Feiertag{time.Date(x, time.December, 26, 0, 0, 0, 0, time.UTC), "Zweiter Weihnachtsfeiertag"}
+	return Feiertag{time.Date(x, time.December, 26, 0, 0, 0, 0, getTimeZone()), "Zweiter Weihnachtsfeiertag"}
 }
 
 // Stefanitag is December 26th in Austria.
@@ -481,5 +508,5 @@ func Stefanitag(x int) Feiertag {
 
 // Silvester is NewYearsEve, a fixed date.
 func Silvester(x int) Feiertag {
-	return Feiertag{time.Date(x, time.December, 31, 0, 0, 0, 0, time.UTC), "Silvester"}
+	return Feiertag{time.Date(x, time.December, 31, 0, 0, 0, 0, getTimeZone()), "Silvester"}
 }
