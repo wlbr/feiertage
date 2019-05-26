@@ -79,7 +79,7 @@ func SetDefaultTimeFormat(timeformat string) {
 	defaultTimeFormat = timeformat
 }
 
-// SetDefaultTimeZone lets you set the timezone of the Feiertag functions. Default ist UTC
+// SetDefaultTimeZone lets you set the timezone of the Feiertag functions. Default ist UTC.
 func SetDefaultTimeZone(timezone *time.Location) {
 	defaultTimeZone = timezone
 }
