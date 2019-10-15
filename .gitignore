@@ -29,5 +29,6 @@ README.html
 *.sublime-project
 
 .idea/
+.vscode
 bin/
 feiertage
