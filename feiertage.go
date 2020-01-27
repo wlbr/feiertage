@@ -139,7 +139,7 @@ func Valentinstag(x int) Feiertag {
 
 // InternationalerTagDesGedenkensAnDieOpferDesHolocaust is (International Holocaust Remembrance Day, a fixed date.
 func InternationalerTagDesGedenkensAnDieOpferDesHolocaust(x int) Feiertag {
-	return Feiertag{time.Date(x, time.January, 22, 0, 0, 0, 0, getTimeZone()), "Internationaler Tag des Gedenkens an die Opfer des Holocaust"}
+	return Feiertag{time.Date(x, time.January, 27, 0, 0, 0, 0, getTimeZone()), "Internationaler Tag des Gedenkens an die Opfer des Holocaust"}
 }
 
 // InternationalerFrauentag is International Women's Day, a fixed date.
