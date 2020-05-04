@@ -182,7 +182,7 @@ func Aschermittwoch(x int) Feiertag {
 	return Feiertag{o.AddDate(0, 0, -46), "Aschermittwoch"}
 }
 
-// Palmsonntag is Palm Sunday , the last Sunday before Eastern
+// Palmsonntag is Palm Sunday , the last Sunday before Easter
 func Palmsonntag(x int) Feiertag {
 	o := Ostern(x)
 	return Feiertag{o.AddDate(0, 0, -7), "Palmsonntag"}
@@ -194,7 +194,7 @@ func Gründonnerstag(x int) Feiertag {
 	return Feiertag{o.AddDate(0, 0, -3), "Gründonnerstag"}
 }
 
-// Karfreitag is Good Friday, the last Friday before Eastern
+// Karfreitag is Good Friday, the last Friday before Easter
 func Karfreitag(x int) Feiertag {
 	o := Ostern(x)
 	return Feiertag{o.AddDate(0, 0, -2), "Karfreitag"}
@@ -284,6 +284,18 @@ func Vatertag(x int) Feiertag {
 	return e
 }
 
+// Handtuchtag is Towel Day, May 25. It is celebrated as a tribute to the author Douglas Adams by his fans.
+func Handtuchtag(x int) Feiertag {
+	return Feiertag{time.Date(x, time.May, 25, 0, 0, 0, 0, getTimeZone()), "Handtuchtag"}
+}
+
+// TowelDay is, May 25. It is celebrated as a tribute to the author Douglas Adams by his fans.
+func TowelDay(x int) Feiertag {
+	e := Handtuchtag(x)
+	e.Text = "Towel Day"
+	return e
+}
+
 //Pfingsten is Pentecost, 49 days after Easter.
 func Pfingsten(x int) Feiertag {
 	o := Ostern(x)
@@ -322,6 +334,13 @@ func TagDesMeeres(x int) Feiertag {
 // Weltflüchtlingstag is World Refugee Day, a fixed date.
 func Weltflüchtlingstag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.June, 20, 0, 0, 0, 0, getTimeZone()), "Weltflüchtlingstag"}
+}
+
+// SystemAdministratorAppreciationDay is the last Fridy in July
+func SystemAdministratorAppreciationDay(x int) Feiertag {
+	o := time.Date(x, time.July, 31, 0, 0, 0, 0, getTimeZone())
+	d := (2 + int(o.Weekday())) % 7
+	return Feiertag{o.AddDate(0, 0, -1*d), "System Administrator Appreciation Day"}
 }
 
 // MariäHimmelfahrt is Assumption Day, a fixed date.

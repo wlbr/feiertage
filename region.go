@@ -299,7 +299,8 @@ func All(y int, inklSonntage ...bool) Region {
 	feiern := []func(int) Feiertag{Epiphanias, Valentinstag, InternationalerTagDesGedenkensAnDieOpferDesHolocaust,
 		Josefitag, Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag, InternationalerKindertag,
 		TagDesMeeres, Weltflüchtlingstag, BeginnSommerzeit, Walpurgisnacht, InternationalerTagDerPressefreiheit,
-		Florianitag, TagDerBefreiung, Muttertag, Vatertag, Rupertitag, TagDerVolksabstimmung, Halloween,
+		Florianitag, TagDerBefreiung, Muttertag, Vatertag, Handtuchtag, TowelDay,
+		SystemAdministratorAppreciationDay, Rupertitag, TagDerVolksabstimmung, Halloween,
 		BeginnWinterzeit, Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, Weltkindertag, BußUndBettag,
 		Thanksgiving, Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, Heiligabend, Silvester}
 

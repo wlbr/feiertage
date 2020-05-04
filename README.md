@@ -25,21 +25,21 @@ in the requested year plus the name of the holiday. `<feiertag>` may be any of t
 `Ostern` | `BeginnSommerzeit` | `Ostermontag`
 `Walpurgisnacht` | `TagDerArbeit` | `TagDerBefreiung`
 `Staatsfeiertag` | `InternationalerTagDerPressefreiheit` | `Florianitag`
-`Muttertag` | `ChristiHimmelfahrt` | `Vatertag`
-`Pfingsten` | `Pfingstmontag` | `Dreifaltigkeitssonntag`
-`Fronleichnam` | `TagDesMeeres` | `MariäHimmelfahrt`
-`Rupertitag` | `InternationalerKindertag`| `Weltflüchtlingstag` |
-`TagDerDeutschenEinheit` | `TagDerVolksabstimmung` | `Nationalfeiertag`
-`Erntedankfest` | `Reformationstag` | `Halloween`
-`BeginnWinterzeit` | `Allerheiligen` | `Allerseelen`
-`Martinstag` | `Karnevalsbeginn` | `Leopolditag`
-`Weltkindertag` | `BußUndBettag` | `Thanksgiving`
-`Blackfriday` |`Volkstrauertag` | `Nikolaus`
-`MariäUnbefleckteEmpfängnis` | `MariäEmpfängnis` | `Totensonntag`
-`ErsterAdvent` | `ZweiterAdvent` | `DritterAdvent`
-`VierterAdvent` | `Heiligabend` | `Weihnachten`
-`Christtag` | `Stefanitag` | `ZweiterWeihnachtsfeiertag`
-`Silvester`
+`Muttertag` | `Handtuchtag` | `ChristiHimmelfahrt`
+ `Vatertag` | `Pfingsten` | `Pfingstmontag`
+`Dreifaltigkeitssonntag` | `Fronleichnam` | `TagDesMeeres`
+`MariäHimmelfahrt` | `SystemAdministratorAppreciationDay` |`Rupertitag`
+`InternationalerKindertag`| `Weltflüchtlingstag` | `TagDerDeutschenEinheit`
+`TagDerVolksabstimmung` | `Nationalfeiertag` | `Erntedankfest`
+`Reformationstag` | `Halloween` | `BeginnWinterzeit`
+`Allerheiligen` | `Allerseelen` | `Martinstag`
+`Karnevalsbeginn` | `Leopolditag` | `Weltkindertag`
+`BußUndBettag` | `Thanksgiving` | `Blackfriday`
+`Volkstrauertag` | `Nikolaus` | `MariäUnbefleckteEmpfängnis`
+`MariäEmpfängnis` | `Totensonntag` | `ErsterAdvent`
+`ZweiterAdvent` | `DritterAdvent` | `VierterAdvent`
+`Heiligabend` | `Weihnachten` | `Christtag`
+`Stefanitag` | `ZweiterWeihnachtsfeiertag` | `Silvester`
 
 
 `<region>` returns an object of type `region`. It offers a list of public holidays valid in the specified state as well as the name and the shortname of the state as attributes.
