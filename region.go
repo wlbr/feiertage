@@ -3,6 +3,7 @@ package feiertage
 import (
 	"fmt"
 	"sort"
+	"strings"
 )
 
 // Region represents a Federal State of Germany or Austria (Bundesland). Some
@@ -327,4 +328,39 @@ func All(y int, inklSonntage ...bool) Region {
 	feiertermine := feiertagsFunctionListToFeiertagList(feiern, y)
 	sort.Sort(ByDate(feiertermine))
 	return Region{"Alle", "All", feiertermine}
+}
+
+func regionFunctionListToRegionList(rfun []func(y int, inklSonntage ...bool) Region, year int, inklSonntage ...bool) []Region {
+	regions := []Region{}
+	is := false
+	if len(inklSonntage) > 0 {
+		is = inklSonntage[0]
+	}
+	for _, r := range rfun {
+		regions = append(regions, r(year, is))
+	}
+	return regions
+}
+
+// GetAllRegions returns a list of all regions available. These may be filtered by providing the country ("de"|"at"|empty)
+func GetAllRegions(year int, inklSonntag bool, country ...string) (regions []Region) {
+	germanregions := regionFunctionListToRegionList([]func(y int, inklSonntage ...bool) Region{BadenWürttemberg, Bayern, Berlin,
+		Brandenburg, Bremen, Hamburg, Hessen, MecklenburgVorpommern, Niedersachsen, NordrheinWestfalen,
+		RheinlandPfalz, Saarland, Sachsen, SachsenAnhalt, SchleswigHolstein, Thüringen, Deutschland}, year, inklSonntag)
+
+	austrianregions := regionFunctionListToRegionList([]func(y int, inklSonntage ...bool) Region{Burgenland, Kärnten, Niederösterreich,
+		Oberösterreich, Salzburg, Steiermark, Tirol, Vorarlberg, Wien, Österreich}, year, inklSonntag)
+
+	if len(country) > 0 {
+		c := strings.ToLower(country[0])
+		if c == "de" {
+			regions = germanregions
+		} else if c == "at" {
+			regions = austrianregions
+		}
+	} else {
+		regions = append(append(germanregions, austrianregions...), All(year, inklSonntag))
+	}
+
+	return regions
 }
