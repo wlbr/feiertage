@@ -12,6 +12,33 @@ func TestRegion(t *testing.T) {
 	fmt.Println(Brandenburg(2016, false))
 }
 
+func TestRegionsInGermany(t *testing.T) {
+	r := GetAllRegions(2020, false, "de")
+	should := 16 + 1 //Bundesländer + 1 for "Alle"
+	if should != len(r) {
+		fmt.Printf("Count Regions in Germany is %d but should be %d\n", len(r), should)
+		t.Fail()
+	}
+}
+
+func TestRegionsInAustria(t *testing.T) {
+	r := GetAllRegions(2020, false, "at")
+	should := 9 + 1 //Bundesländer + 1 for "Alle"
+	if should != len(r) {
+		fmt.Printf("Count Regions in Germany is %d but should be %d\n", len(r), should)
+		t.Fail()
+	}
+}
+
+func TestRegionsAvailable(t *testing.T) {
+	r := GetAllRegions(2020, false)
+	should := 16 + 9 + 2 + 1 //German + austrian Bundesländer + 2 for the countries + 1 for "Alle"
+	if should != len(r) {
+		fmt.Printf("Count Regions in Germany is %d but should be %d\n", len(r), should)
+		t.Fail()
+	}
+}
+
 func checkAndFailRegionFeiertageZahl(t *testing.T, r Region, c int) {
 	if len(r.Feiertage) != c {
 		fmt.Printf("Count Feiertage in %s is %d but should be %d\n", r.Name, len(r.Feiertage), c)
@@ -24,9 +51,11 @@ func TestFeiertageZahl(t *testing.T) {
 	checkAndFailRegionFeiertageZahl(t, Bayern(2016), 12)
 	checkAndFailRegionFeiertageZahl(t, Berlin(2016), 9)
 	checkAndFailRegionFeiertageZahl(t, Berlin(2019), 10)
-	checkAndFailRegionFeiertageZahl(t, Brandenburg(2016), 12)
+	checkAndFailRegionFeiertageZahl(t, Berlin(2020), 11)
+	checkAndFailRegionFeiertageZahl(t, Berlin(2019), 10)
+	checkAndFailRegionFeiertageZahl(t, Brandenburg(2020), 12)
 	checkAndFailRegionFeiertageZahl(t, Brandenburg(2017), len(Brandenburg(2016).Feiertage))
-	checkAndFailRegionFeiertageZahl(t, Brandenburg(2016, false), 10)
+	checkAndFailRegionFeiertageZahl(t, Brandenburg(2020, false), 10)
 	checkAndFailRegionFeiertageZahl(t, Bremen(2016), 9)
 	checkAndFailRegionFeiertageZahl(t, Bremen(2016, false), 9)
 	checkAndFailRegionFeiertageZahl(t, Hamburg(2016), 9)

@@ -108,6 +108,10 @@ func Berlin(y int, inklSonntage ...bool) Region {
 	if y >= 2019 {
 		ffun = append(ffun, InternationalerFrauentag)
 	}
+	if y == 2020 {
+		ffun = append(ffun, TagDerBefreiung)
+	}
+
 	return Region{"Berlin", "BE", createFeiertagsList(y, "DE", ffun)}
 }
 
