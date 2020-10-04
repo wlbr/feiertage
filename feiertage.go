@@ -41,10 +41,10 @@ bewegliche Feiertage in allen Bundesländern:
 2 Tage vor Ostern (Karfreitag)
 39 Tage nach Ostern (Christi Himmelfahrt)
 49 Tage nach Ostern (Pfingstsonntag)
+50 Tage nach Ostern (Pfingstmontag)
 60 Tage nach Ostern (Fronleichnam)
 
 Keine Feiertage
-50 Tage nach Ostern (Pfingstmontag)
 46 Tage vor Ostern (Aschermittwoch)
 Mittwoch vor dem 23. November (Buß- und Bettag)
 24.12. (Heiligabend)

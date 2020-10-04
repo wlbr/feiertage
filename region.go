@@ -213,6 +213,9 @@ func SchleswigHolstein(y int, inklSonntage ...bool) Region {
 func Thüringen(y int, inklSonntage ...bool) Region {
 	ffun := []func(int) Feiertag{
 		Reformationstag}
+	if y >= 2019 {
+		ffun = append(ffun, Weltkindertag)
+	}
 	return Region{"Thüringen", "TH", createFeiertagsList(y, "DE", ffun)}
 }
 
