@@ -420,7 +420,7 @@ func Leopolditag(x int) Feiertag {
 
 // Weltkindertag is World Children's Day, a fixed date.
 func Weltkindertag(x int) Feiertag {
-	return Feiertag{time.Date(x, time.November, 20, 0, 0, 0, 0, getTimeZone()), "Weltkindertag"}
+	return Feiertag{time.Date(x, time.September, 20, 0, 0, 0, 0, getTimeZone()), "Weltkindertag"}
 }
 
 // BußUndBettag is Penance Day, 11 days before the first Sunday in Advent
