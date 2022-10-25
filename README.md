@@ -17,46 +17,46 @@ in the requested year plus the name of the holiday. `<feiertag>` may be any of t
 
 ||||
 |----|-----|----|
-`Neujahr` | `Epiphanias` | `HeiligeDreiKönige`
-`Valentinstag`   | `InternationalerTagDesGedenkensAnDieOpferDesHolocaust`  | `Josefitag`
-`Weiberfastnacht` |  `Karnevalssonntag` | `Rosenmontag`
-`Fastnacht` | `Aschermittwoch` | `InternationalerFrauentag`
-`Palmsonntag` | `Gründonnerstag` | `Karfreitag`
-`Ostern` | `BeginnSommerzeit` | `Ostermontag`
-`Walpurgisnacht` | `TagDerArbeit` | `TagDerBefreiung`
-`Staatsfeiertag` | `InternationalerTagDerPressefreiheit` | `Florianitag`
-`Muttertag` | `Handtuchtag` | `ChristiHimmelfahrt`
- `Vatertag` | `Pfingsten` | `Pfingstmontag`
-`Dreifaltigkeitssonntag` | `Fronleichnam` | `TagDesMeeres`
-`MariäHimmelfahrt` | `SystemAdministratorAppreciationDay` |`Rupertitag`
-`InternationalerKindertag`| `Weltflüchtlingstag` | `TagDerDeutschenEinheit`
-`TagDerVolksabstimmung` | `Nationalfeiertag` | `Erntedankfest`
-`Reformationstag` | `Halloween` | `BeginnWinterzeit`
-`Allerheiligen` | `Allerseelen` | `Martinstag`
-`Karnevalsbeginn` | `Leopolditag` | `Weltkindertag`
-`BußUndBettag` | `Thanksgiving` | `Blackfriday`
-`Volkstrauertag` | `Nikolaus` | `MariäUnbefleckteEmpfängnis`
-`MariäEmpfängnis` | `Totensonntag` | `ErsterAdvent`
-`ZweiterAdvent` | `DritterAdvent` | `VierterAdvent`
-`Heiligabend` | `Weihnachten` | `Christtag`
-`Stefanitag` | `ZweiterWeihnachtsfeiertag` | `Silvester`
+|`Neujahr` | `Epiphanias` | `HeiligeDreiKönige`|
+|`Valentinstag`   | `InternationalerTagDesGedenkensAnDieOpferDesHolocaust`  | `Josefitag`|
+|`Weiberfastnacht` |  `Karnevalssonntag` | `Rosenmontag`|
+|`Fastnacht` | `Aschermittwoch` | `InternationalerFrauentag`|
+|`Palmsonntag` | `Gründonnerstag` | `Karfreitag`|
+|`Ostern` | `BeginnSommerzeit` | `Ostermontag`|
+|`Walpurgisnacht` | `TagDerArbeit` | `TagDerBefreiung`|
+|`Staatsfeiertag` | `InternationalerTagDerPressefreiheit` | `Florianitag`|
+|`Muttertag` | `Handtuchtag` | `ChristiHimmelfahrt`|
+| `Vatertag` | `Pfingsten` | `Pfingstmontag`|
+|`Dreifaltigkeitssonntag` | `Fronleichnam` | `TagDesMeeres`|
+|`MariäHimmelfahrt` | `SystemAdministratorAppreciationDay` |`Rupertitag`|
+|`InternationalerKindertag`| `Weltflüchtlingstag` | `TagDerDeutschenEinheit`|
+|`TagDerVolksabstimmung` | `Nationalfeiertag` | `Erntedankfest`|
+|`Reformationstag` | `Halloween` | `BeginnWinterzeit`|
+|`Allerheiligen` | `Allerseelen` | `Martinstag`|
+|`Karnevalsbeginn` | `Leopolditag` | `Weltkindertag`|
+|`BußUndBettag` | `Thanksgiving` | `Blackfriday`|
+|`Volkstrauertag` | `Nikolaus` | `MariäUnbefleckteEmpfängnis`|
+|`MariäEmpfängnis` | `Totensonntag` | `ErsterAdvent`|
+|`ZweiterAdvent` | `DritterAdvent` | `VierterAdvent`|
+|`Heiligabend` | `Weihnachten` | `Christtag`|
+|`Stefanitag` | `ZweiterWeihnachtsfeiertag` | `Silvester`|
 
 
 `<region>` returns an object of type `region`. It offers a list of public holidays valid in the specified state as well as the name and the shortname of the state as attributes.
 `<region>` may be any of:
 
 ||||
-----|-----|----
-`BadenWürttemberg` | `Bayern` | `Berlin`
-`Brandenburg` | `Bremen` | `Hamburg`
-`Hessen` | `MecklenburgVorpommern` | `Niedersachsen`
-`NordrheinWestfalen` | `RheinlandPfalz` | `Saarland`
-`Sachsen` | `SachsenAnhalt` | `SchleswigHolstein`
-`Thüringen` | `Deutschland` | `Burgenland`
-`Kärnten` | `Niederösterreich` | `Oberösterreich`
-`Salzburg` | `Steiermark` | `Tirol`
-`Vorarlberg` | `Wien` | `Österreich`
-`All` | &nbsp; | &nbsp;
+|----|-----|----|
+|`BadenWürttemberg` | `Bayern` | `Berlin`|
+|`Brandenburg` | `Bremen` | `Hamburg`|
+|`Hessen` | `MecklenburgVorpommern` | `Niedersachsen`|
+|`NordrheinWestfalen` | `RheinlandPfalz` | `Saarland`|
+|`Sachsen` | `SachsenAnhalt` | `SchleswigHolstein`|
+|`Thüringen` | `Deutschland` | `Burgenland`|
+|`Kärnten` | `Niederösterreich` | `Oberösterreich`|
+|`Salzburg` | `Steiermark` | `Tirol`|
+|`Vorarlberg` | `Wien` | `Österreich`|
+|`All` | &nbsp; | &nbsp;|
 
 The optional region function argument `includingSundays` switches the behavior of the region function to include "gesetzliche Feiertage" that fall on Sundays in its output. This is important in Brandenburg, particularly for Easter and Pentecost Sunday. If you are calculating shift costs you will need to know even the holidays "hidden by Sunday".
 
