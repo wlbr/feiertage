@@ -7,10 +7,12 @@ The library is probably useful only for people realizing use cases with special 
 See https://godoc.org/github.com/wlbr/feiertage
 
 ### Usage:
-There are two types of functions:
+There are four types of functions:
 
   * `<feiertag>(year)` and
   * `<region>(year optional:IncludingSundays:true)`
+  * `GetRegionFromString(region, year)`
+  * `CheckIfIsBankHolidayIn(date, state)`
 
 `<feiertag>` returns an extended `time` object (type `feiertag`). It carries the date of the holiday
 in the requested year plus the name of the holiday. `<feiertag>` may be any of the following:
@@ -67,6 +69,13 @@ schools etc. are generally closed but workers don't get the day off by default. 
 include these days in your planning, it's okay to reference `Österreich` instead, as legal holidays are
 (more or less) synchronised across all Austrian states (Bundesländer).
 
+
+GetRegionFromString tries to match a string to a region from Germany or Austria. Because a reagion already contains the feiertage, a `year` is needed to calc theese.
+
+CheckIfIsBankHolidayIn checks if the given `date` is a Bank holiday in the `region`, Sundays are only positve in case they are on a feiertag for the region as well.
+
+
+
 ### Examples:
 
     fmt.Println(Ostern(2016))
@@ -106,6 +115,25 @@ include these days in your planning, it's okay to reference `Österreich` instea
         31.10.2016 Reformationstag
         25.12.2016 Weihnachten
         26.12.2016 Zweiter Weihnachtsfeiertag
+
+        region, _ := GetRegionFromString("Brandenburg",2016)
+        fmt.Println(region)
+        --> Brandenburg (BB)
+          01.01.2016 Neujahr
+          25.03.2016 Karfreitag
+          28.03.2016 Ostermontag
+          01.05.2016 Tag der Arbeit
+          05.05.2016 Christi Himmelfahrt
+          16.05.2016 Pfingstmontag
+          03.10.2016 Tag der deutschen Einheit
+          31.10.2016 Reformationstag
+          25.12.2016 Weihnachten
+          26.12.2016 Zweiter Weihnachtsfeiertag
+
+        fmt.Println(CheckIfIsBankHolidayIn(time.Date(2016,1,1,0,0,0,0,time.UTC),Brandenburg(2016, false)))
+        --> true
+
+
 
 
 ## Command line tool
