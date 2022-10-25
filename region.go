@@ -2,6 +2,7 @@ package feiertage
 
 import (
 	"fmt"
+	"github.com/pkg/errors"
 	"sort"
 	"strings"
 )
@@ -371,4 +372,69 @@ func GetAllRegions(year int, inklSonntag bool, country ...string) (regions []Reg
 	}
 
 	return regions
+}
+
+func GetRegionFromString(region string, y int) (Region, error) {
+
+	region = strings.ToLower(region)
+	region = strings.ReplaceAll(region, " ", "")
+	region = strings.ReplaceAll(region, "-", "")
+	region = strings.ReplaceAll(region, "ä", "ae")
+	region = strings.ReplaceAll(region, "ü", "ue")
+	region = strings.ReplaceAll(region, "ö", "oe")
+	switch region {
+	case "badenwuerttemberg":
+		return BadenWürttemberg(y), nil
+	case "bayern":
+		return Bayern(y), nil
+	case "berlin":
+		return Berlin(y), nil
+	case "brandenburg":
+		return Brandenburg(y), nil
+	case "bremen":
+		return Bremen(y), nil
+	case "hamburg":
+		return Hamburg(y), nil
+	case "hessen":
+		return Hessen(y), nil
+	case "mecklenburgvorpommern":
+		return MecklenburgVorpommern(y), nil
+	case "niedersachsen":
+		return Niedersachsen(y), nil
+	case "nordrheinwestfalen":
+		return NordrheinWestfalen(y), nil
+	case "rheinlandpfalz":
+		return RheinlandPfalz(y), nil
+	case "saarland":
+		return Saarland(y), nil
+	case "sachsen":
+		return Sachsen(y), nil
+	case "sachsenanhalt":
+		return SachsenAnhalt(y), nil
+	case "schleswigholstein":
+		return SchleswigHolstein(y), nil
+	case "thueringen":
+		return Thüringen(y), nil
+	case "burgenland":
+		return Burgenland(y), nil
+	case "kaernten":
+		return Kärnten(y), nil
+	case "niederoesterreich":
+		return Niederösterreich(y), nil
+	case "oberoesterreich":
+		return Oberösterreich(y), nil
+	case "salzburg":
+		return Salzburg(y), nil
+	case "steiermark":
+		return Steiermark(y), nil
+	case "tirol":
+		return Tirol(y), nil
+	case "vorarlberg":
+		return Vorarlberg(y), nil
+	case "wien":
+		return Wien(y), nil
+	case "oesterreich":
+		return Österreich(y), nil
+	}
+	return Region{}, errors.New(fmt.Sprintf("Not found region for: '%s'", region))
 }
