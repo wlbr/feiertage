@@ -88,7 +88,7 @@ func getTimeZone() *time.Location {
 	return defaultTimeZone
 }
 
-//The String function of Feiertag will print its concrete Time (Date) plus the name of the Feiertag.
+// The String function of Feiertag will print its concrete Time (Date) plus the name of the Feiertag.
 func (f Feiertag) String() string {
 	return fmt.Sprintf("%s %s", f.Format(getTimeFormat()), f.Text)
 }
@@ -176,7 +176,7 @@ func Fastnacht(x int) Feiertag {
 	return Feiertag{o.AddDate(0, 0, -47), "Fastnacht"}
 }
 
-//Aschermittwoch is Ash Wednesday, 46 days before Easter.
+// Aschermittwoch is Ash Wednesday, 46 days before Easter.
 func Aschermittwoch(x int) Feiertag {
 	o := Ostern(x)
 	return Feiertag{o.AddDate(0, 0, -46), "Aschermittwoch"}
@@ -221,7 +221,7 @@ func Ostern(x int) Feiertag {
 
 // BeginnSommerzeit is the start of daylight saving time. Last Sunday of March.
 func BeginnSommerzeit(x int) Feiertag {
-	o := time.Date(x, time.March, 30, 0, 0, 0, 0, getTimeZone())
+	o := time.Date(x, time.March, 31, 0, 0, 0, 0, getTimeZone())
 	d := (7 + int(o.Weekday())) % 7
 	return Feiertag{o.AddDate(0, 0, -1*d), "Beginn Sommerzeit"}
 }
@@ -296,13 +296,13 @@ func TowelDay(x int) Feiertag {
 	return e
 }
 
-//Pfingsten is Pentecost, 49 days after Easter.
+// Pfingsten is Pentecost, 49 days after Easter.
 func Pfingsten(x int) Feiertag {
 	o := Ostern(x)
 	return Feiertag{o.AddDate(0, 0, 49), "Pfingsten"}
 }
 
-//Pfingstmontag is Whit Monday, the monday after Pentecost.
+// Pfingstmontag is Whit Monday, the monday after Pentecost.
 func Pfingstmontag(x int) Feiertag {
 	o := Ostern(x)
 	return Feiertag{o.AddDate(0, 0, 50), "Pfingstmontag"}
