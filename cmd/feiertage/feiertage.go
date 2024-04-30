@@ -36,7 +36,7 @@ func getRegion(region string, year int, includingSundays bool) (feiertage.Region
 			return r, nil
 		}
 	}
-	return r, fmt.Errorf("Region '%s' unbekannt.", region)
+	return r, fmt.Errorf("Region '%s' unknown", region)
 }
 
 func main() {
