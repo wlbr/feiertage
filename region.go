@@ -306,10 +306,11 @@ func All(y int, inklSonntage ...bool) Region {
 	feiern := []func(int) Feiertag{Epiphanias, Valentinstag, InternationalerTagDesGedenkensAnDieOpferDesHolocaust,
 		Josefitag, Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag, InternationalerKindertag,
 		TagDesMeeres, Weltflüchtlingstag, BeginnSommerzeit, Walpurgisnacht, InternationalerTagDerPressefreiheit,
-		Florianitag, TagDerBefreiung, Muttertag, Vatertag, Handtuchtag, TowelDay,
-		SystemAdministratorAppreciationDay, Rupertitag, TagDerVolksabstimmung, Halloween,
-		BeginnWinterzeit, Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, Weltkindertag, BußUndBettag,
-		Thanksgiving, Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, Heiligabend, Silvester}
+		TagDerErde, InternationalerTagGegenDrogenmissbrauch, FêteDeLaMusique, Florianitag, TagDerBefreiung,
+		Muttertag, Vatertag, Handtuchtag, TowelDay, SystemAdministratorAppreciationDay, Rupertitag,
+		TagDerVolksabstimmung, Halloween, BeginnWinterzeit, Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag,
+		Weltumwelttag, Weltspieltag, Weltblutspendetag, InternationalerMännertag, StarWarsDay, Weltknuddeltag,
+		Weltkindertag, BußUndBettag, Thanksgiving, Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, Heiligabend, Silvester}
 
 	if y != 2017 {
 		feiern = append(feiern, Reformationstag)
@@ -317,6 +318,11 @@ func All(y int, inklSonntage ...bool) Region {
 	if y >= 2019 {
 		feiern = append(feiern, InternationalerFrauentag)
 	}
+
+	if y >= 1978 {
+		feiern = append(feiern, HobbitDay)
+	}
+
 	for _, f := range createCommonFeiertagsList(y) {
 		feiern = append(feiern, f)
 	}

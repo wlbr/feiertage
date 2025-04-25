@@ -132,6 +132,11 @@ func HeiligeDreiKönige(x int) Feiertag {
 	return e
 }
 
+// Weltknuddeltag is World Hug Day or National Hugging Day, a fixed date.
+func Weltknuddeltag(x int) Feiertag {
+	return Feiertag{time.Date(x, time.January, 21, 0, 0, 0, 0, getTimeZone()), "Weltknuddeltag"}
+}
+
 // Valentinstag is Valentine's Day, a fixed date.
 func Valentinstag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.February, 14, 0, 0, 0, 0, getTimeZone()), "Valentinstag"}
@@ -232,6 +237,11 @@ func Ostermontag(x int) Feiertag {
 	return Feiertag{o.AddDate(0, 0, 1), "Ostermontag"}
 }
 
+// Tag der Erde is Earth Day, a fixed date.
+func TagDerErde(x int) Feiertag {
+	return Feiertag{time.Date(x, time.April, 22, 0, 0, 0, 0, getTimeZone()), "Tag der Erde"}
+}
+
 // Walpurgisnacht is Walpurgis Night, a fixed date.
 func Walpurgisnacht(x int) Feiertag {
 	return Feiertag{time.Date(x, time.April, 30, 0, 0, 0, 0, getTimeZone()), "Walpurgisnacht"}
@@ -257,6 +267,11 @@ func InternationalerTagDerPressefreiheit(x int) Feiertag {
 // Florianitag is St Florian's Day, a fixed date.
 func Florianitag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.May, 4, 0, 0, 0, 0, getTimeZone()), "Florianitag"}
+}
+
+// Star Wars Day is a fixed date.
+func StarWarsDay(x int) Feiertag {
+	return Feiertag{time.Date(x, time.May, 4, 0, 0, 0, 0, getTimeZone()), "Star Wars Day"}
 }
 
 // TagDerBefreiung is Victory in Europe Day, a fixed date.
@@ -326,14 +341,39 @@ func InternationalerKindertag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.June, 1, 0, 0, 0, 0, getTimeZone()), "Internationaler Kindertag"}
 }
 
+// Weltumwelttag is World Environment Day, a fixed date.
+func Weltumwelttag(x int) Feiertag {
+	return Feiertag{time.Date(x, time.June, 5, 0, 0, 0, 0, getTimeZone()), "Weltumwelttag"}
+}
+
 // TagDesMeeres is World Oceans Day, a fixed date.
 func TagDesMeeres(x int) Feiertag {
 	return Feiertag{time.Date(x, time.June, 8, 0, 0, 0, 0, getTimeZone()), "Tag des Meeres"}
 }
 
+// Weltspieltag is International Day of Play, a fixed date.
+func Weltspieltag(x int) Feiertag {
+	return Feiertag{time.Date(x, time.June, 11, 0, 0, 0, 0, getTimeZone()), "Weltspieltag"}
+}
+
+// Weltblutspendetag is World Blood Donor Day, a fixed date.
+func Weltblutspendetag(x int) Feiertag {
+	return Feiertag{time.Date(x, time.June, 14, 0, 0, 0, 0, getTimeZone()), "Weltblutspendetag"}
+}
+
 // Weltflüchtlingstag is World Refugee Day, a fixed date.
 func Weltflüchtlingstag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.June, 20, 0, 0, 0, 0, getTimeZone()), "Weltflüchtlingstag"}
+}
+
+// Fête de la Musique is World Music Day, a fixed date.
+func FêteDeLaMusique(x int) Feiertag {
+	return Feiertag{time.Date(x, time.June, 21, 0, 0, 0, 0, getTimeZone()), "Fête de la Musique"}
+}
+
+// InternationalerTagGegenDrogenmissbrauch is International Day Against Drug Abuse and Illicit Trafficking, a fixed date.
+func InternationalerTagGegenDrogenmissbrauch(x int) Feiertag {
+	return Feiertag{time.Date(x, time.June, 26, 0, 0, 0, 0, getTimeZone()), "Internationaler Tag gegen Drogenmissbrauch"}
 }
 
 // SystemAdministratorAppreciationDay is the last Fridy in July
@@ -346,6 +386,11 @@ func SystemAdministratorAppreciationDay(x int) Feiertag {
 // MariäHimmelfahrt is Assumption Day, a fixed date.
 func MariäHimmelfahrt(x int) Feiertag {
 	return Feiertag{time.Date(x, time.August, 15, 0, 0, 0, 0, getTimeZone()), "Mariä Himmelfahrt"}
+}
+
+// Hobbit Day is a fixed date.
+func HobbitDay(x int) Feiertag {
+	return Feiertag{time.Date(x, time.September, 22, 0, 0, 0, 0, getTimeZone()), "Hobbit Day"}
 }
 
 // Rupertitag is St Rupert's Day, a fixed date.
@@ -406,6 +451,11 @@ func Allerseelen(x int) Feiertag {
 // Martinstag or Skt. Martin is Martinmas, a fixed date
 func Martinstag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.November, 11, 0, 0, 0, 0, getTimeZone()), "Martinstag"}
+}
+
+// Internationaler Männertag is International Day Men's Day, a fixed date
+func InternationalerMännertag(x int) Feiertag {
+	return Feiertag{time.Date(x, time.November, 19, 0, 0, 0, 0, getTimeZone()), "Internationaler Männertag"}
 }
 
 // Karnevalsbeginn is the beginning of carnival, a fixed date.
