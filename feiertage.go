@@ -95,6 +95,54 @@ func (f Feiertag) String() string {
 
 // ----------------------------
 
+// GetFeiertageForDateInRegion retrieves all bank holiday (gesetzliche Feiertage) for a given date in the specified region.
+// Example:
+//
+//	regionfn := feiertage.Brandenburg
+//	f := feiertage.GetFeiertageForDateInRegion(time.Date(2025, 6, 8, 1, 0, 0, 0, time.UTC), regionfn, true)
+//	fmt.Printf("%s - %s: %v\n", f[0].Time.Format("2006-01-02"), regionfn(2025, true).Name, f)
+//
+// Output:
+//
+//	2025-06-08 - Brandenburg: [08.06.2025 Pfingsten]
+func GetFeiertageForDateInRegion(t time.Time, regionFn func(y int, inklSonntage ...bool) Region, inklSonntage ...bool) []Feiertag {
+	inclSundays := false
+	if len(inklSonntage) > 0 && inklSonntage[0] {
+		inclSundays = true
+	}
+	simplifiedT := time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, getTimeZone())
+
+	todaysFeiertage := []Feiertag{}
+	for _, f := range regionFn(simplifiedT.Year(), inclSundays).Feiertage {
+		if f.Time == simplifiedT {
+			todaysFeiertage = append(todaysFeiertage, f)
+		}
+	}
+	return todaysFeiertage
+}
+
+// GetFeiertageForDate returns all feiertage (defined dates in this library, even if not a 'gesetzlicher Feiertag') for a given date
+// Example:
+//
+//	f := feiertage.GetFeiertageForDate(time.Date(2025, 6, 8, 1, 0, 0, 0, time.UTC))
+//	fmt.Printf("%s - %s\n", f[0].Time.Format("2006-01-02"), f)
+//
+// Output:
+//
+//	2025-06-08 - [08.06.2025 Tag des Meeres 08.06.2025 Pfingsten]
+func GetFeiertageForDate(t time.Time) []Feiertag {
+	simplifiedT := time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, getTimeZone())
+	todaysFeiertage := []Feiertag{}
+	for _, f := range All(simplifiedT.Year(), true).Feiertage {
+		if f.Time == simplifiedT {
+			todaysFeiertage = append(todaysFeiertage, f)
+		}
+	}
+	return todaysFeiertage
+}
+
+// ----------------------------
+
 // ByDate is the comparator object of Feiertag to be able to sort a list of Feiertage
 type ByDate []Feiertag
 
