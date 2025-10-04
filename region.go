@@ -26,10 +26,7 @@ func (r Region) String() string {
 }
 
 func createCommonFeiertagsList(y int) []func(int) Feiertag {
-	var feiern []func(int) Feiertag
-	feiern = []func(int) Feiertag{Neujahr, Ostermontag, ChristiHimmelfahrt, Pfingstmontag}
-
-	return feiern
+	return []func(int) Feiertag{Neujahr, Ostermontag, ChristiHimmelfahrt, Pfingstmontag}
 }
 
 func createUniqAustrianFeiertagsList(y int) []func(int) Feiertag {
@@ -37,9 +34,7 @@ func createUniqAustrianFeiertagsList(y int) []func(int) Feiertag {
 	nfeiern := []func(int) Feiertag{HeiligeDreiKönige, Staatsfeiertag,
 		Fronleichnam, MariäHimmelfahrt, Nationalfeiertag, Allerheiligen,
 		MariäEmpfängnis, Christtag, Stefanitag}
-	for _, f := range nfeiern {
-		feiern = append(feiern, f)
-	}
+	feiern = append(feiern, nfeiern...)
 	return feiern
 }
 
@@ -51,9 +46,7 @@ func createUniqGermanFeiertagsList(y int) []func(int) Feiertag {
 	if y == 2017 {
 		feiern = append(feiern, Reformationstag)
 	}
-	for _, f := range nfeiern {
-		feiern = append(feiern, f)
-	}
+	feiern = append(feiern, nfeiern...)
 	return feiern
 }
 
@@ -75,9 +68,7 @@ func createFeiertagsList(y int, country string, ffun []func(int) Feiertag) []Fei
 		nfeiern = createUniqGermanFeiertagsList(y)
 	}
 
-	for _, f := range nfeiern {
-		feiern = append(feiern, f)
-	}
+	feiern = append(feiern, nfeiern...)
 
 	for _, f := range ffun {
 		if y != 2017 || f(y) != Reformationstag(y) {
@@ -118,7 +109,7 @@ func Berlin(y int, inklSonntage ...bool) Region {
 // Brandenburg
 func Brandenburg(y int, inklSonntage ...bool) Region {
 	var ffun []func(int) Feiertag
-	if len(inklSonntage) > 0 && inklSonntage[0] == false {
+	if len(inklSonntage) > 0 && !inklSonntage[0] {
 		ffun = []func(int) Feiertag{Reformationstag}
 	} else {
 		ffun = []func(int) Feiertag{Ostern, Pfingsten, Reformationstag}
@@ -322,18 +313,13 @@ func All(y int, inklSonntage ...bool) Region {
 		feiern = append(feiern, HobbitDay)
 	}
 
-	for _, f := range createCommonFeiertagsList(y) {
-		feiern = append(feiern, f)
-	}
+	feiern = append(feiern, createCommonFeiertagsList(y)...)
 
-	for _, f := range createUniqAustrianFeiertagsList(y) {
-		feiern = append(feiern, f)
-	}
-	for _, f := range createUniqGermanFeiertagsList(y) {
-		feiern = append(feiern, f)
-	}
+	feiern = append(feiern, createUniqAustrianFeiertagsList(y)...)
 
-	if len(inklSonntage) == 0 || inklSonntage[0] == true {
+	feiern = append(feiern, createUniqGermanFeiertagsList(y)...)
+
+	if len(inklSonntage) == 0 || inklSonntage[0] {
 		feiern = append(feiern, Karnevalssonntag, Palmsonntag, Ostern, Pfingsten,
 			Dreifaltigkeitssonntag, Erntedankfest, Volkstrauertag, Totensonntag,
 			ErsterAdvent, ZweiterAdvent, DritterAdvent, VierterAdvent)
