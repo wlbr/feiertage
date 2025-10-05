@@ -145,6 +145,9 @@ func Hessen(y int, inklSonntage ...bool) Region {
 // the state Mecklenburg-Vorpommern
 func MecklenburgVorpommern(y int, inklSonntage ...bool) Region {
 	ffun := []func(int) Feiertag{Reformationstag}
+	if y >= 2023 {
+		ffun = append(ffun, InternationalerFrauentag)
+	}
 	return Region{"Mecklenburg-Vorpommern", "MV", createFeiertagsList(y, "DE", ffun)}
 }
 

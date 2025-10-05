@@ -496,6 +496,11 @@ func Allerseelen(x int) Feiertag {
 	return Feiertag{time.Date(x, time.November, 2, 0, 0, 0, 0, getTimeZone()), "Allerseelen"}
 }
 
+// Weltmännertag is Men's World Day.
+func Weltmännertag(x int) Feiertag {
+	return Feiertag{time.Date(x, time.November, 3, 0, 0, 0, 0, getTimeZone()), "Weltmännertag"}
+}
+
 // Martinstag or Skt. Martin is Martinmas, a fixed date
 func Martinstag(x int) Feiertag {
 	return Feiertag{time.Date(x, time.November, 11, 0, 0, 0, 0, getTimeZone()), "Martinstag"}
