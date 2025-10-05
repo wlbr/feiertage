@@ -57,8 +57,8 @@ Mittwoch vor dem 23. November (Buß- und Bettag)
 // Feiertag is an extented Time object. You may use it like any Time, but it offers an additional
 // attribute carrying the name of the Feiertag.
 type Feiertag struct {
-	time.Time
-	Text string
+	time.Time `json:"date"`
+	Text      string `json:"name"`
 	//TimeFormat string
 }
 

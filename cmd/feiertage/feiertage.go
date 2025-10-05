@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
@@ -75,7 +76,12 @@ func main() {
 			} else if *asTaskjugglerCode {
 				fmt.Println(fmtTaskjuggler(reg))
 			} else {
-				fmt.Println(reg)
+				//fmt.Println(reg)
+				jsonTodo, _ := json.Marshal(reg)
+				if err != nil {
+					fmt.Println(err)
+				}
+				fmt.Printf("%s", jsonTodo)
 			}
 		}
 	} else {

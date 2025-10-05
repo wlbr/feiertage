@@ -10,9 +10,9 @@ import (
 // public holidays are common throughout the whole country, while others depend on the Bundesland.
 // Short names of Austrian states are as suggested in ÖNORM A 1080.
 type Region struct {
-	Name      string
+	Name      string `json:"name"`
 	Shortname string
-	Feiertage []Feiertag
+	Feiertage []Feiertag `json:"feiertage"`
 }
 
 // String returns a String containing the name and Shortname of the region and the list of
