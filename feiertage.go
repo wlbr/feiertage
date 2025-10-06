@@ -1,7 +1,9 @@
 package feiertage
 
 import (
+	"encoding/json"
 	"fmt"
+	"log"
 	"time"
 )
 
@@ -57,9 +59,39 @@ Mittwoch vor dem 23. November (Buß- und Bettag)
 // Feiertag is an extented Time object. You may use it like any Time, but it offers an additional
 // attribute carrying the name of the Feiertag.
 type Feiertag struct {
-	time.Time `json:"date"`
-	Text      string `json:"name"`
-	//TimeFormat string
+	time.Time
+	Text string `json:"name"`
+}
+
+// MarshalJSON implements the json.Marshaler interface for Feiertag.
+// func (f Feiertag) MarshalJSON() ([]byte, error) {
+// 	fmt.Println("Called")
+// 	type Alias Feiertag // Create an alias to avoid infinite recursion
+// 	return json.Marshal(&struct {
+// 		Alias
+// 		Date string `json:"date"`
+// 	}{
+// 		Alias: (Alias)(f),
+// 		Date:  f.Format("2006-01-02"), // Format the date as YYYY-MM-DD
+// 	})
+// }
+
+func (f Feiertag) MarshalJSON() ([]byte, error) {
+	ts := &struct {
+		Date string `json:"date"`
+		Name string `json:"name"`
+	}{
+		Date: f.Format(time.DateOnly),
+		Name: f.Text,
+	}
+	// jsw := new(bytes.Buffer)
+	// json.NewEncoder(jsw).Encode(ts)
+	// js := jsw.Bytes()
+	js, err := json.Marshal(ts)
+	if err != nil {
+		log.Print(err)
+	}
+	return js, nil
 }
 
 var defaultTimeFormat = "02.01.2006"

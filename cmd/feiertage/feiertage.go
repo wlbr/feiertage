@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -55,6 +56,7 @@ func main() {
 
 	var includingSundays = flag.Bool("inklusiveSonntage", false, "Sollen Feiertag an Sonntagen mit ausgegeben werden?")
 	var asTaskjugglerCode = flag.Bool("asTaskjugglerCode", false, "Taskjuggler Code ausgeben.")
+	var asJSON = flag.Bool("asJSON", false, "JSON Code ausgeben.")
 
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "Usage:\n"+
@@ -68,20 +70,21 @@ func main() {
 	if len(flag.Args()) > 0 {
 		year, err := strconv.Atoi(flag.Args()[0])
 		if err != nil {
-			fmt.Println("Jahr muss eine Zahl sein.")
+			log.Println("Jahr muss eine Zahl sein.")
 		} else {
 			reg, e := getRegion(*region, year, *includingSundays)
 			if e != nil {
 				fmt.Println(e)
 			} else if *asTaskjugglerCode {
 				fmt.Println(fmtTaskjuggler(reg))
-			} else {
-				//fmt.Println(reg)
-				jsonTodo, _ := json.Marshal(reg)
+			} else if *asJSON {
+				jsonR, _ := json.Marshal(reg)
 				if err != nil {
-					fmt.Println(err)
+					log.Println(err)
 				}
-				fmt.Printf("%s", jsonTodo)
+				fmt.Printf("%s", jsonR)
+			} else {
+				fmt.Println(reg)
 			}
 		}
 	} else {
