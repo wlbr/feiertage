@@ -38,7 +38,7 @@ func getRegion(region string, year int, includingSundays bool) (feiertage.Region
 			return r, nil
 		}
 	}
-	return r, fmt.Errorf("Region '%s' unbekannt.", region)
+	return r, fmt.Errorf("region '%s' unbekannt", region)
 }
 
 func main() {
@@ -78,7 +78,7 @@ func main() {
 			} else if *asTaskjugglerCode {
 				fmt.Println(fmtTaskjuggler(reg))
 			} else if *asJSON {
-				jsonR, _ := json.Marshal(reg)
+				jsonR, err := json.Marshal(reg)
 				if err != nil {
 					log.Println(err)
 				}
