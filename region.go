@@ -46,11 +46,11 @@ func (r Region) String() string {
 	return s
 }
 
-func createCommonFeiertagsList(year int) []func(int) Feiertag {
+func createCommonFeiertagsList() []func(int) Feiertag {
 	return []func(int) Feiertag{Neujahr, Ostermontag, ChristiHimmelfahrt, Pfingstmontag}
 }
 
-func createUniqAustrianFeiertagsList(year int) []func(int) Feiertag {
+func createUniqAustrianFeiertagsList() []func(int) Feiertag {
 	var feiern []func(int) Feiertag
 	nfeiern := []func(int) Feiertag{HeiligeDreiKönige, Staatsfeiertag,
 		Fronleichnam, MariäHimmelfahrt, Nationalfeiertag, Allerheiligen,
@@ -80,11 +80,11 @@ func feiertagsFunctionListToFeiertagList(ffun []func(int) Feiertag, y int) []Fei
 }
 
 func createFeiertagsList(year int, country string, ffun []func(int) Feiertag) []Feiertag {
-	feiern := createCommonFeiertagsList(year)
+	feiern := createCommonFeiertagsList()
 	var nfeiern []func(int) Feiertag
 
 	if country == "AT" {
-		nfeiern = createUniqAustrianFeiertagsList(year)
+		nfeiern = createUniqAustrianFeiertagsList()
 	} else { // == "DE"
 		nfeiern = createUniqGermanFeiertagsList(year)
 	}
@@ -334,9 +334,9 @@ func All(year int, inklSonntage ...bool) Region {
 		feiern = append(feiern, HobbitDay)
 	}
 
-	feiern = append(feiern, createCommonFeiertagsList(year)...)
+	feiern = append(feiern, createCommonFeiertagsList()...)
 
-	feiern = append(feiern, createUniqAustrianFeiertagsList(year)...)
+	feiern = append(feiern, createUniqAustrianFeiertagsList()...)
 
 	feiern = append(feiern, createUniqGermanFeiertagsList(year)...)
 

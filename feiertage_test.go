@@ -21,64 +21,196 @@
 package feiertage
 
 import (
-	"fmt"
-	"sort"
 	"testing"
 	"time"
 )
 
-//-------------------------
+func TestOstern(t *testing.T) {
+	tests := []struct {
+		name     string
+		year     int
+		expected string
+	}{
+		{"2015", 2015, "05.04.2015"},
+		{"2016", 2016, "27.03.2016"},
+		{"1954", 1954, "18.04.1954"},
+		{"1981", 1981, "19.04.1981"},
+	}
 
-//-------------------------
-
-func compareAndFail(t *testing.T, f Feiertag, d string) {
-	if f.Format("02.01.2006") != d {
-		fmt.Printf("%s but should be %s\n", f, d)
-		t.Fail()
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := Ostern(tt.year)
+			if result.Format("02.01.2006") != tt.expected {
+				t.Errorf("Ostern(%d) = %v, want %s", tt.year, result.Format("02.01.2006"), tt.expected)
+			}
+		})
 	}
 }
 
-func TestOstern(t *testing.T) {
-	compareAndFail(t, Ostern(2015), "05.04.2015")
-	compareAndFail(t, Ostern(2016), "27.03.2016")
-}
-
-func TestOsternAusnahmejahre(t *testing.T) {
-	compareAndFail(t, Ostern(1954), "18.04.1954")
-	compareAndFail(t, Ostern(1981), "19.04.1981")
-}
-
 func TestSommerWinterZeit(t *testing.T) {
-	compareAndFail(t, BeginnSommerzeit(2015), "29.03.2015")
-	compareAndFail(t, BeginnWinterzeit(2016), "30.10.2016")
+	tests := []struct {
+		name     string
+		fn       func(int) Feiertag
+		year     int
+		expected string
+	}{
+		{"BeginnSommerzeit 2015", BeginnSommerzeit, 2015, "29.03.2015"},
+		{"BeginnWinterzeit 2016", BeginnWinterzeit, 2016, "30.10.2016"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.fn(tt.year)
+			if result.Format("02.01.2006") != tt.expected {
+				t.Errorf("%s(%d) = %v, want %s", tt.name, tt.year, result.Format("02.01.2006"), tt.expected)
+			}
+		})
+	}
 }
 
-func TestBußUndBetTag(t *testing.T) {
-	compareAndFail(t, BußUndBettag(2015), "18.11.2015")
-	compareAndFail(t, BußUndBettag(2016), "16.11.2016")
+func TestBußUndBettag(t *testing.T) {
+	tests := []struct {
+		year     int
+		expected string
+	}{
+		{2015, "18.11.2015"},
+		{2016, "16.11.2016"},
+	}
+
+	for _, tt := range tests {
+		t.Run("", func(t *testing.T) {
+			result := BußUndBettag(tt.year)
+			if result.Format("02.01.2006") != tt.expected {
+				t.Errorf("BußUndBettag(%d) = %v, want %s", tt.year, result.Format("02.01.2006"), tt.expected)
+			}
+		})
+	}
 }
 
 func TestVorwärtssucher(t *testing.T) {
-	compareAndFail(t, Erntedankfest(2015), "04.10.2015")
-	compareAndFail(t, Erntedankfest(2016), "02.10.2016")
-	compareAndFail(t, Muttertag(2015), "10.05.2015")
-	compareAndFail(t, Muttertag(2016), "08.05.2016")
+	tests := []struct {
+		name     string
+		fn       func(int) Feiertag
+		year     int
+		expected string
+	}{
+		{"Erntedankfest 2015", Erntedankfest, 2015, "04.10.2015"},
+		{"Erntedankfest 2016", Erntedankfest, 2016, "02.10.2016"},
+		{"Muttertag 2015", Muttertag, 2015, "10.05.2015"},
+		{"Muttertag 2016", Muttertag, 2016, "08.05.2016"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.fn(tt.year)
+			if result.Format("02.01.2006") != tt.expected {
+				t.Errorf("%s(%d) = %v, want %s", tt.name, tt.year, result.Format("02.01.2006"), tt.expected)
+			}
+		})
+	}
 }
 
 func TestAdvent(t *testing.T) {
-	// VierterAdvent=Rückwärtssucher
-	compareAndFail(t, VierterAdvent(2016), "18.12.2016")
-	compareAndFail(t, DritterAdvent(2016), "11.12.2016")
-	compareAndFail(t, ZweiterAdvent(2016), "04.12.2016")
-	compareAndFail(t, ErsterAdvent(2016), "27.11.2016")
-	compareAndFail(t, VierterAdvent(2006), "24.12.2006")
-	compareAndFail(t, VierterAdvent(2006), VierterAdvent(2006).Format("02.01.2006"))
+	tests := []struct {
+		name     string
+		fn       func(int) Feiertag
+		year     int
+		expected string
+	}{
+		{"VierterAdvent 2016", VierterAdvent, 2016, "18.12.2016"},
+		{"DritterAdvent 2016", DritterAdvent, 2016, "11.12.2016"},
+		{"ZweiterAdvent 2016", ZweiterAdvent, 2016, "04.12.2016"},
+		{"ErsterAdvent 2016", ErsterAdvent, 2016, "27.11.2016"},
+		{"VierterAdvent 2006", VierterAdvent, 2006, "24.12.2006"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := tt.fn(tt.year)
+			if result.Format("02.01.2006") != tt.expected {
+				t.Errorf("%s(%d) = %v, want %s", tt.name, tt.year, result.Format("02.01.2006"), tt.expected)
+			}
+		})
+	}
 }
 
-//-------------------------
+func TestThanksgiving(t *testing.T) {
+	tests := []struct {
+		year     int
+		expected string
+	}{
+		{2010, "25.11.2010"},
+		{2014, "27.11.2014"},
+		{2015, "26.11.2015"},
+		{2016, "24.11.2016"},
+		{2017, "23.11.2017"},
+		{2018, "22.11.2018"},
+		{2019, "28.11.2019"},
+		{2025, "27.11.2025"},
+		{2028, "23.11.2028"},
+		{2029, "22.11.2029"},
+	}
+
+	for _, tt := range tests {
+		t.Run("", func(t *testing.T) {
+			result := Thanksgiving(tt.year)
+			if result.Format("02.01.2006") != tt.expected {
+				t.Errorf("Thanksgiving(%d) = %v, want %s", tt.year, result.Format("02.01.2006"), tt.expected)
+			}
+		})
+	}
+}
+
+func TestDifferentTimeFormat(t *testing.T) {
+	originalFormat := defaultTimeFormat
+	defer func() { SetDefaultTimeFormat(originalFormat) }()
+
+	SetDefaultTimeFormat("2006.01.02")
+	expected := "2010.11.25 Thanksgiving (US)"
+	result := Thanksgiving(2010)
+	if result.String() != expected {
+		t.Errorf("Thanksgiving(2010) with custom format = %q, want %q", result.String(), expected)
+	}
+}
+
+func TestDefaultTimeZone(t *testing.T) {
+	originalFormat := defaultTimeFormat
+	originalZone := defaultTimeZone
+	defer func() {
+		SetDefaultTimeFormat(originalFormat)
+		SetDefaultTimeZone(originalZone)
+	}()
+
+	SetDefaultTimeFormat(time.UnixDate)
+	expected := "Sun May 12 00:00:00 UTC 2019 Muttertag"
+	result := Muttertag(2019)
+	if result.String() != expected {
+		t.Errorf("Muttertag(2019) with UnixDate format = %q, want %q", result.String(), expected)
+	}
+}
+
+func TestDifferentTimeZone(t *testing.T) {
+	originalFormat := defaultTimeFormat
+	originalZone := defaultTimeZone
+	defer func() {
+		SetDefaultTimeFormat(originalFormat)
+		SetDefaultTimeZone(originalZone)
+	}()
+
+	SetDefaultTimeFormat(time.UnixDate)
+	secondsEastOfUTC := int((8 * time.Hour).Seconds())
+	cet := time.FixedZone("CET", secondsEastOfUTC)
+	SetDefaultTimeZone(cet)
+
+	expected := "Sun May 12 00:00:00 CET 2019 Muttertag"
+	result := Muttertag(2019)
+	if result.String() != expected {
+		t.Errorf("Muttertag(2019) with CET timezone = %q, want %q", result.String(), expected)
+	}
+}
 
 func TestFeiertage(t *testing.T) {
-
+	// Test that all holiday functions return valid dates
 	fun := []func(int) Feiertag{Neujahr, Epiphanias, HeiligeDreiKönige, Valentinstag,
 		InternationalerTagDesGedenkensAnDieOpferDesHolocaust, Josefitag, Weiberfastnacht,
 		Karnevalssonntag, Rosenmontag, Fastnacht, Aschermittwoch, InternationalerFrauentag,
@@ -97,78 +229,12 @@ func TestFeiertage(t *testing.T) {
 	years := []int{2015, 2016}
 
 	for _, y := range years {
-		feiern := []Feiertag{}
 		for _, f := range fun {
-			feiern = append(feiern, f(y))
+			result := f(y)
+			// Just verify it doesn't panic and returns a valid date
+			if result.Year() != y {
+				t.Errorf("Holiday function returned year %d, want %d", result.Year(), y)
+			}
 		}
-		sort.Sort(ByDate(feiern))
-		for _, f := range feiern {
-			fmt.Println(f)
-		}
 	}
-}
-
-func TestThanksgiving(t *testing.T) {
-	//Vorwärtssucher Donnerstag
-	compareAndFail(t, Thanksgiving(2010), "25.11.2010")
-	compareAndFail(t, Thanksgiving(2014), "27.11.2014")
-	compareAndFail(t, Thanksgiving(2015), "26.11.2015")
-	compareAndFail(t, Thanksgiving(2016), "24.11.2016")
-	compareAndFail(t, Thanksgiving(2017), "23.11.2017")
-	compareAndFail(t, Thanksgiving(2018), "22.11.2018")
-	compareAndFail(t, Thanksgiving(2019), "28.11.2019")
-	compareAndFail(t, Thanksgiving(2025), "27.11.2025")
-	compareAndFail(t, Thanksgiving(2028), "23.11.2028")
-	compareAndFail(t, Thanksgiving(2029), "22.11.2029")
-}
-
-func TestDifferentTimeFormat(t *testing.T) {
-	tf := defaultTimeFormat
-	SetDefaultTimeFormat("2006.01.02")
-	d := "2010.11.25 Thanksgiving (US)"
-	f := Thanksgiving(2010)
-	if fmt.Sprint(f) != d {
-		fmt.Printf("%s but should be %s\n", f, d)
-		t.Fail()
-	}
-	SetDefaultTimeFormat(tf) //back to old default
-}
-
-func TestDStandardTimeZone(t *testing.T) {
-	tf := defaultTimeFormat
-	SetDefaultTimeFormat(time.UnixDate)
-
-	d := "Sun May 12 00:00:00 UTC 2019 Muttertag"
-	f := Muttertag(2019)
-	if fmt.Sprint(f) != d {
-		fmt.Printf("%s but should be %s\n", f, d)
-		t.Fail()
-
-	}
-	SetDefaultTimeFormat(tf) //back to old default
-
-}
-
-func TestDifferentTimeZone(t *testing.T) {
-	tf := defaultTimeFormat
-	SetDefaultTimeFormat(time.UnixDate)
-	tz := defaultTimeZone
-
-	secondsEastOfUTC := int((8 * time.Hour).Seconds())
-	cet := time.FixedZone("CET", secondsEastOfUTC)
-	// it would simpler to look for a timezone, but that works only on systems
-	// having a timezone database present and that woud make the test flaky.
-	// cet, err := time.LoadLocation("Europe/Berlin")
-	SetDefaultTimeZone(cet)
-
-	d := "Sun May 12 00:00:00 CET 2019 Muttertag"
-	f := Muttertag(2019)
-	if fmt.Sprint(f) != d {
-		fmt.Printf("%s but should be %s\n", f, d)
-		t.Fail()
-
-	}
-	SetDefaultTimeZone(tz)   //back to old default
-	SetDefaultTimeFormat(tf) //back to old default
-
 }

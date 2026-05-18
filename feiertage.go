@@ -79,7 +79,7 @@ Mittwoch vor dem 23. November (Buß- und Bettag)
 // attribute carrying the name of the Feiertag.
 type Feiertag struct {
 	time.Time
-	Text    string `json:"name"`
+	Text    string   `json:"name"`
 	Regions []Region `json:"-"`
 }
 
@@ -399,5 +399,3 @@ func Stefanitag(year int) Feiertag {
 	e.Text = "Stefanitag"
 	return e
 }
-
-
