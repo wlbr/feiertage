@@ -27,9 +27,9 @@ import (
 func TestRegion(t *testing.T) {
 	// Test that region functions return non-empty results
 	tests := []struct {
-		name         string
-		regionFn     func(int, ...bool) Region
-		year         int
+		name          string
+		regionFn      func(int, ...bool) Region
+		year          int
 		includeSunday bool
 	}{
 		{"All 2016", All, 2016, true},
@@ -82,9 +82,9 @@ func TestRegionsAvailable(t *testing.T) {
 
 func TestFeiertageZahl(t *testing.T) {
 	tests := []struct {
-		name         string
-		regionFn     func(int, ...bool) Region
-		year         int
+		name          string
+		regionFn      func(int, ...bool) Region
+		year          int
 		includeSunday bool
 		expectedCount int
 	}{
