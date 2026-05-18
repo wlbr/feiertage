@@ -4,7 +4,7 @@ Feiertage is a Go/Golang library for calculating German and Austrian bank holida
 The library is probably useful only for people realizing use cases with special requirements inside of Austria or Germany, such as shift schedules or capacity calculation.
 
 ### Documentation
-See https://godoc.org/github.com/wlbr/feiertage
+See https://pkg.go.dev/github.com/wlbr/feiertage
 
 ### Usage:
 There are two types of functions:
@@ -167,8 +167,7 @@ See https://github.com/wlbr/feiertage/releases/latest for downloads.
 
 
 ## Code
-* Documentation: https://godoc.org/github.com/wlbr/feiertage
-* Lint: http://go-lint.appspot.com/github.com/wlbr/feiertage
-* Continuous Integration: [![Travis Status](https://api.travis-ci.com/wlbr/feiertage.svg?branch=master)](https://travis-ci.com/wlbr/feiertage)
-* Test Coverage: [![Coverage Status](https://coveralls.io/repos/github/wlbr/feiertage/badge.svg?branch=master)](https://coveralls.io/github/wlbr/feiertage?branch=master)
+* Documentation: [![Go Reference](https://pkg.go.dev/badge/github.com/wlbr/feiertage.svg)](https://pkg.go.dev/github.com/wlbr/feiertage)
+* Continuous Integration: [![CI](https://github.com/wlbr/feiertage/actions/workflows/ci.yml/badge.svg)](https://github.com/wlbr/feiertage/actions/workflows/ci.yml)
+* Test Coverage: [![codecov](https://codecov.io/gh/wlbr/feiertage/branch/main/graph/badge.svg)](https://codecov.io/gh/wlbr/feiertage)
 * Metrics: [![GoReportCard](https://goreportcard.com/badge/github.com/wlbr/feiertage)](https://goreportcard.com/report/github.com/wlbr/feiertage)
