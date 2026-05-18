@@ -17,30 +17,29 @@ in the requested year plus the name of the holiday. `<feiertag>` may be any of t
 
 ||||
 |----|-----|----|
-`Neujahr` | `Epiphanias` | `HeiligeDreiKönige`
-`Valentinstag`   | `InternationalerTagDesGedenkensAnDieOpferDesHolocaust`  | `Josefitag`
-`Weiberfastnacht` |  `Karnevalssonntag` | `Rosenmontag`
-`Fastnacht` | `Aschermittwoch` | `InternationalerFrauentag`
-`Palmsonntag` | `Gründonnerstag` | `Karfreitag`
-`Ostern` | `BeginnSommerzeit` | `Ostermontag`
-`Walpurgisnacht` | `TagDerArbeit` | `TagDerBefreiung`
-`Staatsfeiertag` | `InternationalerTagDerPressefreiheit` | `Florianitag`
-`Muttertag` | `Handtuchtag` | `ChristiHimmelfahrt`
- `Vatertag` | `Pfingsten` | `Pfingstmontag`
-`Dreifaltigkeitssonntag` | `Fronleichnam` | `TagDesMeeres`
-`MariäHimmelfahrt` | `SystemAdministratorAppreciationDay` |`Rupertitag`
-`InternationalerKindertag`| `Weltflüchtlingstag` | `TagDerDeutschenEinheit`
-`TagDerVolksabstimmung` | `Nationalfeiertag` | `Erntedankfest`
-`Reformationstag` | `Halloween` | `BeginnWinterzeit`
-`Allerheiligen` | `Allerseelen` | `Martinstag`
-`Karnevalsbeginn` | `Leopolditag` | `Weltkindertag`
-`BußUndBettag` | `Thanksgiving` | `Blackfriday`
-`Volkstrauertag` | `Nikolaus` | `MariäUnbefleckteEmpfängnis`
-`MariäEmpfängnis` | `Totensonntag` | `ErsterAdvent`
-`ZweiterAdvent` | `DritterAdvent` | `VierterAdvent`
-`Heiligabend` | `Weihnachten` | `Christtag`
-`Stefanitag` | `ZweiterWeihnachtsfeiertag` | `Silvester`
-
+`Neujahr` | `Epiphanias`, `HeiligeDreiKönige` | `Weltknuddeltag`
+`InternationalerTagDesGedenkensAnDieOpferDesHolocaust` | `Weiberfastnacht` | `Valentinstag`
+`Karnevalssonntag` | `Rosenmontag` | `Fastnacht`
+`Aschermittwoch` | `InternationalerFrauentag` | `Josefitag`
+`BeginnSommerzeit`, `Palmsonntag` | `Gründonnerstag` | `Karfreitag`
+`Ostern` | `Ostermontag` | `TagDerErde`
+`Walpurgisnacht` | `TagDerArbeit`, `Staatsfeiertag` | `InternationalerTagDerPressefreiheit`
+`Florianitag`, `StarWarsDay` | `TagDerBefreiung` | `Muttertag`
+`ChristiHimmelfahrt`, `Vatertag` | `Pfingsten` | `Pfingstmontag`
+`Handtuchtag`, `TowelDay` | `Dreifaltigkeitssonntag` | `InternationalerKindertag`
+`Fronleichnam` | `TagDesMeeres` | `Weltflüchtlingstag`
+`Weltumwelttag` | `Weltspieltag` | `Weltblutspendetag`
+`FêteDeLaMusique` | `InternationalerTagGegenDrogenmissbrauch` | `SystemAdministratorAppreciationDay`
+`MariäHimmelfahrt` | `Weltkindertag` | `HobbitDay`
+`Rupertitag` | `TagDerDeutschenEinheit` | `Erntedankfest`
+`TagDerVolksabstimmung` | `BeginnWinterzeit` | `Nationalfeiertag`
+`Reformationstag`, `Halloween` | `Allerheiligen` | `Allerseelen`
+`Weltmännertag` | `Martinstag`, `Karnevalsbeginn` | `Leopolditag`, `Volkstrauertag`
+`BußUndBettag` | `InternationalerMännertag` | `Totensontag`
+`Thanksgiving` | `Blackfriday` | `ErsterAdvent`
+`ZweiterAdvent` | `Nikolaus`, `MariäUnbefleckteEmpfängnis`, `MariäEmpfängnis` | `DritterAdvent`
+`VierterAdvent` | `Heiligabend` | `Weihnachten`, `Christtag`
+`Stefanitag`, `ZweiterWeihnachtsfeiertag` | `Silvester` | 
 
 `<region>` returns an object of type `region`. It offers a list of public holidays valid in the specified state as well as the name and the shortname of the state as attributes.
 `<region>` may be any of:
