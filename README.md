@@ -15,31 +15,42 @@ There are two types of functions:
 `<feiertag>` returns an extended `time` object (type `feiertag`). It carries the date of the holiday
 in the requested year plus the name of the holiday. `<feiertag>` may be any of the following:
 
-||||
-|----|-----|----|
-`Neujahr` | `Epiphanias`, `HeiligeDreiKönige` | `Weltknuddeltag`
-`InternationalerTagDesGedenkensAnDieOpferDesHolocaust` | `Weiberfastnacht` | `Valentinstag`
-`Karnevalssonntag` | `Rosenmontag` | `Fastnacht`
-`Aschermittwoch` | `InternationalerFrauentag` | `Josefitag`
-`BeginnSommerzeit`, `Palmsonntag` | `Gründonnerstag` | `Karfreitag`
-`Ostern` | `Ostermontag` | `TagDerErde`
-`Walpurgisnacht` | `TagDerArbeit`, `Staatsfeiertag` | `InternationalerTagDerPressefreiheit`
-`Florianitag`, `StarWarsDay` | `TagDerBefreiung` | `Muttertag`
-`ChristiHimmelfahrt`, `Vatertag` | `Pfingsten` | `Pfingstmontag`
-`Handtuchtag`, `TowelDay` | `Dreifaltigkeitssonntag` | `InternationalerKindertag`
-`Fronleichnam` | `TagDesMeeres` | `Weltflüchtlingstag`
-`Weltumwelttag` | `Weltspieltag` | `Weltblutspendetag`
-`FêteDeLaMusique` | `InternationalerTagGegenDrogenmissbrauch` | `SystemAdministratorAppreciationDay`
-`MariäHimmelfahrt` | `Weltkindertag` | `HobbitDay`
-`Rupertitag` | `TagDerDeutschenEinheit` | `Erntedankfest`
-`TagDerVolksabstimmung` | `BeginnWinterzeit` | `Nationalfeiertag`
-`Reformationstag`, `Halloween` | `Allerheiligen` | `Allerseelen`
-`Weltmännertag` | `Martinstag`, `Karnevalsbeginn` | `Leopolditag`, `Volkstrauertag`
-`BußUndBettag` | `InternationalerMännertag` | `Totensontag`
-`Thanksgiving` | `Blackfriday` | `ErsterAdvent`
-`ZweiterAdvent` | `Nikolaus`, `MariäUnbefleckteEmpfängnis`, `MariäEmpfängnis` | `DritterAdvent`
-`VierterAdvent` | `Heiligabend` | `Weihnachten`, `Christtag`
-`Stefanitag`, `ZweiterWeihnachtsfeiertag` | `Silvester` | 
+|||
+|----|-----|
+`Neujahr` | `Epiphanias`, `HeiligeDreiKönige`
+`Weltknuddeltag` | `InternationalerTagDesGedenkensAnDieOpferDesHolocaust`
+`Weiberfastnacht` | `Valentinstag`
+`Karnevalssonntag` | `Rosenmontag`
+`Fastnacht` | `Aschermittwoch`
+`InternationalerFrauentag` | `Josefitag`
+`BeginnSommerzeit`, `Palmsonntag` | `Gründonnerstag`
+`Karfreitag` | `Ostern`
+`Ostermontag` | `TagDerErde`
+`Walpurgisnacht` | `TagDerArbeit`, `Staatsfeiertag`
+`InternationalerTagDerPressefreiheit` | `Florianitag`, `StarWarsDay`
+`TagDerBefreiung` | `Muttertag`
+`ChristiHimmelfahrt`, `Vatertag` | `Pfingsten`
+`Pfingstmontag` | `Handtuchtag`, `TowelDay`
+`Dreifaltigkeitssonntag` | `InternationalerKindertag`
+`Fronleichnam` | `TagDesMeeres`
+`Weltflüchtlingstag` | `Weltumwelttag`
+`Weltspieltag` | `Weltblutspendetag`
+`FêteDeLaMusique` | `InternationalerTagGegenDrogenmissbrauch`
+`SystemAdministratorAppreciationDay` | `MariäHimmelfahrt`
+`Weltkindertag` | `HobbitDay`
+`Rupertitag` | `TagDerDeutschenEinheit`
+`Erntedankfest` | `TagDerVolksabstimmung`
+`BeginnWinterzeit` | `Nationalfeiertag`
+`Reformationstag`, `Halloween` | `Allerheiligen`
+`Allerseelen` | `Weltmännertag`
+`Martinstag`, `Karnevalsbeginn` | `Leopolditag`, `Volkstrauertag`
+`BußUndBettag` | `InternationalerMännertag`
+`Totensontag` | `Thanksgiving`
+`Blackfriday` | `ErsterAdvent`
+`ZweiterAdvent` | `Nikolaus`, `MariäUnbefleckteEmpfängnis`, `MariäEmpfängnis`
+`DritterAdvent` | `VierterAdvent`
+`Heiligabend` | `Weihnachten`, `Christtag`
+`Stefanitag`, `ZweiterWeihnachtsfeiertag` | `Silvester`
 
 `<region>` returns an object of type `region`. It offers a list of public holidays valid in the specified state as well as the name and the shortname of the state as attributes.
 `<region>` may be any of:
