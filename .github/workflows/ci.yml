@@ -36,7 +36,7 @@ jobs:
         run: go install github.com/google/addlicense@latest
 
       - name: Check license headers
-        run: addlicense -check -c "Michael Wolber" -l mit ./cmd ./neural
+        run: addlicense -check -c "Michael Wolber" -l mit -ignore ".github/**" .
 
       - name: Run tests with race detection
         run: go test -v -race -coverprofile=coverage.out -covermode=atomic ./...
