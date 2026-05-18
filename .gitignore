@@ -34,4 +34,5 @@ README.html
 .idea/
 .vscode
 bin/
+dist/
 feiertage
