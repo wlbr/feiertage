@@ -193,6 +193,11 @@ func Weltflüchtlingstag(year int) Feiertag {
 	return Feiertag{time.Date(year, time.June, 20, 0, 0, 0, 0, getTimeZone()), "Weltflüchtlingstag", []Region{}}
 }
 
+// Antikriegstag is Anti-War Day, a fixed date.
+func Antikriegstag(year int) Feiertag {
+	return Feiertag{time.Date(year, time.September, 1, 0, 0, 0, 0, getTimeZone()), "Antikriegstag", []Region{}}
+}
+
 // Halloween is a fixed date.
 func Halloween(year int) Feiertag {
 	return Feiertag{time.Date(year, time.October, 31, 0, 0, 0, 0, getTimeZone()), "Halloween", []Region{}}

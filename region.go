@@ -310,9 +310,11 @@ func All(year int, inklSonntage ...bool) Region {
 		TagDesMeeres, Weltflüchtlingstag, BeginnSommerzeit, Walpurgisnacht, InternationalerTagDerPressefreiheit,
 		TagDerErde, InternationalerTagGegenDrogenmissbrauch, FêteDeLaMusique, Florianitag, TagDerBefreiung,
 		Muttertag, Vatertag, Handtuchtag, TowelDay, SystemAdministratorAppreciationDay, Rupertitag,
-		TagDerVolksabstimmung, Halloween, BeginnWinterzeit, Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag,
-		Weltumwelttag, Weltspieltag, Weltblutspendetag, InternationalerMännertag, StarWarsDay, Weltknuddeltag,
-		Weltkindertag, BußUndBettag, Thanksgiving, Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, Heiligabend, Silvester}
+		TagDerVolksabstimmung, Halloween, BeginnWinterzeit, Allerseelen, Weltmännertag, Martinstag, Karnevalsbeginn,
+		Leopolditag, Weltumwelttag, Weltspieltag, Weltblutspendetag, InternationalerMännertag, StarWarsDay,
+		Weltknuddeltag, Weltkindertag, BußUndBettag, Thanksgiving, Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, Heiligabend,
+		Silvester, Antikriegstag,
+	}
 
 	if year != 2017 {
 		feiern = append(feiern, Reformationstag)
