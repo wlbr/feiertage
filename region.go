@@ -2,6 +2,7 @@ package feiertage
 
 import (
 	"fmt"
+	"slices"
 	"sort"
 	"strings"
 )
@@ -71,7 +72,7 @@ func createFeiertagsList(year int, country string, ffun []func(int) Feiertag) []
 	feiern = append(feiern, nfeiern...)
 
 	for _, f := range ffun {
-		if year != 2017 || f(year) != Reformationstag(year) {
+		if year != 2017 || !f(year).Time.Equal(Reformationstag(year).Time) {
 			feiern = append(feiern, f)
 		}
 	}
@@ -84,7 +85,15 @@ func createFeiertagsList(year int, country string, ffun []func(int) Feiertag) []
 // Baden-Württemberg
 func BadenWürttemberg(year int, inklSonntage ...bool) Region {
 	ffun := []func(int) Feiertag{Epiphanias, Fronleichnam, Allerheiligen}
-	return Region{"Baden-Württemberg", "BW", createFeiertagsList(year, "DE", ffun)}
+	region := Region{"Baden-Württemberg", "BW", createFeiertagsList(year, "DE", ffun)}
+	for i := range region.Feiertage {
+		if !slices.ContainsFunc(region.Feiertage[i].Regions, func(r Region) bool {
+			return r.Shortname == region.Shortname
+		}) {
+			region.Feiertage[i].Regions = append(region.Feiertage[i].Regions, region)
+		}
+	}
+	return region
 }
 
 // Bayern returns a Region object holding all public holidays in the state Bayern
@@ -182,9 +191,9 @@ func Saarland(year int, inklSonntage ...bool) Region {
 }
 
 // Sachsen returns a Region object holding all public holidays in the state Sachsen
-func Sachsen(y int, inklSonntage ...bool) Region {
+func Sachsen(year int, inklSonntage ...bool) Region {
 	ffun := []func(int) Feiertag{Reformationstag, BußUndBettag}
-	return Region{"Sachsen", "SN", createFeiertagsList(y, "DE", ffun)}
+	return Region{"Sachsen", "SN", createFeiertagsList(year, "DE", ffun)}
 }
 
 // SachsenAnhalt returns a Region object holding all public holidays in the state SachsenAnhalt
@@ -256,9 +265,9 @@ func Steiermark(year int, inklSonntage ...bool) Region {
 }
 
 // Tirol returns a Region object holding all public holidays in the state of Tirol.
-func Tirol(y int, inklSonntage ...bool) Region {
+func Tirol(year int, inklSonntage ...bool) Region {
 	ffun := []func(int) Feiertag{Josefitag}
-	return Region{"Tirol", "T", createFeiertagsList(y, "AT", ffun)}
+	return Region{"Tirol", "T", createFeiertagsList(year, "AT", ffun)}
 }
 
 // Vorarlberg returns a Region object holding all public holidays in the state of Vorarlberg.
