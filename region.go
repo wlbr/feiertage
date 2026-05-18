@@ -312,19 +312,6 @@ func Österreich(year int, inklSonntage ...bool) Region {
 // Not all of them are public holidays (basically 'work free' days).
 func All(year int, inklSonntage ...bool) Region {
 
-	/* ffun := []func(int) Feiertag{Neujahr, Epiphanias, HeiligeDreiKönige, Valentinstag,
-	InternationalerTagDesGedenkensAnDieOpferDesHolocaust, InternationalerFrauentag, Josefitag,
-	Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag, Karfreitag,
-	BeginnSommerzeit, Ostermontag, Walpurgisnacht, TagDerArbeit, Staatsfeiertag,
-	InternationalerTagDerPressefreiheit, Florianitag, TagDerBefreiung, Muttertag,
-	ChristiHimmelfahrt, Vatertag, PfingstMontag, Fronleichnam, InternationalerKindertag,
-	TagDesMeeres, Weltflüchtlingstag, MariäHimmelfahrt, Rupertitag, TagDerDeutschenEinheit,
-	TagDerVolksabstimming, Nationalfeiertag, Reformationstag, Halloween, BeginnWinterzeit,
-	Allerheiligen, Allerseelen, Martinstag, Karnevalsbeginn, Leopolditag, Weltkindertag, BußUndBettag,
-	Thanksgiving, Blackfriday, Nikolaus, MariäUnbefleckteEmpfängnis, MariäEmpfängnis,
-	Heiligabend, Weihnachten, Christtag, ZweiterWeihnachtsfeiertag, Stefanitag, Silvester}
-	*/
-
 	feiern := []func(int) Feiertag{Epiphanias, Valentinstag, InternationalerTagDesGedenkensAnDieOpferDesHolocaust,
 		Josefitag, Weiberfastnacht, Rosenmontag, Fastnacht, Aschermittwoch, Gründonnerstag, InternationalerKindertag,
 		TagDesMeeres, Weltflüchtlingstag, BeginnSommerzeit, Walpurgisnacht, InternationalerTagDerPressefreiheit,

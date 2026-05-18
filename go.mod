@@ -1,6 +1,6 @@
 module github.com/wlbr/feiertage
 
-go 1.21
+go 1.25
 
 require github.com/bytedance/sonic v1.15.1
 

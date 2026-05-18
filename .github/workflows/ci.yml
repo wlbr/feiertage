@@ -27,7 +27,8 @@ jobs:
         run: go mod download && go mod verify
 
       - name: Check formatting
-        run: gofmt -l . | tee fmt.txt && test ! -s fmt.txt || (echo "❌ Code needs formatting"; exit 1)
+        if: runner.os != 'Windows'
+        run: test -z "$(gofmt -l .)" || (echo "❌ Code needs formatting"; gofmt -l .; exit 1)
 
       - name: Run vet
         run: go vet ./...
